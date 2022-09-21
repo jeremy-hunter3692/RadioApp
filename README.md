@@ -1,7 +1,7 @@
-# Cool Bananas
+# MixTape!
 
-## What is Cool Bananas?
-Simply the best image captioning website ever!
+## What is MixTape?
+Simply the best website ever for creating a mix-tape!
 
 ## Where to look for the planning?
 [Check out the Miro board!](https://miro.com/app/board/uXjVPaYXUUQ=/)
