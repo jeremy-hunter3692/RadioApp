@@ -1,11 +1,12 @@
 {
-  "name": "cool-bananas",
+  "name": "mixtape",
   "version": "1.0.0",
   "main": "server/index.js",
   "license": "MIT",
   "keywords": [
-    "cool",
-    "bananas"
+    "mixtape",
+    "manaia 22",
+    "final project"
   ],
   "scripts": {
     "start": "node server",

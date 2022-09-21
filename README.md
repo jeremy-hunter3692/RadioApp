@@ -1,10 +1,10 @@
-# Cool Bananas
+# Mixtape
 
-## What is Cool Bananas?
-Simply the best image captioning website ever!
+## What is Mixtape?
+Create a mixtape or add a song to a mixtape.
 
 ## Where to look for the planning?
-[Check out the Miro board!](https://miro.com/app/board/uXjVPaYXUUQ=/)
+https://github.com/orgs/manaia-2022/projects/5/views/1
 
 ## After cloning what should I do?
 ```
@@ -28,7 +28,21 @@ Additionally, to check you have written tests with good coverage.
 npm run test:coverage
 ```
 
-## 
-<img src="https://cdn-icons-png.flaticon.com/512/2847/2847187.png" width="300">
-<br>
-<a href="https://www.flaticon.com/free-icons/banana" title="banana icons">Banana icons created by Freepik - Flaticon</a>
+## Tasks to Do
+- [x] Set up Repo
+- [x] Set up dependencies
+- [ ] Frame skeleton structure
+- [x] Set up dbs - migration, seeds, sqlite3
+- [ ] Set up /server/server.js, /routes/name.js, /db/name.js
+- [ ] Check data in Thunder Client / Insomnia
+- [ ] Set up API to get data to the browser
+- [ ] Set up Actions and Reducers 
+- [ ] Set up db -> route -> API client
+- [ ] Set up form to add WOW
+- [ ] Test Server db, routes
+- [ ] Test Client components, actions
+- [ ] do Auth0 for Users
+- [ ] Test Auth0
+- [ ] CSS Magic
+- [ ] Expand more with stretch and do it all over again 
+
