@@ -1,0 +1,77 @@
+exports.seed = async (knex) => {
+  // Inserts seed entries
+  await knex('tracks').insert([
+    {
+      id: 1,
+      filepath: '../public/tracks1',
+      title: 'jam1',
+      artist: 'DJ wildcard',
+      album: 'shatmypants',
+      notes: "it's not bad",
+    },
+    {
+      id: 2,
+      filepath: '../public/tracks2',
+      title: 'Jeds is my Jam',
+      artist: 'DJJP',
+      album: 'JedsJams',
+      notes: "it's hype",
+    },
+    {
+      id: 3,
+      filepath: '../public/tracks3',
+      title: 'jam3',
+      artist: 'DJ Nani',
+      album: 'shatmypants',
+      notes: "it's lit",
+    },
+    {
+      id: 4,
+      filepath: '../public/tracks4',
+      title: 'jam4',
+      artist: 'DJ JennyCraig',
+      album: 'shatmypants',
+      notes: "it's sick",
+    },
+    {
+      id: 5,
+      filepath: '../public/tracks5',
+      title: 'jam5',
+      artist: 'DJ DBQueen',
+      album: 'shatmypants',
+      notes: "it's fun",
+    },
+    {
+      id: 6,
+      filepath: '../public/tracks6',
+      title: 'jam6',
+      artist: 'DJ Redux Queen',
+      album: 'shatmypants',
+      notes: "it's cool",
+    },
+    {
+      id: 7,
+      filepath: '../public/tracks7',
+      title: 'jam7',
+      artist: 'DJ DramaQueen',
+      album: 'shatmypants',
+      notes: "it's awesome",
+    },
+    {
+      id: 8,
+      filepath: '../public/tracks8',
+      title: 'jam8',
+      artist: 'DJ JazzHands',
+      album: 'shatmypants',
+      notes: "it's amazing",
+    },
+    {
+      id: 9,
+      filepath: '../public/tracks9',
+      title: 'jam9',
+      artist: 'DJ LoveHandles',
+      album: 'shatmypants',
+      notes: "it's lovely",
+    },
+  ])
+}
