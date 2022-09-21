@@ -11,10 +11,10 @@ exports.seed = async function (knex) {
     { track_id: 2, playlist_id: 1 },
     { track_id: 6, playlist_id: 3 },
     { track_id: 8, playlist_id: 3 },
-    { track_id: 12, playlist_id: 3 },
-    { track_id: 13, playlist_id: 5 },
+    { track_id: 7, playlist_id: 3 },
+    { track_id: 5, playlist_id: 5 },
     { track_id: 3, playlist_id: 5 },
     { track_id: 2, playlist_id: 5 },
-    { track_id: 48, playlist_id: 5 },
+    { track_id: 4, playlist_id: 5 },
   ])
 }
