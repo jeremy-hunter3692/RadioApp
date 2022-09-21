@@ -1,24 +1,26 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import styles from './Landing.module.scss'
-
-import { fetchLandingContent } from '../actions/landing'
-import Display from './Display'
+import React from 'react'
+// import React, { useEffect } from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { fetchLandingContent } from '../actions/landing'
+import Container from './Container'
+import Mixtape from './Mixtape'
+import Song from './Song'
 
 export default function Landing() {
-  const dispatch = useDispatch()
-  const landing = useSelector((state) => state.landing)
+  // const mixtape = useSelector((state) => state.mixtapeState)
 
-  useEffect(() => dispatch(fetchLandingContent()), [])
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(fetchLandingContent())
+  // }, [])
 
   return (
-    <>
-      <div className={styles.displayContainer}>
-        <Display
-          imageUrl={landing.imageUrl}
-          captionText={landing.captionText}
-        />
+    <Container>
+      <Mixtape />
+      <Song />
+      <div>
+        <img src='./images/404a.png' alt='404' />
       </div>
-    </>
+    </Container>
   )
 }
