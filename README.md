@@ -1,7 +1,7 @@
 # Mixtape
 
-## What is Mixtape?
-Create a mixtape or add a song to a mixtape.
+## What is features of the Mixtape brand?
+Create a playlist or add a song to a playlist.
 
 ## Where to look for the planning?
 https://github.com/orgs/manaia-2022/projects/5/views/1
@@ -31,14 +31,14 @@ npm run test:coverage
 ## Tasks to Do
 - [x] Set up Repo
 - [x] Set up dependencies
-- [ ] Frame skeleton structure
+- [x] Frame skeleton structure
 - [x] Set up dbs - migration, seeds, sqlite3
-- [ ] Set up /server/server.js, /routes/name.js, /db/name.js
-- [ ] Check data in Thunder Client / Insomnia
-- [ ] Set up API to get data to the browser
-- [ ] Set up Actions and Reducers 
+- [x] Set up /server/server.js, /routes/name.js, /db/name.js
+- [x] Check data in Thunder Client / Insomnia
+- [x] Set up API to get data to the browser
+- [x] Set up Actions and Reducers 
 - [ ] Set up db -> route -> API client
-- [ ] Set up form to add Mixtape
+- [x] Set up form to add Playlist
 - [ ] Test Server db, routes
 - [ ] Test Client components, actions
 - [ ] do Auth0 for Users

@@ -31,24 +31,24 @@ const data = [
   },
 ]
 
-export function getMixtapes() {
-  return request.get(rootUrl + '/mixtapes').then((res) => {
-    console.log('api: mixtape data', data)
+export function getPlaylists() {
+  return request.get(rootUrl + '/playlists').then((res) => {
+    console.log('api: playlist data', data)
     return data // once the db is connected, replace this line with the line below
 
-    //return res.body.mixtape
+    //return res.body.playlist
   })
 }
 
-export function addMixtape(newMixtape) {
+export function addPlaylist(newPlaylist) {
   return request
-    .post(rootUrl + '/mixtapes/')
-    .send({ newMixtape })
+    .post(rootUrl + '/playlists/')
+    .send({ newPlaylist })
     .then((res) => {
-      console.log('addMixtape api - res.body:', res.body)
+      console.log('addPlaylist api - res.body:', res.body)
       return res.body
     })
-    .catch(errorHandler('ADD', rootUrl + `/mixtapes/`))
+    .catch(errorHandler('ADD', rootUrl + `/playlists/`))
 }
 
 // perhaps if (re.status === 200) {return res.body} for line 49

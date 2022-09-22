@@ -27,16 +27,20 @@ const info = [
   },
 ]
 // Don't forget: when db is available to pass the prop {dbName}
-export default function Mixtape() {
+export default function Playlist() {
   console.log(info)
   return (
     <>
-      {info.map((mixtape) => {
+      {info.map((playlist) => {
         return (
-          <div to={'/'} key={mixtape.id} className='mixtape'>
-            <img src={mixtape.imageFilepath} alt={mixtape.name} width='100px' />
-            <h3>{mixtape.name}</h3>
-            <h3>{mixtape.creator}</h3>
+          <div to={'/'} key={playlist.id} className='playlist'>
+            <img
+              src={playlist.imageFilepath}
+              alt={playlist.name}
+              width='100px'
+            />
+            <h3>{playlist.name}</h3>
+            <h3>{playlist.creator}</h3>
           </div>
         )
       })}

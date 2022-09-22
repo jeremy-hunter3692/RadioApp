@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { addMixtape } from '../actions/mixtape'
+import { addPlaylist } from '../actions/playlist'
 import { useDispatch } from 'react-redux'
 
 const initialFormData = {
@@ -7,7 +7,7 @@ const initialFormData = {
   creator: '',
 }
 
-export default function AddMixtape() {
+export default function AddPlaylist() {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialFormData)
 
@@ -17,7 +17,7 @@ export default function AddMixtape() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    dispatch(addMixtape(form))
+    dispatch(addPlaylist(form))
     setForm(initialFormData)
   }
 

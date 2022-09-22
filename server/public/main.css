@@ -149,7 +149,7 @@
     flex-direction: column;
   }
 
-  .mixtapes {
+  .playlists {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -157,7 +157,7 @@
     align-items: flex-start;
   }
   
-  .mixtape {
+  .playlist {
     min-height: 200px;
     background-size: 40px;
     background-color: var(--White);
@@ -196,7 +196,7 @@
     justify-content: center;
     align-items: center;
     margin: 2rem 3rem 2rem 3rem;
-    width: 75%;
+    width: 50%;
   }
   
   .navbar { 

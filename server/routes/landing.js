@@ -5,7 +5,7 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  res.send('mixtape route hit!')
+  res.send('playlist route hit!')
 })
 
 // GET /api/v1/landing/

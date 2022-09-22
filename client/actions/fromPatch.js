@@ -1,33 +1,33 @@
 // Taken from Patchies because it's a slightly different format than what I've done before.
 
-import { getMixtapes } from '../apis/mixtape.js'
+import { getPlaylists } from '../apis/playlist.js'
 
-export const FETCH_MIXTAPES_REQUEST = 'FETCH_MIXTAPES_REQUEST'
-export const FETCH_MIXTAPES_SUCCESS = 'FETCH_MIXTAPES_SUCCESS'
-export const FETCH_MIXTAPES_FAILURE = 'FETCH_MIXTAPES_FAILURE'
+export const FETCH_PLAYLISTS_REQUEST = 'FETCH_PLAYLISTS_REQUEST'
+export const FETCH_PLAYLISTS_SUCCESS = 'FETCH_PLAYLISTS_SUCCESS'
+export const FETCH_PLAYLISTS_FAILURE = 'FETCH_PLAYLISTS_FAILURE'
 
 //Simple actions
-export const fetchMixtapesRequest = () => ({
-  type: FETCH_MIXTAPES_REQUEST,
+export const fetchPlaylistsRequest = () => ({
+  type: FETCH_PLAYLISTS_REQUEST,
 })
 
-export const fetchMixtapesSuccess = (mixtapes) => ({
-  type: FETCH_MIXTAPES_SUCCESS,
-  payload: { mixtapes },
+export const fetchPlaylistsSuccess = (playlists) => ({
+  type: FETCH_PLAYLISTS_SUCCESS,
+  payload: { playlists },
 })
 
-export const fetchMixtapesFailure = (error) => ({
-  type: FETCH_MIXTAPES_FAILURE,
+export const fetchPlaylistsFailure = (error) => ({
+  type: FETCH_PLAYLISTS_FAILURE,
   payload: { error },
 })
 
-export const fetchMixtapes = (token) => (dispatch) => {
-  dispatch(fetchMixtapesRequest())
-  getMixtapes(token)
-    .then((mixtapes) => {
-      dispatch(fetchMixtapesSuccess(mixtapes))
+export const fetchPlaylists = (token) => (dispatch) => {
+  dispatch(fetchPlaylistsRequest())
+  getPlaylists(token)
+    .then((playlists) => {
+      dispatch(fetchPlaylistsSuccess(playlists))
     })
     .catch((error) => {
-      dispatch(fetchMixtapesFailure(error.message))
+      dispatch(fetchPlaylistsFailure(error.message))
     })
 }

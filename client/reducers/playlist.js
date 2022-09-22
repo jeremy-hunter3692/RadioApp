@@ -1,7 +1,7 @@
 // this is from my personal project and trying to decide whether to use it.  I think the other
-const initialMixtapeState = { data: null, error: null }
+const initialPlaylistState = { data: null, error: null }
 
-const mixtapesReducer = (state = initialMixtapeState, action) => {
+const playlistsReducer = (state = initialPlaylistState, action) => {
   const { type, payload } = action
   switch (type) {
     case 'ADD_MIXTAPE':
@@ -9,10 +9,10 @@ const mixtapesReducer = (state = initialMixtapeState, action) => {
     case 'SET_MIXTAPE':
       return payload
     case 'DEL_MIXTAPE':
-      return state.filter((mixtape) => mixtape !== payload)
+      return state.filter((playlist) => playlist !== payload)
     case 'UPDATE_MIXTAPE':
-      return state.map((mixtape) => {
-        return mixtape === payload.name ? payload.newName : mixtape
+      return state.map((playlist) => {
+        return playlist === payload.name ? payload.newName : playlist
       })
 
     default:
@@ -20,4 +20,4 @@ const mixtapesReducer = (state = initialMixtapeState, action) => {
   }
 }
 
-export default mixtapesReducer
+export default playlistsReducer

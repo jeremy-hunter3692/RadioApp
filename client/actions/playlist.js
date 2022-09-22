@@ -1,21 +1,21 @@
 // from my personal project, trying to decide which to pursue
 
-import { getMixtapes } from '../apis/mixtape'
+import { getPlaylists } from '../apis/playlist'
 export const SET_ERROR = 'SET_ERROR'
 
-// all the mixtapes
-export function setMixtapes(mixtapes) {
+// all the playlists
+export function setPlaylists(playlists) {
   return {
-    type: 'SET_MIXTAPES',
-    payload: { mixtapes },
+    type: 'SET_PLAYLISTS',
+    payload: { playlists },
   }
 }
 
-export function addMixtape(newMixtape) {
+export function addPlaylist(newPlaylist) {
   return (dispatch) => {
-    return addMixtape(newMixtape)
+    return addPlaylist(newPlaylist)
       .then(() => {
-        dispatch(fetchMixtapes())
+        dispatch(fetchPlaylists())
         return null
       })
       .catch((err) => {
@@ -24,11 +24,11 @@ export function addMixtape(newMixtape) {
   }
 }
 
-export function fetchMixtapes() {
+export function fetchPlaylists() {
   return (dispatch) => {
-    return getMixtapes()
-      .then((mixtapes) => {
-        dispatch(setMixtapes(mixtapes))
+    return getPlaylists()
+      .then((playlists) => {
+        dispatch(setPlaylists(playlists))
       })
       .catch((err) => {
         dispatch(setError(err.message))

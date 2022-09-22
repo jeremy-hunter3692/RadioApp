@@ -1,14 +1,14 @@
 import React from 'react'
-import AddMixtape from './AddMixtape'
+import AddPlaylist from './AddPlaylist'
 // import React, { useEffect } from 'react'
 // import { useDispatch, useSelector } from 'react-redux'
 // import { fetchLandingContent } from '../actions/landing'
 import Container from './Container'
-import Mixtape from './Mixtape'
+import Playlist from './Playlist'
 import Track from './Track'
 
 export default function Landing() {
-  // const mixtape = useSelector((state) => state.mixtapeState)
+  // const playlist = useSelector((state) => state.playlistState)
 
   // const dispatch = useDispatch()
   // useEffect(() => {
@@ -17,9 +17,9 @@ export default function Landing() {
 
   return (
     <Container>
-      <div className='mixtapes centerThis'>
-        <AddMixtape />
-        <Mixtape />
+      <div className='playlists centerThis'>
+        <AddPlaylist />
+        <Playlist />
       </div>
 
       <div>
