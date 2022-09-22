@@ -12,9 +12,7 @@ function getAllPlaylists(db = connection) {
 }
 
 function addPlaylist(newPlaylist, db = connection) {
-  return db('playlist')
-    .insert(newPlaylist)
-    .then(() => getAllPlaylists(db))
+  return db('playlist').insert(newPlaylist).then((ids)=> ids[0])
 }
 
 function addTracksToPlaylist(id, data, db = connection) {

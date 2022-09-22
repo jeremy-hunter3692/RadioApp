@@ -29,25 +29,20 @@ router.get('/id', (req, res) => {
 
 // TO DO adding new playist and tracks at the same time.
 router.post('/', (req, res) => {
-  const data = 'DJSleePete' //req.body.playlistName
-  const tracks = [
-    { track_id: 2 },
-    { track_id: 3 },
-    { track_id: 2 },
-    { track_id: 8 },
-    { track_id: 9 },
-  ]
-
+  const data = { name: req.body.playlistName }
+  const tracks = req.body.tracks
+  // console.log(data)
   let tempId = null
   db.addPlaylist(data)
     .then((id) => {
       tempId = id
-      tracks.map((x) => {
-        x.tempId
+      let result = tracks.map((x) => {
+        return { ...x, playlist_Id: tempId }
       })
-      return db.addTracksToPlaylist(tracks)
+      // console.log(result)
+      return db.addTracksToPlaylist(result)
     })
-    .then((data) => {
+    .then(() => {
       res.json(data)
       // res.json({ ...captionData, id: ids[0], image_id: tempImageId })
     })
