@@ -26,14 +26,14 @@ const info = [
     imageFilepath: './images/mixtape8.png',
   },
 ]
+// Don't forget: when db is available to pass the prop {dbName}
 export default function Mixtape() {
   console.log(info)
   return (
     <>
       {info.map((mixtape) => {
         return (
-          <div to={'/'} key={mixtape.id}>
-            <h2>Mixtape</h2>
+          <div to={'/'} key={mixtape.id} className='mixtape'>
             <img src={mixtape.imageFilepath} alt={mixtape.name} width='100px' />
             <h3>{mixtape.name}</h3>
             <h3>{mixtape.creator}</h3>

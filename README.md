@@ -38,7 +38,7 @@ npm run test:coverage
 - [ ] Set up API to get data to the browser
 - [ ] Set up Actions and Reducers 
 - [ ] Set up db -> route -> API client
-- [ ] Set up form to add WOW
+- [ ] Set up form to add Mixtape
 - [ ] Test Server db, routes
 - [ ] Test Client components, actions
 - [ ] do Auth0 for Users

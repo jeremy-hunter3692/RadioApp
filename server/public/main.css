@@ -1,0 +1,227 @@
+/* DEVA Colours */
+:root {
+  --Light: #ffffff;
+  --Dark: #101011;
+  --Yellow:#FCC21B;
+  --Blue: #5FC6CB;
+  --Purple: #3D0F71;
+  --Pink: #EF3A58;
+  }
+  
+  /* CSS RESETS
+  https://piccalil.li/blog/a-modern-css-reset/
+  */
+  
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Remove default margin */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+  
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+  }
+  
+  /* Set core root defaults */
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+  
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.25;
+  
+  }
+  
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  
+  }
+  
+  /*
+  === STYLES ===
+  */
+  @media (max-width:630px) {
+    .centerThis {
+      width: 100%; 
+    }
+  }
+  
+  @media (min-width:630px) {
+    .centerThis {
+      width: 100%;
+  
+    }
+  }
+  body {
+    background-color: var(--White);
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+
+  header {
+    color: var(--Dark);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding:20px;
+  }
+  h1 {padding-bottom:25px;}
+  h3 {font-weight:400;
+  min-width: 50%;}
+  
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+  }
+  li {
+    padding: 20px;
+  }
+  input {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+  }
+  footer {
+    padding: 30px;
+    font-size: 0.8rem;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--Light);
+  }
+  
+  button {
+    background-color:var(--Yellow);
+    color: var(--Purple);
+    min-width:25%;
+    border: none;
+    padding: 15px;
+    margin: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: var(--Blue);
+    color: var(--Purple);
+    border: none;
+    padding: 15px;
+    font-size: 0.8rem;
+    border-radius: 25px;
+  }
+  .app {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mixtapes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  
+  .mixtape {
+    min-height: 200px;
+    background-size: 40px;
+    background-color: var(--White);
+    box-shadow: 5px 5px 15px #999;
+    padding: 15px;
+    margin: 10px;
+    width: 150px;
+    list-style: none;
+    border-radius: 10px;
+  }
+  
+  
+  .centerThis {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+  }
+  
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: space-evenly;
+    font-size: .75em;
+  }
+  
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 3rem 2rem 3rem;
+    width: 75%;
+  }
+  
+  .navbar { 
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  /* .gradient-pattern {
+    animation: gradient 15s ease infinite;
+    background-image: linear-gradient(135deg, #A82F4C, #6C195C, #50299D, #001892);
+    background-size: 400% 400%;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 51% 0%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+    100% {
+      background-position: 51% 0%;
+    }
+  } */
