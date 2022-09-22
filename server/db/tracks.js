@@ -1,9 +1,14 @@
 const connection = require('./connection')
 
-function getPlaylist(db = connection) {
-  return db('playlist').select()
+function getAllTracks(db = connection) {
+  return db('tracks').select()
+}
+
+function getTrackById(id, db = connection) {
+  return db('tracks').where('id', id).select().first()
 }
 
 module.exports = {
-  getPlaylist,
+  getAllTracks,
+  getTrackById,
 }

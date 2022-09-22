@@ -26,8 +26,8 @@ function addPlaylist(newPlaylist, db = connection) {
     .then((ids) => ids[0])
 }
 
-function addTracksToPlaylist(id, data, db = connection) {
-  return db('tracks_playlist').insert(id, data)
+function addTracksToPlaylist(tracksArray, db = connection) {
+  return db('tracks_playlist').insert(tracksArray)
 }
 
 module.exports = {

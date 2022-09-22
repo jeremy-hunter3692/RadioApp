@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
     })
 })
 
-//TODO Figure out how id is coming in.
 router.get('/id', (req, res) => {
   const id = req.body.id
   db.getPlaylistById(id)
@@ -40,8 +39,8 @@ router.post('/', (req, res) => {
       })
       return db.addTracksToPlaylist(result)
     })
-    .then(() => {
-      res.json(data)
+    .then((result) => {
+      res.json(result)
       //TO DO look up best practise for sending back json data here
       //was in Sarahs lecture
       //res.json({ ...captionData, id: ids[0], image_id: tempImageId })
