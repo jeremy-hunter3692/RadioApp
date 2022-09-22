@@ -31,7 +31,6 @@ router.get('/id', (req, res) => {
 router.post('/', (req, res) => {
   const data = { name: req.body.playlistName }
   const tracks = req.body.tracks
-  // console.log(data)
   let tempId = null
   db.addPlaylist(data)
     .then((id) => {
@@ -39,12 +38,13 @@ router.post('/', (req, res) => {
       let result = tracks.map((x) => {
         return { ...x, playlist_Id: tempId }
       })
-      // console.log(result)
       return db.addTracksToPlaylist(result)
     })
     .then(() => {
       res.json(data)
-      // res.json({ ...captionData, id: ids[0], image_id: tempImageId })
+      //TO DO look up best practise for sending back json data here
+      //was in Sarahs lecture
+      //res.json({ ...captionData, id: ids[0], image_id: tempImageId })
     })
     .catch((err) => {
       console.error(err.message)
