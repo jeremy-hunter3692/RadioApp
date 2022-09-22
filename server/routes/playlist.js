@@ -38,12 +38,13 @@ router.post('/', (req, res) => {
     { track_id: 9 },
   ]
 
-  let tempId = null
+  //let tempId = null
   db.addPlaylist(data)
     .then((id) => {
-      tempId = id
+      //tempId = id
       tracks.map((x) => {
-        x.tempId
+        //x.tempId
+        x.id
       })
       return db.addTracksToPlaylist(tracks)
     })
