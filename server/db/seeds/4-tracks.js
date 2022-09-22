@@ -1,0 +1,77 @@
+exports.seed = async (knex) => {
+  // Inserts seed entries
+  await knex('tracks').insert([
+    {
+      id: 1,
+      filepath: '../public/tracks1',
+      title: 'jam1',
+      artist: 'DJ wildcard',
+      album: 'Watch yo back',
+      notes: 'The best album in the world',
+    },
+    {
+      id: 2,
+      filepath: '../public/tracks2',
+      title: 'Jeds is my Jam',
+      artist: 'DJJP',
+      album: 'JedsJams',
+      notes: "it's hype",
+    },
+    {
+      id: 3,
+      filepath: '../public/tracks3',
+      title: 'jam33',
+      artist: 'DJ Nani',
+      album: 'Queen Nani',
+      notes: "it's lit",
+    },
+    {
+      id: 4,
+      filepath: '../public/tracks4',
+      title: 'jam4',
+      artist: 'DJ JennyCraig',
+      album: 'watching you',
+      notes: "it's sick",
+    },
+    {
+      id: 5,
+      filepath: '../public/tracks5',
+      title: 'based',
+      artist: 'DJ DBQueen',
+      album: 'Vibes first',
+      notes: "it's fun",
+    },
+    {
+      id: 6,
+      filepath: '../public/tracks6',
+      title: 'redux doesnt resux',
+      artist: 'DJ Redux Queen',
+      album: 'reduxulous',
+      notes: "it's cool",
+    },
+    {
+      id: 7,
+      filepath: '../public/tracks7',
+      title: 'woo hoo',
+      artist: 'DJ Catfish',
+      album: 'You know it',
+      notes: "it's awesome",
+    },
+    {
+      id: 8,
+      filepath: '../public/tracks8',
+      title: 'standard',
+      artist: 'DJ JazzHands',
+      album: '5 hours of average jazz',
+      notes: "it's amazing",
+    },
+    {
+      id: 9,
+      filepath: '../public/tracks9',
+      title: 'handle this',
+      artist: 'DJ LoveHandles',
+      album: 'Can you handle it',
+      notes: "it's lovely",
+    },
+  ])
+}

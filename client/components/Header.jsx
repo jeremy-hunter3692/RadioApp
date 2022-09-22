@@ -7,7 +7,7 @@ export default function Header() {
       <h1>MIXTAPE</h1>
       <h2>This could have a hero image</h2>
       <h2>This could have the logo</h2>
-      <Navbar /> I'm in the header.
+      <Navbar /> I am in the header.
     </div>
   )
 }
