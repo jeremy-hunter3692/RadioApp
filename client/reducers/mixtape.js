@@ -1,21 +1,9 @@
-import {
-  SET_MIXTAPE,
-  FETCH_MIXTAPE_REQUEST,
-  FETCH_MIXTAPE_SUCCESS,
-  FETCH_MIXTAPE_FAILURE,
-} from '../actions/mixtape'
-
+// this is from my personal project and trying to decide whether to use it.  I think the other
 const initialMixtapeState = { data: null, error: null }
 
-const mixtapeReducer = (state = initialMixtapeState, action) => {
+const mixtapesReducer = (state = initialMixtapeState, action) => {
   const { type, payload } = action
   switch (type) {
-    case FETCH_MIXTAPE_REQUEST:
-      return { ...state, error: null }
-    case FETCH_MIXTAPE_SUCCESS:
-      return { data: payload.mixtape, error: null }
-    case FETCH_MIXTAPE_FAILURE:
-      return { ...state, error: payload.error }
     case 'ADD_MIXTAPE':
       return [...state, payload]
     case 'SET_MIXTAPE':
@@ -32,4 +20,4 @@ const mixtapeReducer = (state = initialMixtapeState, action) => {
   }
 }
 
-export default mixtapeReducer
+export default mixtapesReducer

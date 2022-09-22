@@ -51,6 +51,8 @@ export function addMixtape(newMixtape) {
     .catch(errorHandler('ADD', rootUrl + `/mixtapes/`))
 }
 
+// perhaps if (re.status === 200) {return res.body} for line 49
+
 function errorHandler(method, route) {
   return (err) => {
     if (err.message === 'Not Found') {

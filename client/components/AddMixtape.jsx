@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { addMixtape } from '../actions/mixtape'
-
 import { useDispatch } from 'react-redux'
 
 const initialFormData = {
@@ -30,7 +29,7 @@ export default function AddMixtape() {
           onChange={handleChange}
           value={form.name}
           name='name'
-          placeholder='Give your Mixtape a name'
+          placeholder='Give your Mixtape a name.'
         />
         <input
           id='creator'

@@ -1,18 +1,13 @@
+// from my personal project, trying to decide which to pursue
+
 import { getMixtapes } from '../apis/mixtape'
-
-export const FETCH_MIXTAPE_REQUEST = 'FETCH_MIXTAPE_REQUEST'
-export const FETCH_MIXTAPE_SUCCESS = 'FETCH_MIXTAPE_SUCCESS'
-export const FETCH_MIXTAPE_FAILURE = 'FETCH_MIXTAPE_FAILURE'
-
-export const fetchMixtapeRequest = () => ({
-  type: FETCH_MIXTAPE_REQUEST,
-})
+export const SET_ERROR = 'SET_ERROR'
 
 // all the mixtapes
 export function setMixtapes(mixtapes) {
   return {
-    type: 'SET_MIXTAPE',
-    payload: mixtapes,
+    type: 'SET_MIXTAPES',
+    payload: { mixtapes },
   }
 }
 
@@ -43,7 +38,7 @@ export function fetchMixtapes() {
 
 export function setError(errMessage) {
   return {
-    type: FETCH_MIXTAPE_FAILURE,
+    type: SET_ERROR,
     errMessage,
   }
 }
