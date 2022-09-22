@@ -1,10 +1,10 @@
 {
-  "name": "mixtape",
+  "name": "Mixtape",
   "version": "1.0.0",
   "main": "server/index.js",
   "license": "MIT",
   "keywords": [
-    "mixtape",
+    "Mixtape",
     "manaia 22",
     "final project"
   ],
