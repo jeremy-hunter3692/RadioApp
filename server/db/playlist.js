@@ -8,10 +8,7 @@ function getPlaylistById(id, db = connection) {
     .select('filepath', 'title', 'artist', 'album', 'notes', 'name')
 }
 function getAllPlaylists(db = connection) {
-  return db('tracks_playlist')
-    .join('tracks', 'track_id', 'tracks.id ')
-    .join('playlist', 'playlist_id', 'playlist.id')
-    .select('filepath', 'title', 'artist', 'album', 'notes', 'name')
+  return db('playlist').select('name')
 }
 
 function addPlaylist(newPlaylist, db = connection) {
