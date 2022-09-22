@@ -27,24 +27,24 @@ router.get('/id', (req, res) => {
     })
 })
 
-//TO DO adding new playist and tracks at the same time.
-// router.post('/', (req, res) => {
-//   const data = 'DJSleePete' //req.body.playlistName
-//   const tracks =  //req.body.tracks
-//   let tempId = null
-//   db.addPlaylist(data)
-//     .then((id) => {
-//       tempId = id
-//       return db.addTracksToPlaylist(tempId, tracks)
-//     })
-//     .then((data) => {
-//       res.json(data)
-//       // res.json({ ...captionData, id: ids[0], image_id: tempImageId })
-//     })
-//     .catch((err) => {
-//       console.error(err.message)
-//       res.status(500).json({ message: 'Something went wrong' })
-//     })
-// })
+// TO DO adding new playist and tracks at the same time.
+router.post('/', (req, res) => {
+  const data = 'DJSleePete' //req.body.playlistName
+  const tracks =  //req.body.tracks
+  let tempId = null
+  db.addPlaylist(data)
+    .then((id) => {
+      tempId = id
+      return db.addTracksToPlaylist(tempId, tracks)
+    })
+    .then((data) => {
+      res.json(data)
+      // res.json({ ...captionData, id: ids[0], image_id: tempImageId })
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 
 module.exports = router
