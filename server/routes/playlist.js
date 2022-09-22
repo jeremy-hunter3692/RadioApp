@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
     })
 })
 
-//TODO Figure out how id is coming in.
 router.get('/id', (req, res) => {
   const id = req.body.id
   db.getPlaylistById(id)
@@ -28,33 +27,28 @@ router.get('/id', (req, res) => {
 })
 
 // TO DO adding new playist and tracks at the same time.
-// router.post('/', (req, res) => {
-//   const data = 'DJSleePete' //req.body.playlistName
-//   const tracks = [
-//     { track_id: 2 },
-//     { track_id: 3 },
-//     { track_id: 2 },
-//     { track_id: 8 },
-//     { track_id: 9 },
-//   ]
-
-//   let tempId = null
-//   db.addPlaylist(data)
-//     .then((id) => {
-//       tempId = id
-//       tracks.map((x) => {
-//         x.tempId
-//       })
-//       return db.addTracksToPlaylist(tracks)
-//     })
-//     .then((data) => {
-//       res.json(data)
-//       // res.json({ ...captionData, id: ids[0], image_id: tempImageId })
-//     })
-//     .catch((err) => {
-//       console.error(err.message)
-//       res.status(500).json({ message: 'Something went wrong' })
-//     })
-// })
+router.post('/', (req, res) => {
+  const data = { name: req.body.playlistName }
+  const tracks = req.body.tracks
+  let tempId = null
+  db.addPlaylist(data)
+    .then((id) => {
+      tempId = id
+      let result = tracks.map((x) => {
+        return { ...x, playlist_Id: tempId }
+      })
+      return db.addTracksToPlaylist(result)
+    })
+    .then((result) => {
+      res.json(result)
+      //TO DO look up best practise for sending back json data here
+      //was in Sarahs lecture
+      //res.json({ ...captionData, id: ids[0], image_id: tempImageId })
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 
 module.exports = router

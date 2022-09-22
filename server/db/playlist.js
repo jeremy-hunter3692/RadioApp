@@ -5,7 +5,16 @@ function getPlaylistById(id, db = connection) {
     .where('playlist_id', id)
     .join('tracks', 'track_id', 'tracks.id ')
     .join('playlist', 'playlist_id', 'playlist.id')
-    .select('filepath', 'title', 'artist', 'album', 'notes', 'name')
+    .select(
+      'filepath',
+      'tracks.id as trackId',
+      'title',
+      'artist',
+      'album',
+      'notes',
+      'name as playlistName',
+      'playlist.id as playlistId'
+    )
 }
 function getAllPlaylists(db = connection) {
   return db('playlist').select('name')
@@ -14,11 +23,11 @@ function getAllPlaylists(db = connection) {
 function addPlaylist(newPlaylist, db = connection) {
   return db('playlist')
     .insert(newPlaylist)
-    .then(() => getAllPlaylists(db))
+    .then((ids) => ids[0])
 }
 
-function addTracksToPlaylist(id, data, db = connection) {
-  return db('tracks_playlist').insert(id, data)
+function addTracksToPlaylist(tracksArray, db = connection) {
+  return db('tracks_playlist').insert(tracksArray)
 }
 
 module.exports = {
