@@ -1,15 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
     <nav className='navbar'>
-      HERE IS THE NAVBAR
-      <Link to='/dashboard'>Dashboard</Link>
-      <Link to='/collection'>My Collection</Link>
-      <Link to='/tagged'>Search by tag</Link>
-      <Link to='/create'>Create</Link>
-      Register | Login | Log out
+      HERE IS THE NAVBAR. This could live in the header.
+      {/* <Link to='/'>Make a Mixtape</Link>
+      <Link to='/'>Add a Song</Link>
+      <Link to='/user'>Register | Login | Log out</Link> */}
     </nav>
   )
 }

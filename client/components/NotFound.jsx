@@ -3,7 +3,7 @@ import React from 'react'
 export default function NotFound() {
   return (
     <>
-      <h1>404 NOT FOUND D:</h1>
+      <img src='./images/404c.png' alt='404' />
     </>
   )
 }
