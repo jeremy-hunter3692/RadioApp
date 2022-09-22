@@ -32,7 +32,7 @@ const data = [
 ]
 
 export function getPlaylists() {
-  return request.get(rootUrl + '/playlists').then((res) => {
+  return request.get(rootUrl + '/playlists').then(() => {
     console.log('api: playlist data', data)
     return data // once the db is connected, replace this line with the line below
 
