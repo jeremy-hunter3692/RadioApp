@@ -14,7 +14,19 @@ function getAllPlaylists(db = connection) {
     .select('filepath', 'title', 'artist', 'album', 'notes', 'name')
 }
 
+function addPlaylist(newPlaylist, db = connection) {
+  return db('playlist')
+    .insert(newPlaylist)
+    .then(() => getAllPlaylists(db))
+}
+
+function addTracksToPlaylist(id, data, db = connection) {
+  return db('tracks_playlist').insert(id, data)
+}
+
 module.exports = {
   getPlaylistById,
   getAllPlaylists,
+  addPlaylist,
+  addTracksToPlaylist,
 }

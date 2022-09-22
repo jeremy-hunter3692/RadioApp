@@ -4,9 +4,9 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable('tracks_playlist', (table) => {
-    table.increments('id').primary()
-    table.int('track_id')
-    table.int('playlist_id')
+    table.int('track_id').references('tracks.id')
+    table.int('playlist_id').references('playlist.id')
+    //cascades knex function and sql library
   })
 }
 
