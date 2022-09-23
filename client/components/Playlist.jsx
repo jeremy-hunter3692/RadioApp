@@ -9,13 +9,9 @@ export default function Playlist() {
       {info?.map((playlist) => {
         return (
           <div to={'/'} key={playlist.id} className='playlist'>
-            <img
-              src={playlist.imageFilepath}
-              alt={playlist.name}
-              width='100px'
-            />
-            <h3>{playlist.title}</h3>
-            <h3>{playlist.artist}</h3>
+            <h3>
+              {playlist.id} / {playlist.name}
+            </h3>
           </div>
         )
       })}

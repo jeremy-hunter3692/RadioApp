@@ -20,6 +20,9 @@ const playlistsReducer = (state = initialPlaylistState, action) => {
       return { data: payload.playlists, error: null }
     case FETCH_PLAYLISTS_FAILURE:
       return { ...state, error: payload.error }
+    case 'ADD_PLAYLIST':
+      console.log('reducer', payload)
+      return { data: [...state.data, payload], error: null }
 
     default:
       return state
