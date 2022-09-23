@@ -17,7 +17,7 @@ function getPlaylistById(id, db = connection) {
     )
 }
 function getAllPlaylists(db = connection) {
-  return db('playlist').select('name')
+  return db('playlist').select()
 }
 
 function addPlaylist(newPlaylist, db = connection) {
