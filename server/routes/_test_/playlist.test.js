@@ -51,7 +51,7 @@ describe('GET /api/v1/playlist/id', () => {
     expect.assertions(2)
     db.getPlaylistById.mockReturnValue(Promise.resolve(playlistData))
     return request(server)
-      .get('/api/v1/playlist/5')
+      .get('/api/v1/playlist/id')
       .then((res) => {
         console.log('playlist test', res.body)
         expect(res.body.id).toBe(5)
