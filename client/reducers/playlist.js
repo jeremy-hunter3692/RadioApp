@@ -1,19 +1,25 @@
-// this is from my personal project and trying to decide whether to use it.  I think the other
+// REDUCER THAT HANDLES PLAYLIST ACTIONS
+
+import {
+  FETCH_PLAYLISTS_REQUEST,
+  FETCH_PLAYLISTS_SUCCESS,
+  FETCH_PLAYLISTS_FAILURE,
+} from '../actions/playlist'
+
+// with audio files, we could use a loading gif and add that to the reducer actions.
+// loading : true
+
 const initialPlaylistState = { data: null, error: null }
 
 const playlistsReducer = (state = initialPlaylistState, action) => {
   const { type, payload } = action
   switch (type) {
-    case 'ADD_MIXTAPE':
-      return [...state, payload]
-    case 'SET_MIXTAPE':
-      return payload
-    case 'DEL_MIXTAPE':
-      return state.filter((playlist) => playlist !== payload)
-    case 'UPDATE_MIXTAPE':
-      return state.map((playlist) => {
-        return playlist === payload.name ? payload.newName : playlist
-      })
+    case FETCH_PLAYLISTS_REQUEST:
+      return { ...state, error: null }
+    case FETCH_PLAYLISTS_SUCCESS:
+      return { data: payload.playlists, error: null }
+    case FETCH_PLAYLISTS_FAILURE:
+      return { ...state, error: payload.error }
 
     default:
       return state
