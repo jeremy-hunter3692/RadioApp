@@ -29,7 +29,6 @@ describe('addPlayListName', () => {
         return testDb('playlist').select()
       })
       .then((result) => {
-        console.log(result)
         expect(result).toHaveLength(10)
         expect(result[9].name).toBe('test play list name')
       })
@@ -57,7 +56,6 @@ describe('addTracksToPlaylist', () => {
 describe('getAllPlaylists', () => {
   test('returns all the playlists', () => {
     return getAllPlaylists(testDb).then((playlists) => {
-      console.log('test', playlists)
       expect(playlists).toHaveLength(9)
       expect(playlists[2].name).toBe('Cool Jazz')
       expect(playlists[2].id).toBe(3)
