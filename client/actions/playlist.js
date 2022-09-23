@@ -1,6 +1,4 @@
-// Taken from Patchies because it's a slightly different format than what I've done before.
-
-import { getPlaylists } from '../apis/playlist.js'
+import { getPlaylists, addPlaylist } from '../apis/playlist.js'
 
 export const FETCH_PLAYLISTS_REQUEST = 'FETCH_PLAYLISTS_REQUEST'
 export const FETCH_PLAYLISTS_SUCCESS = 'FETCH_PLAYLISTS_SUCCESS'
@@ -20,27 +18,54 @@ export const fetchPlaylistsFailure = (error) => ({
   type: FETCH_PLAYLISTS_FAILURE,
   payload: { error },
 })
+export const fetchNewPlaylist = (newPlaylist) => ({
+  type: 'ADD_PLAYLIST',
+  payload: newPlaylist,
+})
 
-export function fetchPlaylists() {
-  console.log('fetch')
-  return (dispatch) => {
-    return getPlaylists()
-      .then((playlists) => {
-        dispatch(fetchPlaylistsSuccess(playlists))
-      })
-      .catch((err) => {
-        dispatch(fetchPlaylistsFailure(err.message))
-      })
-  }
+export const fetchPlaylists = () => (dispatch) => {
+  dispatch(fetchPlaylistsRequest())
+  return getPlaylists()
+    .then((playlists) => {
+      dispatch(fetchPlaylistsSuccess(playlists))
+    })
+    .catch((error) => {
+      dispatch(fetchPlaylistsFailure(error.message))
+    })
 }
-// export const fetchPlaylists = () => (dispatch) => {
-//   dispatch(fetchPlaylistsRequest())
-//   return getPlaylists()
-//     .then((playlists) => {
-//       console.log('thunk', playlists)
-//       dispatch(fetchPlaylistsSuccess(playlists))
-//     })
-//     .catch((error) => {
-//       dispatch(fetchPlaylistsFailure(error.message))
-//     })
+
+export const addNewPlaylist = (newPlaylist) => (dispatch) => {
+  dispatch(fetchPlaylistsRequest())
+  return addPlaylist(newPlaylist)
+    .then((playlists) => {
+      console.log('actions', playlists)
+      dispatch(fetchNewPlaylist(playlists))
+    })
+    .catch((error) => {
+      dispatch(fetchPlaylistsFailure(error.message))
+    })
+}
+
+// export function fetchPlaylists() {
+//   return (dispatch) => {
+//     return getPlaylists()
+//       .then((playlists) => {
+//         dispatch(fetchPlaylistsSuccess(playlists))
+//       })
+//       .catch((err) => {
+//         dispatch(fetchPlaylistsFailure(err.message))
+//       })
+//   }
+// }
+// export function addNewPlaylist(newPlaylist) {
+//   return (dispatch) => {
+//     return addPlaylist(newPlaylist)
+//       .then((playlists) => {
+//         dispatch(fetchPlaylistsSuccess(playlists))
+//         return null
+//       })
+//       .catch((err) => {
+//         dispatch(fetchPlaylistsFailure(err.message))
+//       })
+//   }
 // }

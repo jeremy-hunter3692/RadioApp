@@ -141,7 +141,7 @@
     color: var(--Purple);
     border: none;
     padding: 15px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     border-radius: 25px;
   }
   .app {
@@ -196,7 +196,7 @@
     justify-content: center;
     align-items: center;
     margin: 2rem 3rem 2rem 3rem;
-    width: 50%;
+    width: 90%;
   }
   
   .navbar { 

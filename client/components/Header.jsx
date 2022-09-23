@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header>
       <div>
-        <h1>MIXTAPE</h1>
+        <h1>MAKE A MIXTAPE</h1>
       </div>
     </header>
   )
