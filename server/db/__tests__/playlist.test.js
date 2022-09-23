@@ -25,6 +25,7 @@ describe('addPlayListName', () => {
         return testDb('playlist').select()
       })
       .then((result) => {
+        console.log(result)
         expect(result).toHaveLength(10)
         expect(result[9].name).toBe('test play list name')
       })
@@ -44,7 +45,6 @@ describe('addTracksToPlaylist', () => {
         return testDb('tracks_playlist').select()
       })
       .then((result) => {
-        // console.log(result)
         expect(result).toHaveLength(13)
       })
   })
