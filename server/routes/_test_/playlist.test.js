@@ -42,3 +42,34 @@ describe('GET /api/v1/playlist', () => {
       })
   })
 })
+
+//-----------------
+
+describe('GET /api/v1/playlist/id', () => {
+  test('returns playlist for selected id from database', () => {
+    const playlistData = { id: 5, name: 'Summer Lovin' }
+    expect.assertions(2)
+    db.getPlaylistById.mockReturnValue(Promise.resolve(playlistData))
+    return request(server)
+      .get('/api/v1/playlist/5')
+      .then((res) => {
+        console.log('playlist test', res.body)
+        expect(res.body.id).toBe(5)
+        expect(res.body.name).toBe('Summer Lovin')
+        return null
+      })
+  })
+  // test('return status 500 and consoles error when problem', () => {
+  //   db.getPlaylistById(5).mockImplementation(() =>
+  //     Promise.reject(new Error('test error message'))
+  //   )
+  //   console.error.mockImplementation(() => {})
+  //   return request(server)
+  //     .get('/api/v1/playlist/id')
+  //     .then((res) => {
+  //       expect(res.status).toBe(500)
+  //       expect(console.error).toHaveBeenCalledWith('test error message')
+  //       return null
+  //     })
+  // })
+})

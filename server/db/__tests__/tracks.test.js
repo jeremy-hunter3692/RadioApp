@@ -43,7 +43,6 @@ describe('getTracksById', () => {
       expect(track.artist).toBe('DJ wildcard')
       expect(track.album).toBe('Watch yo back')
       expect(track.notes).toBe('The best album in the world')
-      // expect(track).toHaveLength(1) Want to show that we are getting one track back
     })
   })
 })
