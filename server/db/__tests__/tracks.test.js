@@ -36,7 +36,6 @@ describe('getTracksById', () => {
     const trackId = '1'
     expect.assertions(6)
     return getTrackById(trackId, testDb).then((track) => {
-      console.log(track)
       expect(track.id).toBe(1)
       expect(track.filepath).toBe('../public/tracks1')
       expect(track.title).toBe('jam1')

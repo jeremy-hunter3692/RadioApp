@@ -46,26 +46,30 @@ describe('GET /api/v1/playlist', () => {
 //-----------------
 
 describe('GET /api/v1/playlist/id', () => {
-  test.skip('returns playlist for selected id from database', () => {
-    const playlistData = { id: 5, name: 'Summer Lovin' }
-    expect.assertions(2)
-    db.getPlaylistById.mockReturnValue(Promise.resolve(playlistData))
+  test('returns playlist for selected id from database', () => {
+    const playlistData = {
+      id: 5,
+      name: 'Summer Lovin',
+      image: './public/images/1.png',
+    }
+    expect.assertions(3)
+    db.getPlaylistDetailsById.mockReturnValue(Promise.resolve(playlistData))
     return request(server)
       .get('/api/v1/playlist/id')
       .then((res) => {
-        console.log('playlist test', res.body)
         expect(res.body.id).toBe(5)
         expect(res.body.name).toBe('Summer Lovin')
+        expect(res.body.image).toBe('./public/images/1.png')
         return null
       })
   })
   test('return status 500 and consoles error when problem', () => {
-    db.getPlaylistById(5).mockImplementation(() =>
+    db.getPlaylistDetailsById.mockImplementation(() =>
       Promise.reject(new Error('test error message'))
     )
     console.error.mockImplementation(() => {})
     return request(server)
-      .get('/api/v1/playlist/id')
+      .get('/api/v1/playlist/5')
       .then((res) => {
         expect(res.status).toBe(500)
         expect(console.error).toHaveBeenCalledWith('test error message')
