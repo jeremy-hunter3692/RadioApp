@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { addPlaylist } from '../actions/_playlist_'
+import { addNewPlaylist } from '../actions/playlist'
 import { useDispatch } from 'react-redux'
 
 const initialFormData = {
   name: '',
-  creator: '',
 }
 
 export default function AddPlaylist() {
@@ -17,7 +16,7 @@ export default function AddPlaylist() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    dispatch(addPlaylist(form))
+    dispatch(addNewPlaylist(form))
     setForm(initialFormData)
   }
 
@@ -31,14 +30,6 @@ export default function AddPlaylist() {
           name='name'
           placeholder='Give your Mixtape a name.'
         />
-        <input
-          id='creator'
-          onChange={handleChange}
-          value={form.creator}
-          name='creator'
-          placeholder='What is your name?'
-        />
-
         <button>Create your Mixtape</button>
       </form>
     </>

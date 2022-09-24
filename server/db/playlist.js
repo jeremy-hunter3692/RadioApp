@@ -33,6 +33,7 @@ function getAllPlaylists(db = connection) {
     .select('name', 'images.image_url as image', 'playlist.id')
     .select()
 }
+
 function addPlaylist(newPlaylist, db = connection) {
   return db('playlist')
     .insert(newPlaylist)
