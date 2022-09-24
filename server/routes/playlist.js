@@ -19,6 +19,7 @@ router.get('/:id', (req, res) => {
   const playlist = {}
   db.getPlaylistDetailsById(id)
     .then((details) => {
+      console.log('deets', details)
       playlist.name = details.name
       playlist.image = details.image
       playlist.id = details.id

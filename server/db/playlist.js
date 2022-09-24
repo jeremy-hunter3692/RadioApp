@@ -28,7 +28,10 @@ function getPlaylistDetailsById(id, db = connection) {
 }
 
 function getAllPlaylists(db = connection) {
-  return db('playlist').select()
+  return db('playlist')
+    .join('images', 'image_id', 'images.id')
+    .select('name', 'images.image_url as image', 'playlist.id')
+    .select()
 }
 function addPlaylist(newPlaylist, db = connection) {
   return db('playlist')

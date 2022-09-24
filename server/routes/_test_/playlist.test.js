@@ -50,7 +50,7 @@ describe('GET /api/v1/playlist/id', () => {
     const playlistData = {
       id: 5,
       name: 'Summer Lovin',
-      image: './public/images/1.png',
+      image: 'images/1.png',
     }
     expect.assertions(3)
     db.getPlaylistDetailsById.mockReturnValue(Promise.resolve(playlistData))
@@ -59,7 +59,7 @@ describe('GET /api/v1/playlist/id', () => {
       .then((res) => {
         expect(res.body.id).toBe(5)
         expect(res.body.name).toBe('Summer Lovin')
-        expect(res.body.image).toBe('./public/images/1.png')
+        expect(res.body.image).toBe('images/1.png')
         return null
       })
   })

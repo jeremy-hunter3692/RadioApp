@@ -5,7 +5,7 @@ const rootUrl = '/api/v1'
 
 export function getPlaylists() {
   return request.get(rootUrl + '/playlist').then((res) => {
-    console.log('api', res.body)
+    console.log('api get playlists', res.body)
     return res.body
   })
 }
