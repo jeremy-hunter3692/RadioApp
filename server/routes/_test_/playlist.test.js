@@ -77,3 +77,40 @@ describe('GET /api/v1/playlist/id', () => {
       })
   })
 })
+
+//-----------------
+
+describe('GET /api/v1/playlist/', () => {
+  // next to fix this once route.post is fixed
+
+  // test('adding tracks to a playlsit', () => {
+  //   const playlistData = {
+  //     id: 5,
+  //     name: 'Summer Lovin',
+  //     image: './public/images/1.png',
+  //   }
+  //   expect.assertions(3)
+  //   db.getPlaylistDetailsById.mockReturnValue(Promise.resolve(playlistData))
+  //   return request(server)
+  //     .get('/api/v1/playlist/id')
+  //     .then((res) => {
+  //       expect(res.body.id).toBe(5)
+  //       expect(res.body.name).toBe('Summer Lovin')
+  //       expect(res.body.image).toBe('./public/images/1.png')
+  //       return null
+  //     })
+  // })
+  test('return status 500 and consoles error when problem', () => {
+    db.addPlaylist.mockImplementation(() =>
+      Promise.reject(new Error('test error message'))
+    )
+    console.error.mockImplementation(() => {})
+    return request(server)
+      .get('/api/v1/playlist/')
+      .then((res) => {
+        expect(res.status).toBe(500)
+        expect(console.error).toHaveBeenCalledWith('test error message')
+        return null
+      })
+  })
+})
