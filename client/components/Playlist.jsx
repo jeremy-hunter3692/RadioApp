@@ -8,6 +8,7 @@ export default function Playlist() {
       {info?.map((playlist) => {
         return (
           <div key={playlist.id} className='playlist'>
+            <img src={playlist.image} />
             <h3>{playlist.name}</h3>
           </div>
         )

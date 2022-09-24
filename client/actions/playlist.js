@@ -1,4 +1,4 @@
-import { getPlaylists, addPlaylist } from '../apis/playlist.js'
+import { getPlaylists, addPlaylist, getPlaylistById } from '../apis/playlist.js'
 
 export const FETCH_PLAYLISTS_REQUEST = 'FETCH_PLAYLISTS_REQUEST'
 export const FETCH_PLAYLISTS_SUCCESS = 'FETCH_PLAYLISTS_SUCCESS'
@@ -22,6 +22,11 @@ export const fetchNewPlaylist = (newPlaylist) => ({
   type: 'ADD_PLAYLIST',
   payload: newPlaylist,
 })
+export const fetchPlaylistById = (playlist) => ({
+  type: 'GET_PLAYLIST_BY_ID',
+  payload: playlist,
+})
+// note to self: id or playlist?
 
 export const fetchPlaylists = () => (dispatch) => {
   dispatch(fetchPlaylistsRequest())
@@ -35,9 +40,21 @@ export const fetchPlaylists = () => (dispatch) => {
 }
 
 export const addNewPlaylist = (newPlaylist) => (dispatch) => {
+  dispatch(fetchPlaylistsRequest())
   return addPlaylist(newPlaylist)
-    .then((playlists) => {
+    .then((playlist) => {
       dispatch(fetchNewPlaylist(playlists))
+    })
+    .catch((error) => {
+      dispatch(fetchPlaylistsFailure(error.message))
+    })
+}
+
+export const selectPlaylistById = (id) => (dispatch) => {
+  dispatch(fetchPlaylistsRequest())
+  return getPlaylistById(id)
+    .then((playlist) => {
+      dispatch(fetchPlaylistsSuccess(playlist))
     })
     .catch((error) => {
       dispatch(fetchPlaylistsFailure(error.message))

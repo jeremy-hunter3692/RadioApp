@@ -22,6 +22,8 @@ const playlistsReducer = (state = initialPlaylistState, action) => {
       return { ...state, error: payload.error }
     case 'ADD_PLAYLIST':
       return { data: [...state.data, payload], error: null }
+    case 'GET_PLAYLIST_BY_ID':
+      return { data: [...state.data, payload], error: null }
 
     default:
       return state

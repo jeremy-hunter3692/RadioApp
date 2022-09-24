@@ -13,12 +13,22 @@ export function getPlaylists() {
 // add Playlist name from a form
 export function addPlaylist(newPlaylist) {
   return request
-    .post(rootUrl + '/playlist/')
+    .post(rootUrl + '/playlists/')
     .send(newPlaylist)
     .then((res) => {
       return res.body
     })
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))
+}
+
+// get a Playlist by id
+export function getPlaylistById(id) {
+  return request
+    .get(rootUrl + `/playlists/${id}`)
+    .then((res) => {
+      return res.body
+    })
+    .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
 }
 
 // perhaps if (res.status === 200) {return res.body} ??  not sure that would matter if we do auth0

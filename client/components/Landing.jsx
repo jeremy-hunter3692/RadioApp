@@ -6,8 +6,8 @@ import { fetchPlaylists } from '../actions/playlist'
 // COMPONENTS
 import AddPlaylist from './AddPlaylist'
 import Container from './Container'
+import GetPlaylistById from './GetPlaylistById'
 import Playlist from './Playlist'
-import Track from './Track'
 
 export default function Landing() {
   const dispatch = useDispatch()
@@ -24,7 +24,7 @@ export default function Landing() {
       </div>
 
       <div>
-        <Track />
+        <GetPlaylistById />
       </div>
     </Container>
   )
