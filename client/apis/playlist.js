@@ -21,6 +21,41 @@ export function addPlaylist(newPlaylist) {
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))
 }
 
+//----------------
+//-- CLOUDINARY --
+//----------------
+export async function getAudioFile(audioFile) {
+  // TODO: when auth0 is set up, need to pass token
+
+  const { name, type } = audioFile
+  const fileObject = {
+    fileName: name,
+    fileType: type,
+  }
+
+  const { signature, timestamp, cloudName, apiKey } = await request
+    .post(rootUrl + '/playlist/audiofile')
+    .send(fileObject)
+    //.set('Authorization', `Bearer ${token}`) //TODO: May need this with auth0
+    .then((res) => res.body)
+
+  const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`
+
+  const formData = new FormData()
+  formData.append('file', audioFile)
+  formData.append('api_key', apiKey)
+  formData.append('timestamp', timestamp)
+  formData.append('signature', signature)
+
+  const imageUrl = await request
+    .post(url)
+    .send(formData)
+    .then((res) => res.body.url)
+
+  return imageUrl
+}
+//--------------
+
 // perhaps if (re.status === 200) {return res.body} for line 49
 
 function errorHandler(method, route) {
@@ -34,32 +69,3 @@ function errorHandler(method, route) {
     }
   }
 }
-
-// remove this once we are connecting to the database
-// const data = [
-//   {
-//     id: 1,
-//     name: 'The Fillmore',
-//     creator: 'DJ Craig',
-//     imageFilepath: './images/mixtape1.png',
-//     // note - just make a random generator of images and put it with the playlist component.
-//   },
-//   {
-//     id: 2,
-//     name: 'K-Pop',
-//     creator: 'Nani',
-//     imageFilepath: './images/mixtape16.png',
-//   },
-//   {
-//     id: 3,
-//     name: 'The Boom Boom Room',
-//     creator: 'DJ Jeremy',
-//     imageFilepath: './images/mixtape3.png',
-//   },
-//   {
-//     id: 4,
-//     name: 'Rolling Stone',
-//     creator: 'DJ Peter',
-//     imageFilepath: './images/mixtape8.png',
-//   },
-// ]
