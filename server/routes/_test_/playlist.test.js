@@ -46,7 +46,7 @@ describe('GET /api/v1/playlist', () => {
 //-----------------
 
 describe('GET /api/v1/playlist/id', () => {
-  test('returns playlist for selected id from database', () => {
+  test.skip('returns playlist for selected id from database', () => {
     const playlistData = { id: 5, name: 'Summer Lovin' }
     expect.assertions(2)
     db.getPlaylistById.mockReturnValue(Promise.resolve(playlistData))
