@@ -9,6 +9,7 @@ export default function Playlist() {
         return (
           <div key={playlist.id} className='playlist'>
             <h3>{playlist.name}</h3>
+   
           </div>
         )
       })}
