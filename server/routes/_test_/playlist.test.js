@@ -46,26 +46,67 @@ describe('GET /api/v1/playlist', () => {
 //-----------------
 
 describe('GET /api/v1/playlist/id', () => {
-  test.skip('returns playlist for selected id from database', () => {
-    const playlistData = { id: 5, name: 'Summer Lovin' }
-    expect.assertions(2)
-    db.getPlaylistById.mockReturnValue(Promise.resolve(playlistData))
+  test('returns playlist for selected id from database', () => {
+    const playlistData = {
+      id: 5,
+      name: 'Summer Lovin',
+      image: 'images/1.png',
+    }
+    expect.assertions(3)
+    db.getPlaylistDetailsById.mockReturnValue(Promise.resolve(playlistData))
     return request(server)
       .get('/api/v1/playlist/id')
       .then((res) => {
-        console.log('playlist test', res.body)
         expect(res.body.id).toBe(5)
         expect(res.body.name).toBe('Summer Lovin')
+        expect(res.body.image).toBe('images/1.png')
         return null
       })
   })
-  test.skip('return status 500 and consoles error when problem', () => {
-    db.getPlaylistById(5).mockImplementation(() =>
+  test('return status 500 and consoles error when problem', () => {
+    db.getPlaylistDetailsById.mockImplementation(() =>
       Promise.reject(new Error('test error message'))
     )
     console.error.mockImplementation(() => {})
     return request(server)
-      .get('/api/v1/playlist/id')
+      .get('/api/v1/playlist/5')
+      .then((res) => {
+        expect(res.status).toBe(500)
+        expect(console.error).toHaveBeenCalledWith('test error message')
+        return null
+      })
+  })
+})
+
+//-----------------
+
+describe('GET /api/v1/playlist/', () => {
+  // next to fix this once route.post is fixed
+
+  // test('adding tracks to a playlsit', () => {
+  //   const playlistData = {
+  //     id: 5,
+  //     name: 'Summer Lovin',
+  //     image: './public/images/1.png',
+  //   }
+  //   expect.assertions(3)
+  //   db.getPlaylistDetailsById.mockReturnValue(Promise.resolve(playlistData))
+  //   return request(server)
+  //     .get('/api/v1/playlist/id')
+  //     .then((res) => {
+  //       expect(res.body.id).toBe(5)
+  //       expect(res.body.name).toBe('Summer Lovin')
+  //       expect(res.body.image).toBe('./public/images/1.png')
+  //       return null
+  //     })
+  // })
+  test('return status 500 and consoles error when problem', () => {
+    db.addPlaylist.mockImplementation(() =>
+      Promise.reject(new Error('test error message'))
+    )
+    console.error.mockImplementation(() => {})
+    return request(server)
+      .get('/api/v1/playlist/')
       .then((res) => {
         expect(res.status).toBe(500)
         expect(console.error).toHaveBeenCalledWith('test error message')
