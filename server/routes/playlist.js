@@ -48,29 +48,29 @@ router.post('/', (req, res) => {
 })
 
 // TO DO adding new playist and tracks at the same time.
-// router.post('/', (req, res) => {
-//   const data = { name: req.body.playlistName }
-//   console.log('server route', data)
-//   const tracks = req.body.tracks
-//   let tempId = null
-//   db.addPlaylist(data)
-//     .then((id) => {
-//       tempId = id
-//       let result = tracks.map((x) => {
-//         return { ...x, playlist_Id: tempId }
-//       })
-//       return db.addTracksToPlaylist(result)
-//     })
-//     .then((result) => {
-//       res.json(result)
-//       //TO DO look up best practise for sending back json data here
-//       //was in Sarahs lecture
-//       //res.json({ ...captionData, id: ids[0], image_id: tempImageId })
-//     })
-//     .catch((err) => {
-//       console.error(err.message)
-//       res.status(500).json({ message: 'Something went wrong' })
-//     })
-// })
+router.post('/', (req, res) => {
+  const data = { name: req.body.playlistName }
+  console.log('server route', data)
+  const tracks = req.body.tracks
+  let tempId = null
+  db.addPlaylist(data)
+    .then((id) => {
+      tempId = id
+      let result = tracks.map((x) => {
+        return { ...x, playlist_Id: tempId }
+      })
+      return db.addTracksToPlaylist(result)
+    })
+    .then((result) => {
+      res.json(result)
+      //TO DO look up best practise for sending back json data here
+      //was in Sarahs lecture
+      //res.json({ ...captionData, id: ids[0], image_id: tempImageId })
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 
 module.exports = router

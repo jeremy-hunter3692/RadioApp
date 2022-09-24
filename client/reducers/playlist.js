@@ -6,7 +6,7 @@ import {
   FETCH_PLAYLISTS_FAILURE,
 } from '../actions/playlist'
 
-// with audio files, we could use a loading gif and add that to the reducer actions.
+// with audio files, we could use a loading gif and add that to the reducer state.
 // loading : true
 
 const initialPlaylistState = { data: null, error: null }
@@ -21,7 +21,6 @@ const playlistsReducer = (state = initialPlaylistState, action) => {
     case FETCH_PLAYLISTS_FAILURE:
       return { ...state, error: payload.error }
     case 'ADD_PLAYLIST':
-      console.log('reducer', payload)
       return { data: [...state.data, payload], error: null }
 
     default:
