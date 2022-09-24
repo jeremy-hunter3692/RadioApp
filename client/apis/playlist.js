@@ -3,19 +3,19 @@
 import request from 'superagent'
 const rootUrl = '/api/v1'
 
+// GET /api/v1/playlist
 export function getPlaylists() {
   return request.get(rootUrl + '/playlist').then((res) => {
-    console.log('api', res.body)
     return res.body
   })
 }
 
+// add Playlist name from a form
 export function addPlaylist(newPlaylist) {
   return request
     .post(rootUrl + '/playlist/')
-    .send({ newPlaylist })
+    .send(newPlaylist)
     .then((res) => {
-      console.log('addPlaylist api - res.body:', res.body)
       return res.body
     })
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))

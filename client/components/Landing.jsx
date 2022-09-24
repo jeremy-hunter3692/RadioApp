@@ -13,7 +13,6 @@ export default function Landing() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('use')
     dispatch(fetchPlaylists())
   }, [])
 

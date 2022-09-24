@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 
 const initialFormData = {
   name: '',
-  creator: '',
 }
 
 export default function AddPlaylist() {
@@ -48,39 +47,44 @@ export default function AddPlaylist() {
     } catch (err) {
       console.log(err)
     }
-  }
+    // const handleSubmit = async (event) => {
+    //   event.preventDefault()
+    //   dispatch(addNewPlaylist(form))
+    //   setForm(initialFormData)
+    // }
 
-  return (
-    <>
-      <form onSubmit={handleSubmit} className='form'>
-        <input
-          id='name'
-          onChange={handleChange}
-          value={form.name}
-          name='name'
-          placeholder='Give your Mixtape a name.'
-        />
-        <input
-          id='creator'
-          onChange={handleChange}
-          value={form.creator}
-          name='creator'
-          placeholder='What is your name?'
-        />
-        <div>
-          <label htmlFor='image'>Upload an image</label>
+    return (
+      <>
+        <form onSubmit={handleSubmit} className='form'>
           <input
-            id='image'
-            type='file'
-            name='image'
-            accept='image/*'
-            onChange={handleFileChange}
-            className='border-black-300 bg-white-300 shadow-black-100 rounded-md border-2 text-center shadow-md'
+            id='name'
+            onChange={handleChange}
+            value={form.name}
+            name='name'
+            placeholder='Give your Mixtape a name.'
           />
-        </div>
+          <input
+            id='creator'
+            onChange={handleChange}
+            value={form.creator}
+            name='creator'
+            placeholder='What is your name?'
+          />
+          <div>
+            <label htmlFor='image'>Upload an image</label>
+            <input
+              id='image'
+              type='file'
+              name='image'
+              accept='image/*'
+              onChange={handleFileChange}
+              className='border-black-300 bg-white-300 shadow-black-100 rounded-md border-2 text-center shadow-md'
+            />
+          </div>
 
-        <button>Create your Mixtape</button>
-      </form>
-    </>
-  )
+          <button>Create your Mixtape</button>
+        </form>
+      </>
+    )
+  }
 }
