@@ -11,6 +11,6 @@ coverage
 .DS_Store
 /server/routes/__tests__
 /client/components/__tests__
-# server/routes/_old_
-# server/db/_old_
-# client/components/_old_
+server/routes/_old_
+server/db/_old_
+client/components/_old_
