@@ -20,7 +20,11 @@ function getTracksByPlaylistId(id, db = connection) {
 }
 
 function getPlaylistDetailsById(id, db = connection) {
-  return db('playlist').where('id', id).first()
+  return db('playlist')
+    .where('playlist.id', id)
+    .join('images', 'image_id', 'images.id')
+    .select('name', 'images.image_url as image')
+    .first()
 }
 
 function getAllPlaylists(db = connection) {

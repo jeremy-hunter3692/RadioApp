@@ -59,17 +59,17 @@ describe('GET /api/v1/playlist/id', () => {
         return null
       })
   })
-  // test('return status 500 and consoles error when problem', () => {
-  //   db.getPlaylistById(5).mockImplementation(() =>
-  //     Promise.reject(new Error('test error message'))
-  //   )
-  //   console.error.mockImplementation(() => {})
-  //   return request(server)
-  //     .get('/api/v1/playlist/id')
-  //     .then((res) => {
-  //       expect(res.status).toBe(500)
-  //       expect(console.error).toHaveBeenCalledWith('test error message')
-  //       return null
-  //     })
-  // })
+  test('return status 500 and consoles error when problem', () => {
+    db.getPlaylistById(5).mockImplementation(() =>
+      Promise.reject(new Error('test error message'))
+    )
+    console.error.mockImplementation(() => {})
+    return request(server)
+      .get('/api/v1/playlist/id')
+      .then((res) => {
+        expect(res.status).toBe(500)
+        expect(console.error).toHaveBeenCalledWith('test error message')
+        return null
+      })
+  })
 })
