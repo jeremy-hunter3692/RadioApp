@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-//import { addTrack } from '../actions/index'
-import { addTrackToDb } from '../apis/track.js'
+import { addNewTrack } from '../actions/track'
+
 const initialForm = {
   title: '',
   artist: '',
@@ -14,17 +14,13 @@ export default function AddTrack() {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialForm)
 
-  //const { title, artist, album, notes, filepath } = form
-
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
   function handleSubmit(e) {
     e.preventDefault()
-    //console.log('Form data:', form)
-    //dispatch(addTrack(form))
-    addTrackToDb(form)
+    dispatch(addNewTrack(form))
     setForm(initialForm)
   }
 
@@ -83,7 +79,7 @@ export default function AddTrack() {
 
         <div>
           <button>Add a new track</button>
-          {/* <input type='submit' /> */}
+
           <button
             onClick={(e) => {
               e.preventDefault()
