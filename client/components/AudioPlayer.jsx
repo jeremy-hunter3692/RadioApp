@@ -4,7 +4,7 @@ const init = 0
 
 export default function AudioPlayer() {
   const [index, setIndex] = useState(init)
-
+  const player = document.getElementById('audio')
   const audio = [
     'tracks/BDS612AnalogJuice.wav',
     'tracks/BDS612AnalogPitched.wav',
@@ -19,20 +19,13 @@ export default function AudioPlayer() {
     } else {
       setIndex(index + 1)
     }
-    console.log('end', index)
-    console.log(audio[index])
+    console.log(player, typeof player)
+    player.play()
   }
 
-  // const audioElement = audio
-  // // console.log(typeof audioElement, audioElement)
-  // audioElement.addEventListener('loadeddata', () => {
-  //   let duration = audioElement.duration
-  //   console.log(duration)
-  // })
   return (
     <>
       <h1>audio:</h1>
-
       <audio
         controls
         id='audio'

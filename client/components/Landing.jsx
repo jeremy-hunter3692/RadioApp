@@ -9,6 +9,7 @@ import Container from './Container'
 import Playlist from './Playlist'
 import Track from './Track'
 import AudioPlayer from './AudioPlayer'
+import AddTrack from './AddTrack'
 
 export default function Landing() {
   const dispatch = useDispatch()
@@ -27,6 +28,7 @@ export default function Landing() {
 
       <div>
         <Track />
+        <AddTrack />
       </div>
     </Container>
   )
