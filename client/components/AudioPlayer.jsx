@@ -4,7 +4,7 @@ const init = 0
 
 export default function AudioPlayer() {
   const [index, setIndex] = useState(init)
-
+  const player = document.getElementById('audio')
   const audio = [
     'tracks/BDS612AnalogJuice.wav',
     'tracks/BDS612AnalogPitched.wav',
@@ -19,6 +19,8 @@ export default function AudioPlayer() {
     } else {
       setIndex(index + 1)
     }
+    console.log(player, typeof player)
+    player.play()
   }
 
   return (
