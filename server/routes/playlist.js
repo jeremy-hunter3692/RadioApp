@@ -28,13 +28,12 @@ router.get('/', (req, res) => {
       res.status(500).json({ message: 'Something went wrong' })
     })
 })
-
+// GET /api/v1/playlist/:id
 router.get('/:id', (req, res) => {
   const id = req.params.id
   const playlist = {}
   db.getPlaylistDetailsById(id)
     .then((details) => {
-      console.log('deets', details)
       playlist.name = details.name
       playlist.image = details.image
       playlist.id = details.id
@@ -51,9 +50,11 @@ router.get('/:id', (req, res) => {
 })
 
 // Nani did this for adding a playlist to the db - cheers
-// POST /api/v1/
+// GET /api/v1/playlist/
 router.post('/', (req, res) => {
+  console.log('SERVER ROUTE', req.body)
   const { name } = req.body
+  console.log(req)
   db.addPlaylist({ name })
     .then((playlist) => {
       res.json({ id: playlist, name })
@@ -64,11 +65,24 @@ router.post('/', (req, res) => {
       res.status(500).send(err.message)
     })
 })
+// GET /api/v1/playlist/addTrack
+router.post('/addTrack', (req, res) => {
+  const data = req.body
+  console.log('data info', data)
+  db.addTracksToPlaylist(data)
+    .then((track) => {
+      res.json(track)
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.status(500).send(err.message)
+    })
+})
 
 // TO DO adding new playist and tracks at the same time.
 router.post('/', (req, res) => {
   const data = { name: req.body.playlistName }
-  console.log('server route', data)
+  console.log('data info', data)
   const tracks = req.body.tracks
   let tempId = null
   db.addPlaylist(data)
