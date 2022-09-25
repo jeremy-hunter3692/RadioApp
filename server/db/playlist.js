@@ -45,9 +45,9 @@ function addTracksToPlaylist(tracksArray, db = connection) {
 }
 
 module.exports = {
+  addTracksToPlaylist,
   getTracksByPlaylistId,
   getAllPlaylists,
   addPlaylist,
-  addTracksToPlaylist,
   getPlaylistDetailsById,
 }
