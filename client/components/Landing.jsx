@@ -8,6 +8,7 @@ import AddPlaylist from './AddPlaylist'
 import Container from './Container'
 import Playlist from './Playlist'
 import Track from './Track'
+import AudioPlayer from './AudioPlayer'
 
 export default function Landing() {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ export default function Landing() {
   return (
     <Container>
       <div className='playlists centerThis'>
+        <AudioPlayer />
         <AddPlaylist />
         <Playlist />
       </div>
