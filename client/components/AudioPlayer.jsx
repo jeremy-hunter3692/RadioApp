@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-
+import { getPlaylistById } from '../apis/playlist'
 const init = 0
 
 export default function AudioPlayer() {
   const [index, setIndex] = useState(init)
   const player = document.getElementById('audio')
+
+  getPlaylistById(id)
+
   const audio = [
     'tracks/BDS612AnalogJuice.wav',
     'tracks/BDS612AnalogPitched.wav',
