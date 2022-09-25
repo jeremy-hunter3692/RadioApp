@@ -1,5 +1,5 @@
 const connection = require('./connection')
-
+// do we need first()?
 function getPlaylistById(id, db = connection) {
   return db('tracks_playlist')
     .where('playlist_id', id)

@@ -23,12 +23,17 @@ export function addPlaylist(newPlaylist) {
 
 // get a Playlist by id
 export function getPlaylistById(id) {
-  return request
-    .get(rootUrl + `/playlists/${id}`)
-    .then((res) => {
-      return res.body
-    })
-    .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
+  return (
+    request
+      // .get(rootUrl + `/playlists/${id}`)
+      // server route is GET /:id
+      .get(rootUrl + `/${id}`)
+      .then((res) => {
+        console.log('API: ', res.body)
+        return res.body
+      })
+      .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
+  )
 }
 
 // perhaps if (res.status === 200) {return res.body} ??  not sure that would matter if we do auth0

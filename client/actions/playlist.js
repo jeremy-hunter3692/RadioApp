@@ -22,11 +22,11 @@ export const fetchNewPlaylist = (newPlaylist) => ({
   type: 'ADD_PLAYLIST',
   payload: newPlaylist,
 })
-export const fetchPlaylistById = (playlist) => ({
+export const fetchPlaylistById = (tracks_playlist) => ({
   type: 'GET_PLAYLIST_BY_ID',
-  payload: playlist,
+  payload: tracks_playlist,
 })
-// note to self: id or playlist?
+// note to self: id or tracks_playlist?
 
 export const fetchPlaylists = () => (dispatch) => {
   dispatch(fetchPlaylistsRequest())
@@ -43,7 +43,7 @@ export const addNewPlaylist = (newPlaylist) => (dispatch) => {
   dispatch(fetchPlaylistsRequest())
   return addPlaylist(newPlaylist)
     .then((playlist) => {
-      dispatch(fetchNewPlaylist(playlists))
+      dispatch(fetchNewPlaylist(playlist))
     })
     .catch((error) => {
       dispatch(fetchPlaylistsFailure(error.message))
@@ -53,8 +53,10 @@ export const addNewPlaylist = (newPlaylist) => (dispatch) => {
 export const selectPlaylistById = (id) => (dispatch) => {
   dispatch(fetchPlaylistsRequest())
   return getPlaylistById(id)
-    .then((playlist) => {
-      dispatch(fetchPlaylistsSuccess(playlist))
+    .then((tracks_playlist) => {
+      console.log('ACTIONS: ', tracks_playlist, id)
+      dispatch(fetchPlaylistById(tracks_playlist))
+      // dispatch(fetchPlaylistsSuccess(tracks_playlist))
     })
     .catch((error) => {
       dispatch(fetchPlaylistsFailure(error.message))
