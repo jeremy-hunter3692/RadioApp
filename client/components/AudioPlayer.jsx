@@ -6,11 +6,12 @@ export default function AudioPlayer() {
   const [index, setIndex] = useState(init)
   const player = document.getElementById('audio')
   const audio = [
-    'tracks/BDS612AnalogJuice.wav',
-    'tracks/BDS612AnalogPitched.wav',
-    'tracks/BDS612AnalogPunch.wav',
-    'tracks/BDS612Dark.wav',
-    'tracks/CH606lip03.wav',
+    'tracks/Sample1.mp3',
+    'tracks/Sample2.mp3',
+    'tracks/Sample3.mp3',
+    'tracks/Sample4.mp3',
+    'tracks/Sample5.mp3',
+    'tracks/Sample6.mp3',
   ]
 
   function listener(evt) {
