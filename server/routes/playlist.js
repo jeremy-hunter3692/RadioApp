@@ -30,9 +30,12 @@ router.get('/id', (req, res) => {
 // POST /api/v1/
 router.post('/', (req, res) => {
   const { name } = req.body
-  db.addPlaylist({ name })
+  const { imageId } = req.body
+  const playlistData = {}
+  playlistData.image_id = imageId
+  db.addPlaylist(playlistData)
     .then((playlist) => {
-      res.json({ id: playlist, name })
+      res.json({ id: playlist, name, imageId })
       return null
     })
     .catch((err) => {

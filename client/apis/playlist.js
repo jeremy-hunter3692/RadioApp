@@ -11,7 +11,10 @@ export function getPlaylists() {
 }
 
 // add Playlist name from a form
+//TO DO let users select image
 export function addPlaylist(newPlaylist) {
+  const tempObj = { imageId: 1 }
+  tempObj.newPlaylist = newPlaylist
   return request
     .post(rootUrl + '/playlist/')
     .send(newPlaylist)
