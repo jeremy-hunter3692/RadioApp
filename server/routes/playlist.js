@@ -14,11 +14,20 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/id', (req, res) => {
-  const id = req.body.id
-  db.getPlaylistById(id)
-    .then((data) => {
-      res.json(data)
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  const playlist = {}
+  db.getPlaylistDetailsById(id)
+    .then((details) => {
+      console.log('deets', details)
+      playlist.name = details.name
+      playlist.image = details.image
+      playlist.id = details.id
+      return db.getTracksByPlaylistId(id)
+    })
+    .then((tracks) => {
+      playlist.tracks = tracks
+      res.json(playlist)
     })
     .catch((err) => {
       console.error(err.message)

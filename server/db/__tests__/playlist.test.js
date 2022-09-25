@@ -2,7 +2,11 @@ const knex = require('knex')
 const config = require('../knexfile').test
 const testDb = knex(config)
 
-const { addPlaylist, addTracksToPlaylist } = require('../playlist.js')
+const {
+  getAllPlaylists,
+  addPlaylist,
+  addTracksToPlaylist,
+} = require('../playlist.js')
 
 beforeAll(() => {
   return testDb.migrate.latest()
@@ -44,8 +48,17 @@ describe('addTracksToPlaylist', () => {
         return testDb('tracks_playlist').select()
       })
       .then((result) => {
-        // console.log(result)
         expect(result).toHaveLength(13)
       })
+  })
+})
+
+describe('getAllPlaylists', () => {
+  test('returns all the playlists', () => {
+    return getAllPlaylists(testDb).then((playlists) => {
+      expect(playlists).toHaveLength(9)
+      expect(playlists[2].name).toBe('Cool Jazz')
+      expect(playlists[2].id).toBe(3)
+    })
   })
 })

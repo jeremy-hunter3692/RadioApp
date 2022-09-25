@@ -10,6 +10,7 @@ export default function Playlist() {
           <div key={playlist.id} className='playlist'>
             <img src={playlist.imageId} alt={playlist.name} />
             <h3>{playlist.name}</h3>
+   
           </div>
         )
       })}

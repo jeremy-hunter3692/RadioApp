@@ -1,6 +1,6 @@
 // from my personal project, trying to decide which to pursue
 
-import { getPlaylists } from '../../apis/playlist'
+import { getPlaylists } from '../apis/playlist'
 export const SET_ERROR = 'SET_ERROR'
 
 // all the playlists
