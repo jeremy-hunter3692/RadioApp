@@ -27,11 +27,6 @@ router.get('/id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-<<<<<<< HEAD
-  const tracks = req.body.tracks
-  console.log(tracks)
-  db.addTrackToPlaylist(tracks)
-=======
   const newTrack = req.body
   // console.log('route: info =', info)
   db.addTrack(newTrack)
@@ -42,7 +37,6 @@ router.post('/', (req, res) => {
       console.error(err.message)
       res.status(500).json({ message: 'Something went wrong' })
     })
->>>>>>> dev
 })
 
 module.exports = router
