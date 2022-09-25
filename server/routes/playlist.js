@@ -1,21 +1,6 @@
 const express = require('express')
 const db = require('../db/playlist')
 const router = express.Router()
-// We used 'import' in the Patch group project, but doesn't work here ...
-// import 'dotenv/config'
-
-// ...So I think we need to use the 'require' syntax (per code from class):
-require('dotenv').config()
-
-// We used 'import' in the Patch group project, but doesn't work here ...
-// import { v2 as cloudinary } from 'cloudinary'
-
-// ...So I think we need to use the 'require' syntax (per code from class):
-const cloudinary = require('cloudinary').v2
-
-const cloudName = 'dwjfqnyxs'
-const apiKey = '581619511564695'
-const apiSecret = process.env.SECRET_KEY
 
 // GET /api/v1/playlist/
 router.get('/', (req, res) => {
@@ -52,9 +37,8 @@ router.get('/:id', (req, res) => {
 // Nani did this for adding a playlist to the db - cheers
 // GET /api/v1/playlist/
 router.post('/', (req, res) => {
-  console.log('SERVER ROUTE', req.body)
   const { name } = req.body
-  console.log(req)
+
   db.addPlaylist({ name })
     .then((playlist) => {
       res.json({ id: playlist, name })
@@ -68,7 +52,7 @@ router.post('/', (req, res) => {
 // GET /api/v1/playlist/addTrack
 router.post('/addTrack', (req, res) => {
   const data = req.body
-  console.log('data info', data)
+  // console.log('data info', data)
   db.addTracksToPlaylist(data)
     .then((track) => {
       res.json(track)
@@ -82,7 +66,7 @@ router.post('/addTrack', (req, res) => {
 // TO DO adding new playist and tracks at the same time.
 router.post('/', (req, res) => {
   const data = { name: req.body.playlistName }
-  console.log('data info', data)
+  // console.log('data info', data)
   const tracks = req.body.tracks
   let tempId = null
   db.addPlaylist(data)
@@ -103,27 +87,6 @@ router.post('/', (req, res) => {
       console.error(err.message)
       res.status(500).json({ message: 'Something went wrong' })
     })
-})
-
-//----------------
-//-- CLOUDINARY --
-//----------------
-router.post('/audiofile', (req, res) => {
-  const timestamp = Math.round(new Date().getTime() / 1000)
-
-  const signature = cloudinary.utils.api_sign_request(
-    {
-      timestamp,
-    },
-    apiSecret
-  )
-
-  res.json({
-    signature,
-    timestamp,
-    cloudName,
-    apiKey,
-  })
 })
 
 module.exports = router
