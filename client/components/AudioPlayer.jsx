@@ -1,19 +1,26 @@
 import React, { useState } from 'react'
 
+const init = 0
+
 export default function AudioPlayer() {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(init)
 
   const audio = [
     'tracks/BDS612AnalogJuice.wav',
-    'BDS612AnalogPitched.wav',
-    'BDS612AnalogPunch.wav',
-    'BDS612Dark.wav',
-    'CH606lip03.wav',
+    'tracks/BDS612AnalogPitched.wav',
+    'tracks/BDS612AnalogPunch.wav',
+    'tracks/BDS612Dark.wav',
+    'tracks/CH606lip03.wav',
   ]
 
-  function listener() {
-    console.log('end')
-    setIndex(index + 1)
+  function listener(evt) {
+    if (index === audio.length - 1) {
+      setIndex(init)
+    } else {
+      setIndex(index + 1)
+    }
+    console.log('end', index)
+    console.log(audio[index])
   }
 
   // const audioElement = audio
@@ -26,14 +33,15 @@ export default function AudioPlayer() {
     <>
       <h1>audio:</h1>
 
-      <audio controls>
-        <source
-          id='audio'
-          onEnded={listener}
-          src={audio[index]}
-          type='audio/wav'
-        />
-      </audio>
+      <audio
+        controls
+        id='audio'
+        onEnded={(evt) => {
+          listener()
+        }}
+        src={audio[index]}
+        type='audio/wav'
+      />
     </>
   )
 }
