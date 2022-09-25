@@ -11,13 +11,14 @@ export function getPlaylists() {
 }
 
 // add Playlist name from a form
-//TO DO let users select image
+//TO DO Randomise id number. Then let users select image
 export function addPlaylist(newPlaylist) {
-  const tempObj = { imageId: 1 }
-  tempObj.newPlaylist = newPlaylist
+  const randomNumber = Math.ceil(Math.random() * 16)
+  const tempObj = { ...newPlaylist, imageId: randomNumber }
+  console.log('API: ', tempObj)
   return request
     .post(rootUrl + '/playlist/')
-    .send(newPlaylist)
+    .send(tempObj)
     .then((res) => {
       return res.body
     })
