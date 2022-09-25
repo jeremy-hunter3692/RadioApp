@@ -11,7 +11,7 @@ export function getPlaylists() {
 }
 
 // add Playlist name from a form
-//TO DO Randomise id number. Then let users select image
+//TODO: Randomise id number. Then let users select image
 export function addPlaylist(newPlaylist) {
   const randomNumber = Math.ceil(Math.random() * 16)
   const tempObj = { ...newPlaylist, imageId: randomNumber }
