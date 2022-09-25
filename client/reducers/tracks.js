@@ -1,6 +1,6 @@
 // REDUCER THAT HANDLES TRACK ACTIONS
 
-import { ADD_TRACK_TO_DATABASE } from '../actions/track'
+import { ADD_TRACK_TO_DATABASE } from '../actions/tracks'
 // gotta remember to include the action creators in /actions/track.js
 
 const initialTrackState = []

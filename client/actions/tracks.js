@@ -1,4 +1,4 @@
-import { addTrackToDb } from '../apis/track.js'
+import { addTrackToDb } from '../apis/tracks.js'
 
 export const ADD_TRACK_TO_DATABASE = 'ADD_TRACK_TO_DATABASE'
 

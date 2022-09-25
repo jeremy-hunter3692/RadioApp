@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addNewTrack } from '../actions/track'
+import { addNewTrack } from '../actions/tracks'
 
 const initialForm = {
   title: '',
