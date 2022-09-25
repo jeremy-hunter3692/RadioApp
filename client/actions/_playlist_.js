@@ -42,3 +42,28 @@ export function setError(errMessage) {
     errMessage,
   }
 }
+
+// export function fetchPlaylists() {
+//   return (dispatch) => {
+//     return getPlaylists()
+//       .then((playlists) => {
+//         dispatch(fetchPlaylistsSuccess(playlists))
+//       })
+//       .catch((err) => {
+//         dispatch(fetchPlaylistsFailure(err.message))
+//       })
+//   }
+// }
+// export function addNewPlaylist(newPlaylist) {
+//   return (dispatch) => {
+//     return addPlaylist(newPlaylist)
+//       .then((playlists) => {
+// console.log('actions', playlists)
+//         dispatch(fetchNewPlaylist(playlists))
+//         return null
+//       })
+//       .catch((err) => {
+//         dispatch(fetchPlaylistsFailure(err.message))
+//       })
+//   }
+// }

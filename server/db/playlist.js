@@ -28,8 +28,12 @@ function getPlaylistDetailsById(id, db = connection) {
 }
 
 function getAllPlaylists(db = connection) {
-  return db('playlist').select()
+  return db('playlist')
+    .join('images', 'playlist.image_id', 'images.id')
+    .select('name', 'images.image_url as image', 'playlist.id')
+    .select()
 }
+
 function addPlaylist(newPlaylist, db = connection) {
   return db('playlist')
     .insert(newPlaylist)
@@ -41,9 +45,9 @@ function addTracksToPlaylist(tracksArray, db = connection) {
 }
 
 module.exports = {
+  addTracksToPlaylist,
   getTracksByPlaylistId,
   getAllPlaylists,
   addPlaylist,
-  addTracksToPlaylist,
   getPlaylistDetailsById,
 }
