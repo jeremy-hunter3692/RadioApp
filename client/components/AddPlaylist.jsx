@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const initialFormData = {
   name: '',
+  image: '',
 }
 
 export default function AddPlaylist() {
@@ -15,11 +16,11 @@ export default function AddPlaylist() {
   const [selectedFile, setSelectedFile] = useState(null)
   const navigate = useNavigate()
 
-  const handleChange = async (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value })
-  }
+  // const handleChange = async (event) => {
+  //   setForm({ ...form, [event.target.name]: event.target.value })
+  // }
 
-  // >>> This is what here, but have replaced with the handleSubmit function below, taken from Patch project
+  // >>> This is what we had, but have replaced with the handleSubmit function below, taken from Patch project
   // >>> to deal with Cloudinary
   //   const handleSubmit = async (event) => {
   //   event.preventDefault()
@@ -29,6 +30,7 @@ export default function AddPlaylist() {
 
   // CLOUDINARY
   function handleFileChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value })
     setSelectedFile(e.target.files[0])
   }
 
@@ -48,31 +50,19 @@ export default function AddPlaylist() {
       console.log(err)
     }
   }
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault()
-  //   dispatch(addNewPlaylist(form))
-  //   setForm(initialFormData)
-  // }
 
   return (
     <>
       <form onSubmit={handleSubmit} className='form'>
         <input
           id='name'
-          onChange={handleChange}
+          onChange={handleFileChange}
           value={form.name}
           name='name'
           placeholder='Give your Mixtape a name.'
         />
-        <input
-          id='creator'
-          onChange={handleChange}
-          value={form.creator}
-          name='creator'
-          placeholder='What is your name?'
-        />
         <div>
-          <label htmlFor='image'>Upload an image</label>
+          <label htmlFor='image'>Upload a file</label>
           <input
             id='image'
             type='file'
@@ -82,9 +72,10 @@ export default function AddPlaylist() {
             className='border-black-300 bg-white-300 shadow-black-100 rounded-md border-2 text-center shadow-md'
           />
         </div>
-
         <button>Create your Mixtape</button>
       </form>
     </>
   )
 }
+
+//------------------------------------
