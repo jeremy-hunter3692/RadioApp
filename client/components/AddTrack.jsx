@@ -16,7 +16,6 @@ const initialForm = {
 export default function AddTrack() {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialForm)
-
   // CLOUDINARY
   const [selectedFile, setSelectedFile] = useState(null)
   const navigate = useNavigate()
@@ -31,17 +30,18 @@ export default function AddTrack() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    dispatch(addNewTrack(form))
+    //dispatch(addNewTrack(form))
     setForm(initialForm)
 
     const file = selectedFile
     try {
       const audioUrl = await getAudioFile(file) // TODO: when auth0 is set up, need to pass token
-      const playlist = {
+      const newTrack = {
         ...form,
         filepath: audioUrl,
       }
-      await addTrackToDb(playlist) // TODO: when auth0 is set up, need to pass token
+      await dispatch(addNewTrack(newTrack))
+      // await addTrackToDb(newTrack) // TODO: when auth0 is set up, need to pass token
       navigate('.')
     } catch (err) {
       console.log(err)

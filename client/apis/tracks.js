@@ -43,7 +43,7 @@ export async function getAudioFile(audioFile) {
     .post(url)
     .send(formData)
     .then((res) => res.body.url)
-
+  //console.log('APIS / TRACKS / This is the url of the file', imageUrl)
   return imageUrl
 }
 
