@@ -35,8 +35,10 @@ export const fetchPlaylists = () => (dispatch) => {
 }
 
 export const addNewPlaylist = (newPlaylist) => (dispatch) => {
+  dispatch(fetchPlaylistsRequest())
   return addPlaylist(newPlaylist)
     .then((playlists) => {
+      console.log('ACTIONS:', playlists)
       dispatch(fetchNewPlaylist(playlists))
     })
     .catch((error) => {
