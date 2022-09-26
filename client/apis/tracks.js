@@ -16,9 +16,9 @@ export function addTrackToDb(newTrack) {
 //----------------
 //-- CLOUDINARY --
 //----------------
-export async function getAudioFile(audioFile) {
+export async function getAudioFileUrl(audioFile) {
   // TODO: when auth0 is set up, need to pass token
-
+  console.log('API / TRACK / audiofile:', audioFile)
   const { name, type } = audioFile
   const fileObject = {
     fileName: name,
@@ -26,12 +26,13 @@ export async function getAudioFile(audioFile) {
   }
 
   const { signature, timestamp, cloudName, apiKey } = await request
+
     .post(rootUrl + '/tracks/audiofile')
     .send(fileObject)
     //.set('Authorization', `Bearer ${token}`) //TODO: May need this with auth0
     .then((res) => res.body)
 
-  const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`
+  const url = `https://api.cloudinary.com/v1_1/${cloudName}/video/upload`
 
   const formData = new FormData()
   formData.append('file', audioFile)

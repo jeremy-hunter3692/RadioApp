@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addNewTrack } from '../actions/tracks'
-import { addTrackToDb, getAudioFile } from '../apis/tracks'
+import { getAudioFileUrl } from '../apis/tracks'
 // For Cloudinary
 import { useNavigate } from 'react-router-dom'
 
@@ -16,7 +16,7 @@ const initialForm = {
 export default function AddTrack() {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialForm)
-  // CLOUDINARY
+  // Added for the CLOUDINARY part of the form
   const [selectedFile, setSelectedFile] = useState(null)
   const navigate = useNavigate()
 
@@ -30,18 +30,17 @@ export default function AddTrack() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    //dispatch(addNewTrack(form))
     setForm(initialForm)
 
     const file = selectedFile
     try {
-      const audioUrl = await getAudioFile(file) // TODO: when auth0 is set up, need to pass token
+      const audioUrl = await getAudioFileUrl(file) // TODO: when auth0 is set up, need to pass token
       const newTrack = {
         ...form,
         filepath: audioUrl,
       }
       await dispatch(addNewTrack(newTrack))
-      // await addTrackToDb(newTrack) // TODO: when auth0 is set up, need to pass token
+      // TODO: when auth0 is set up, need to pass token
       navigate('.')
     } catch (err) {
       console.log(err)
@@ -87,8 +86,9 @@ export default function AddTrack() {
           <input
             id='filepath'
             type='file'
+            resource_type='video'
             name='filepath'
-            accept='image/*'
+            accept='video/*'
             onChange={handleFileChange}
           />
         </div>
