@@ -10,20 +10,16 @@ export function getPlaylists() {
   })
 }
 
-
 // get a Playlist by id
 export function getPlaylistById(id) {
   return request
-    .get(rootUrl + `/playlists/${id}`)
+    .get(rootUrl + `/playlist/${id}`)
     .then((res) => {
+      console.log('api', res.body)
       return res.body
     })
-    .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
+    .catch(errorHandler('ADD', rootUrl + `/playlist/${id}`))
 }
-
-
-
-
 
 // add Playlist name from a form
 //TODO: Randomise id number. Then let users select image
