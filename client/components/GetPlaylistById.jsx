@@ -1,43 +1,27 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { selectPlaylistById } from '../actions/playlist'
+import { useSelector } from 'react-redux'
 
 export default function GetPlaylistById() {
-  const dispatch = useDispatch()
-  const { id } = useParams()
-  const {
-    data: trackId,
-    title,
-    artist,
-    playlistName,
-    playlistId,
-  } = useSelector((state) => state.tracks_playlist)
-
-  console.log(
-    'COMPONENT: ',
-    id,
-    trackId,
-    title,
-    artist,
-    playlistId,
-    playlistName
-  )
+  const info = useSelector((state) => state.playlistById?.data)
 
   useEffect(() => {
-    dispatch(selectPlaylistById(id))
-  }, [])
+    console.log('STATE DATA', info)
+  }, [info])
 
   return (
     <>
-      <div key={playlistId}>
-        <h2>{playlistName}</h2>
-      </div>
       <div>
-        <h3>{title}</h3>
-        <h3>{artist}</h3>
-        <h3>{trackId}</h3>
+        <h2>{info && info.length > 0 && info[0].playlistName}</h2>
       </div>
+      {info?.map((playlist) => {
+        return (
+          <div key={playlist.trackId}>
+            <h3>{playlist.title}</h3>
+            <h3>{playlist.artist}</h3>
+            <h3>{playlist.trackId}</h3>
+          </div>
+        )
+      })}
     </>
   )
 }

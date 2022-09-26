@@ -12,6 +12,7 @@ import {
 const initialPlaylistState = { data: null, error: null }
 
 const playlistsReducer = (state = initialPlaylistState, action) => {
+  console.log('REDUCER ACTION: ', action)
   const { type, payload } = action
   switch (type) {
     case FETCH_PLAYLISTS_REQUEST:
@@ -22,11 +23,6 @@ const playlistsReducer = (state = initialPlaylistState, action) => {
       return { ...state, error: payload.error }
     case 'ADD_PLAYLIST':
       return { data: [...state.data, payload], error: null }
-    case 'GET_PLAYLIST_BY_ID':
-      console.log = ('REDUCER: ', payload)
-      // return { data: [...state.data, payload.tracks_playlist],
-      return { data: payload.tracks_playlist, error: null }
-
     default:
       return state
   }

@@ -23,11 +23,13 @@ export function addPlaylist(newPlaylist) {
 
 // get a Playlist by id
 export function getPlaylistById(id) {
+  console.log('api firing')
   return (
     request
-      // .get(rootUrl + `/playlists/${id}`)
+      // .get(rootUrl + `/playlist/`)
       // server route is GET /:id
-      .get(rootUrl + `/${id}`)
+      .get(rootUrl + `/playlist/${id}`)
+      // .get(rootUrl + `1`)
       .then((res) => {
         console.log('API: ', res.body)
         return res.body
