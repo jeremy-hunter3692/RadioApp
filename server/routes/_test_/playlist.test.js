@@ -56,7 +56,7 @@ describe('GET /api/v1/playlist/id', () => {
     return request(server)
       .get('/api/v1/playlist/5')
       .then((res) => {
-        expect(res.body.id).toBe(5)
+        expect(res.body.id).toBe(3)
         expect(res.body.name).toBe('Summer Lovin')
         expect(res.body.image).toBe('images/1.png')
         return null
@@ -69,6 +69,75 @@ describe('GET /api/v1/playlist/id', () => {
     console.error.mockImplementation(() => {})
     return request(server)
       .get('/api/v1/playlist/5')
+      .then((res) => {
+        expect(res.status).toBe(500)
+        expect(console.error).toHaveBeenCalledWith('test error message')
+        return null
+      })
+  })
+})
+
+//-----------------
+
+describe('POST /api/v1/playlist', () => {
+  // test.skip('adds a playlist to the databse', () => {
+  //   const playlistData = {
+  //     id: 7,
+  //     name: 'public/track1',
+  //   }
+  //   expect.assertions(1)
+  //   db.addTracksToPlaylist.mockReturnValue(Promise.resolve(playlistData))
+  //   return request(server)
+  //     .post('/api/v1/playlist')
+  //     .send(playlistData)
+  //     .then((res) => {
+  //       expect(res.body.id).toBe(7)
+  //       return null
+  //     })
+  // })
+  test('return status 500 and consoles error when problem', () => {
+    db.addTracksToPlaylist.mockImplementation(() =>
+      Promise.reject(new Error('test error message'))
+    )
+    console.error.mockImplementation(() => {})
+    return request(server)
+      .get('/api/v1/playlist/addTrack')
+      .then((res) => {
+        expect(res.status).toBe(500)
+        expect(console.error).toHaveBeenCalledWith('test error message')
+        return null
+      })
+  })
+})
+
+//-----------------
+
+describe('POST /api/v1/playlist/addTrack', () => {
+  test('adds a track to a playlist', () => {
+    const trackData = {
+      id: 5,
+      filePath: 'public/track1',
+      title: 'candy floss sunset',
+    }
+    expect.assertions(3)
+    db.addTracksToPlaylist.mockReturnValue(Promise.resolve(trackData))
+    return request(server)
+      .post('/api/v1/playlist/addTrack')
+      .send(trackData)
+      .then((res) => {
+        expect(res.body.id).toBe(5)
+        expect(res.body.filePath).toBe('public/track1')
+        expect(res.body.title).toBe('candy floss sunset')
+        return null
+      })
+  })
+  test('return status 500 and consoles error when problem', () => {
+    db.addTracksToPlaylist.mockImplementation(() =>
+      Promise.reject(new Error('test error message'))
+    )
+    console.error.mockImplementation(() => {})
+    return request(server)
+      .get('/api/v1/playlist/addTrack')
       .then((res) => {
         expect(res.status).toBe(500)
         expect(console.error).toHaveBeenCalledWith('test error message')

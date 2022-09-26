@@ -38,7 +38,6 @@ router.get('/:id', (req, res) => {
 // Nani did this for adding a playlist to the db - cheers
 // GET /api/v1/playlist/
 router.post('/', (req, res) => {
-  console.log('SERVER ROUTE', req.body)
   const { name } = req.body
   const { imageId } = req.body
   const dbObj = { name: name, image_id: imageId }
@@ -52,10 +51,10 @@ router.post('/', (req, res) => {
       res.status(500).send(err.message)
     })
 })
+
 // GET /api/v1/playlist/addTrack
 router.post('/addTrack', (req, res) => {
   const data = req.body
-  console.log('data info', data)
   db.addTracksToPlaylist(data)
     .then((track) => {
       res.json(track)
@@ -69,7 +68,7 @@ router.post('/addTrack', (req, res) => {
 // TO DO adding new playist and tracks at the same time.
 router.post('/', (req, res) => {
   const data = { name: req.body.playlistName }
-  console.log('data info', data)
+  // console.log('data info', data)
   const tracks = req.body.tracks
   let tempId = null
   db.addPlaylist(data)
