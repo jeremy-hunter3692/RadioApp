@@ -23,6 +23,7 @@ export default function Landing() {
         <AddPlaylist />
         <Playlist />
       </div>
+
       <div className='track'>
         <GetPlaylistById />
       </div>
