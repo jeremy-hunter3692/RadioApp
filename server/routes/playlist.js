@@ -65,7 +65,7 @@ router.post('/addTrack', (req, res) => {
 // TO DO adding new playist and tracks at the same time.
 router.post('/', (req, res) => {
   const data = { name: req.body.playlistName }
-  console.log('data info', data)
+  // console.log('data info', data)
   const tracks = req.body.tracks
   let tempId = null
   db.addPlaylist(data)

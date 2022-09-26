@@ -25,7 +25,9 @@ export function addPlaylist(newPlaylist) {
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))
 }
 
-// perhaps if (res.status === 200) {return res.body} ??  not sure that would matter if we do auth0
+//--------------
+
+// perhaps if (re.status === 200) {return res.body} for line 49
 
 function errorHandler(method, route) {
   return (err) => {
