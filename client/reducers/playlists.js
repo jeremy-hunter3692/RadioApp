@@ -12,7 +12,6 @@ import {
 const initialPlaylistState = { data: null, error: null }
 
 const playlistsReducer = (state = initialPlaylistState, action) => {
-  console.log('REDUCER ACTION: ', action)
   const { type, payload } = action
   switch (type) {
     case FETCH_PLAYLISTS_REQUEST:

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 // ACTION CREATORS
-// import { fetchLandingContent } from '../actions/landing'
 import { fetchPlaylists } from '../actions/playlist'
 // COMPONENTS
 import AddPlaylist from './AddPlaylist'
@@ -23,7 +22,7 @@ export default function Landing() {
         <Playlist />
       </div>
 
-      <div>
+      <div className='track'>
         <GetPlaylistById />
       </div>
     </Container>

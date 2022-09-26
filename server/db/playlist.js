@@ -1,5 +1,5 @@
 const connection = require('./connection')
-// do we need first()?
+
 function getPlaylistById(id, db = connection) {
   return db('tracks_playlist')
     .where('playlist_id', id)
@@ -17,7 +17,10 @@ function getPlaylistById(id, db = connection) {
     )
 }
 function getAllPlaylists(db = connection) {
-  return db('playlist').select('id', 'name')
+  return db('playlist')
+    .join('images', 'playlist.image_id', 'images.id')
+    .select('name', 'images.image_url as image', 'playlist.id')
+    .select()
 }
 
 function addPlaylist(newPlaylist, db = connection) {

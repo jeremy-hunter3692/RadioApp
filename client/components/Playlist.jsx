@@ -21,7 +21,7 @@ export default function Playlist() {
               handleClick(event, playlists.id)
             }}
           >
-            <img src={playlists.image} />
+            <img src={playlists.image} alt={playlists.name} />
             <h3>{playlists.name}</h3>
           </div>
         )

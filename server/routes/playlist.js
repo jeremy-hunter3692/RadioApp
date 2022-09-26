@@ -15,11 +15,9 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  // const id = req.body.id
   const { id } = req.params
   db.getPlaylistById(id)
     .then((data) => {
-      console.log('ROUTE', id, data)
       res.json(data)
     })
     .catch((err) => {
