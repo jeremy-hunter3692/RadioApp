@@ -56,7 +56,7 @@ describe('GET /api/v1/playlist/id', () => {
     return request(server)
       .get('/api/v1/playlist/5')
       .then((res) => {
-        expect(res.body.id).toBe(3)
+        expect(res.body.id).toBe(5)
         expect(res.body.name).toBe('Summer Lovin')
         expect(res.body.image).toBe('images/1.png')
         return null

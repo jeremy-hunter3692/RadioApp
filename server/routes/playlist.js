@@ -47,12 +47,10 @@ router.post('/', (req, res) => {
   return db
     .addPlaylist(dbObj)
     .then((playlist) => {
-      console.log('first', playlist)
       tempPlayist = playlist
       return imageDb.getImageById(imageId)
     })
     .then((imagesReturn) => {
-      console.log('iamge', imagesReturn, 'temp', tempPlayist)
       let image = imagesReturn.image_url
       res.json({ id: tempPlayist, name, image })
       return null
