@@ -33,12 +33,12 @@ export function getPlaylistById(id) {
     .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
 }
 
-// POST /api/v1/playlist/addTrack
+// POST /api/v1/playlist/assignTrack
 // Assign a track to a playlist
 export function assignTracktoPlaylist(data) {
   console.log('API / PLAYLIST data:', data)
   return request
-    .post(rootUrl + '/playlist/addTrack')
+    .post(rootUrl + '/playlist/assignTrack')
     .send(data)
     .then((res) => {
       return res.body

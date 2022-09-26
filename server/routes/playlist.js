@@ -61,10 +61,11 @@ router.post('/', (req, res) => {
     })
 })
 
-// POST /api/v1/playlist/addTrack
-router.post('/addTrack', (req, res) => {
+// POST /api/v1/playlist/assignTrack
+router.post('/assignTrack', (req, res) => {
   const data = req.body
-  db.addTracksToPlaylist(data)
+
+  db.addOneTrackToPlaylist(data)
     .then((track) => {
       res.json(track)
     })

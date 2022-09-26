@@ -29,15 +29,17 @@ export default function AssignTracks() {
     })
   }, [])
 
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault()
     assignTracktoPlaylist(form)
-
+    console.log('form:', form)
     setForm(initialForm)
+  }
+
+  function handleChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value })
+    console.log('handleChange: e.target.name', e.target.name)
+    console.log('handleChange: e.target.value', e.target.value)
   }
 
   return (
@@ -45,7 +47,12 @@ export default function AssignTracks() {
       <form onSubmit={handleSubmit} className='form'>
         <label htmlFor='track'>Choose a track and a mixtape:</label>
 
-        <select id='track' name='track'>
+        <select
+          id='track'
+          name='track'
+          value={form.track}
+          onChange={handleChange}
+        >
           {tracks.map((track) => (
             <option key={track.id} value={track.id} title='Choose a track'>
               {track.title}
@@ -53,7 +60,12 @@ export default function AssignTracks() {
           ))}
         </select>
 
-        <select id='playlist' name='playlist'>
+        <select
+          id='playlist'
+          name='playlist'
+          value={form.playlist}
+          onChange={handleChange}
+        >
           {playlists.map((playlist) => (
             <option key={playlist.id} value={playlist.id}>
               {playlist.name}

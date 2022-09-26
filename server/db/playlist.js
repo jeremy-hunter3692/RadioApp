@@ -34,12 +34,23 @@ function addPlaylist(newPlaylist, db = connection) {
     .then((ids) => ids[0])
 }
 
+// Add multiple tracks to a playlist - pass in an array of tracks to add
 function addTracksToPlaylist(tracksArray, db = connection) {
   return db('tracks_playlist').insert(tracksArray)
 }
 
+// Add one track to a playlist - 'data' is an obj containing track and playlist properties (which are the id values)
+function addOneTrackToPlaylist(data, db = connection) {
+  const trackId = data.track
+  const playlistId = data.playlist
+  return db('tracks_playlist').insert({
+    track_id: trackId,
+    playlist_id: playlistId,
+  })
+}
 module.exports = {
   addTracksToPlaylist,
+  addOneTrackToPlaylist,
   getTracksByPlaylistId,
   getAllPlaylists,
   addPlaylist,

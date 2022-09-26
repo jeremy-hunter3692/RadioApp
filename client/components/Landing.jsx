@@ -24,11 +24,13 @@ export default function Landing() {
       <div className='playlists centerThis'>
         <AddPlaylist />
         <Playlist />
-        <AssignTracks />
       </div>
 
       <div className='track'>
         <GetPlaylistById />
+      </div>
+      <div>
+        <AssignTracks />
       </div>
       <div>
         <Track />
