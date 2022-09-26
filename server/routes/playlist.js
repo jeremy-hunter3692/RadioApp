@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
     .then((details) => {
       playlist.name = details.name
       playlist.image = details.image
-      playlist.id = details.id
+      playlist.id = id
       return db.getTracksByPlaylistId(id)
     })
     .then((tracks) => {

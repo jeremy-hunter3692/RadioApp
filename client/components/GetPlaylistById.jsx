@@ -2,16 +2,20 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 export default function GetPlaylistById() {
-  const info = useSelector((state) => state.playlistById?.data)
-
+  const info = useSelector((state) => state.playlistById.data)
+  // console.log('from get playlist', info)
   useEffect(() => {}, [info])
 
   return (
     <>
       <div>
-        <h2>{info && info.length > 0 && info[0].playlistName}</h2>
+        <h2>
+          {info?.tracks &&
+            info?.tracks.length > 0 &&
+            info?.tracks[0].playlistName}
+        </h2>
       </div>
-      {info?.map((playlist) => {
+      {info?.tracks.map((playlist) => {
         return (
           <div key={playlist.trackId}>
             <h3>{playlist.title}</h3>
