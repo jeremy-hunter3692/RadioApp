@@ -15,7 +15,6 @@ export function getPlaylists() {
 export function addPlaylist(newPlaylist) {
   const randomNumber = Math.ceil(Math.random() * 16)
   const tempObj = { ...newPlaylist, imageId: randomNumber }
-  console.log('API: ', tempObj)
   return request
     .post(rootUrl + '/playlist/')
     .send(tempObj)
@@ -23,6 +22,15 @@ export function addPlaylist(newPlaylist) {
       return res.body
     })
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))
+}
+// get a Playlist by id
+export function getPlaylistById(id) {
+  return request
+    .get(rootUrl + `/playlist/${id}`)
+    .then((res) => {
+      return res.body
+    })
+    .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
 }
 
 // POST /api/v1/playlist/addTrack
@@ -39,7 +47,7 @@ export function assignTracktoPlaylist(data) {
 
 //--------------
 
-// perhaps if (re.status === 200) {return res.body} for line 49
+// perhaps if (res.status === 200) {return res.body} ??  not sure that would matter if we do auth0
 
 function errorHandler(method, route) {
   return (err) => {
