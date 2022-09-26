@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
 })
 // GET /api/v1/playlist/:id
 router.get('/:id', (req, res) => {
-  const id = req.params.id
+  const id = Number(req.params.id)
+
   const playlist = {}
   db.getPlaylistDetailsById(id)
     .then((details) => {
@@ -39,10 +40,11 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   console.log('SERVER ROUTE', req.body)
   const { name } = req.body
-  console.log(req)
-  db.addPlaylist({ name })
+  const { imageId } = req.body
+  const dbObj = { name: name, image_id: imageId }
+  db.addPlaylist(dbObj)
     .then((playlist) => {
-      res.json({ id: playlist, name })
+      res.json({ id: playlist, name, imageId })
       return null
     })
     .catch((err) => {

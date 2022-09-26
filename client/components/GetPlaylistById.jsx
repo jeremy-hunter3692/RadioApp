@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 
 export default function GetPlaylistById() {
   const info = useSelector((state) => state.playlistById.data)
-  // console.log('from get playlist', info)
   useEffect(() => {}, [info])
 
   return (

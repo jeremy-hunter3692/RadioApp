@@ -15,7 +15,6 @@ export function getPlaylists() {
 export function addPlaylist(newPlaylist) {
   const randomNumber = Math.ceil(Math.random() * 16)
   const tempObj = { ...newPlaylist, imageId: randomNumber }
-  console.log('API: ', tempObj)
   return request
     .post(rootUrl + '/playlist/')
     .send(tempObj)
