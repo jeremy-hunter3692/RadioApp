@@ -31,7 +31,6 @@ function getAllPlaylists(db = connection) {
   return db('playlist')
     .join('images', 'playlist.image_id', 'images.id')
     .select('name', 'images.image_url as image', 'playlist.id')
-    .select()
 }
 
 function addPlaylist(newPlaylist, db = connection) {

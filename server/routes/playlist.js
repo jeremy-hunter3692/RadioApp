@@ -1,5 +1,6 @@
 const express = require('express')
 const db = require('../db/playlist')
+const imageDb = require('../db/images')
 const router = express.Router()
 
 // GET /api/v1/playlist/
@@ -38,12 +39,22 @@ router.get('/:id', (req, res) => {
 // Nani did this for adding a playlist to the db - cheers
 // GET /api/v1/playlist/
 router.post('/', (req, res) => {
+  //add call to db
   const { name } = req.body
   const { imageId } = req.body
+  let tempPlayist = null
   const dbObj = { name: name, image_id: imageId }
-  db.addPlaylist(dbObj)
+  return db
+    .addPlaylist(dbObj)
     .then((playlist) => {
-      res.json({ id: playlist, name, imageId })
+      console.log('first', playlist)
+      tempPlayist = playlist
+      return imageDb.getImageById(imageId)
+    })
+    .then((imagesReturn) => {
+      console.log('iamge', imagesReturn, 'temp', tempPlayist)
+      let image = imagesReturn.image_url
+      res.json({ id: tempPlayist, name, image })
       return null
     })
     .catch((err) => {
