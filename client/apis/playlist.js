@@ -23,7 +23,6 @@ export function addPlaylist(newPlaylist) {
     })
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))
 }
-
 // get a Playlist by id
 export function getPlaylistById(id) {
   return request
