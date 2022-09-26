@@ -1,4 +1,4 @@
-import { getPlaylists, addPlaylist } from '../apis/playlist.js'
+import { getPlaylists, addPlaylist, getPlaylistById } from '../apis/playlist.js'
 
 export const FETCH_PLAYLISTS_REQUEST = 'FETCH_PLAYLISTS_REQUEST'
 export const FETCH_PLAYLISTS_SUCCESS = 'FETCH_PLAYLISTS_SUCCESS'
@@ -22,6 +22,11 @@ export const fetchNewPlaylist = (newPlaylist) => ({
   type: 'ADD_PLAYLIST',
   payload: newPlaylist,
 })
+export const fetchPlaylistById = (tracks_playlist) => ({
+  type: 'GET_PLAYLIST_BY_ID',
+  payload: tracks_playlist,
+})
+// note to self: id or tracks_playlist?
 
 export const fetchPlaylists = () => (dispatch) => {
   dispatch(fetchPlaylistsRequest())
@@ -37,9 +42,19 @@ export const fetchPlaylists = () => (dispatch) => {
 export const addNewPlaylist = (newPlaylist) => (dispatch) => {
   dispatch(fetchPlaylistsRequest())
   return addPlaylist(newPlaylist)
-    .then((playlists) => {
-      console.log('ACTIONS:', playlists)
-      dispatch(fetchNewPlaylist(playlists))
+    .then((playlist) => {
+      dispatch(fetchNewPlaylist(playlist))
+    })
+    .catch((error) => {
+      dispatch(fetchPlaylistsFailure(error.message))
+    })
+}
+
+export const selectPlaylistById = (id) => (dispatch) => {
+  dispatch(fetchPlaylistsRequest())
+  return getPlaylistById(id)
+    .then((tracks_playlist) => {
+      dispatch(fetchPlaylistById(tracks_playlist))
     })
     .catch((error) => {
       dispatch(fetchPlaylistsFailure(error.message))
