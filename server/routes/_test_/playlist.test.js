@@ -81,20 +81,20 @@ describe('GET /api/v1/playlist/id', () => {
 //-----------------
 
 describe('POST /api/v1/playlist', () => {
-  test('adds a playlist to the databse', () => {
-    const playlistData = {
-      id: 7,
-      name: 'public/track1',
-    }
-    expect.assertions(1)
-    db.addTracksToPlaylist.mockReturnValue(Promise.resolve(playlistData))
-    return request(server)
-      .post('/api/v1/playlist')
-      .send(playlistData)
-      .then((res) => {
-        expect(res.body.id).toBe(7)
-        return null
-      })
+  // test.skip('adds a playlist to the databse', () => {
+  //   const playlistData = {
+  //     id: 7,
+  //     name: 'public/track1',
+  //   }
+  //   expect.assertions(1)
+  //   db.addTracksToPlaylist.mockReturnValue(Promise.resolve(playlistData))
+  //   return request(server)
+  //     .post('/api/v1/playlist')
+  //     .send(playlistData)
+  //     .then((res) => {
+  //       expect(res.body.id).toBe(7)
+  //       return null
+  //     })
   })
   test('return status 500 and consoles error when problem', () => {
     db.addTracksToPlaylist.mockImplementation(() =>
