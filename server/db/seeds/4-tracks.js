@@ -3,7 +3,7 @@ exports.seed = async (knex) => {
   await knex('tracks').insert([
     {
       id: 1,
-      filepath: '../public/tracks1',
+      filepath: 'tracks/Sample1',
       title: 'jam1',
       artist: 'DJ wildcard',
       album: 'Watch yo back',
@@ -11,7 +11,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 2,
-      filepath: '../public/tracks2',
+      filepath: 'tracks/Sample3',
       title: 'Jeds is my Jam',
       artist: 'DJJP',
       album: 'JedsJams',
@@ -19,7 +19,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 3,
-      filepath: '../public/tracks3',
+      filepath: 'tracks/Sample6',
       title: 'jam33',
       artist: 'DJ Nani',
       album: 'Queen Nani',
@@ -27,7 +27,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 4,
-      filepath: '../public/tracks4',
+      filepath: 'tracks/Sample5',
       title: 'jam4',
       artist: 'DJ JennyCraig',
       album: 'watching you',
@@ -35,7 +35,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 5,
-      filepath: '../public/tracks5',
+      filepath: 'tracks/Sample4',
       title: 'based',
       artist: 'DJ DBQueen',
       album: 'Vibes first',
@@ -43,7 +43,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 6,
-      filepath: '../public/tracks6',
+      filepath: 'tracks/Sample4',
       title: 'redux doesnt resux',
       artist: 'DJ Redux Queen',
       album: 'reduxulous',
@@ -51,7 +51,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 7,
-      filepath: '../public/tracks7',
+      filepath: 'tracks/Sample5',
       title: 'woo hoo',
       artist: 'DJ Catfish',
       album: 'You know it',
@@ -59,7 +59,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 8,
-      filepath: '../public/tracks8',
+      filepath: 'tracks/Sample3',
       title: 'standard',
       artist: 'DJ JazzHands',
       album: '5 hours of average jazz',
@@ -67,7 +67,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 9,
-      filepath: '../public/tracks9',
+      filepath: 'tracks/Sample1',
       title: 'handle this',
       artist: 'DJ LoveHandles',
       album: 'Can you handle it',
