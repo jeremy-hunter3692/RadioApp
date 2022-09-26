@@ -95,7 +95,7 @@ describe('POST /api/v1/playlist', () => {
   //       expect(res.body.id).toBe(7)
   //       return null
   //     })
-  })
+  // })
   test('return status 500 and consoles error when problem', () => {
     db.addTracksToPlaylist.mockImplementation(() =>
       Promise.reject(new Error('test error message'))
