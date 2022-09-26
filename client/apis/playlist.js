@@ -25,6 +25,18 @@ export function addPlaylist(newPlaylist) {
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))
 }
 
+// POST /api/v1/playlist/addTrack
+// Assign a track to a playlist
+export function assignTracktoPlaylist(data) {
+  console.log('API / PLAYLIST data:', data)
+  return request
+    .post(rootUrl + '/playlist/addTrack')
+    .send(data)
+    .then((res) => {
+      return res.body
+    })
+}
+
 //--------------
 
 // perhaps if (re.status === 200) {return res.body} for line 49

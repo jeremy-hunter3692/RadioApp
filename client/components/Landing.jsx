@@ -10,6 +10,8 @@ import Playlist from './Playlist'
 import Track from './Track'
 import AddTrack from './AddTrack'
 
+import AssignTracks from './AssignTracks'
+
 export default function Landing() {
   const dispatch = useDispatch()
 
@@ -22,6 +24,7 @@ export default function Landing() {
       <div className='playlists centerThis'>
         <AddPlaylist />
         <Playlist />
+        <AssignTracks />
       </div>
 
       <div>

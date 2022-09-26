@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
 })
 
 // Nani did this for adding a playlist to the db - cheers
-// GET /api/v1/playlist/
+// POST /api/v1/playlist/
 router.post('/', (req, res) => {
   const { name } = req.body
   db.addPlaylist({ name })
@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
     })
 })
 
-// GET /api/v1/playlist/addTrack
+// POST /api/v1/playlist/addTrack
 router.post('/addTrack', (req, res) => {
   const data = req.body
   db.addTracksToPlaylist(data)
