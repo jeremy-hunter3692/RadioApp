@@ -86,6 +86,7 @@ export default function AddTrack() {
           <input
             id='filepath'
             type='file'
+            //eslint-disable-next-line
             resource_type='video'
             name='filepath'
             accept='video/*'
