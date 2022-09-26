@@ -43,7 +43,6 @@ export const addNewPlaylist = (newPlaylist) => (dispatch) => {
   dispatch(fetchPlaylistsRequest())
   return addPlaylist(newPlaylist)
     .then((playlist) => {
-      console.log('dispatch', playlist)
       dispatch(fetchNewPlaylist(playlist))
     })
     .catch((error) => {
@@ -53,7 +52,6 @@ export const addNewPlaylist = (newPlaylist) => (dispatch) => {
 
 export const selectPlaylistById = (id) => (dispatch) => {
   dispatch(fetchPlaylistsRequest())
-  console.log('id from actions', id)
   return getPlaylistById(id)
     .then((tracks_playlist) => {
       dispatch(fetchPlaylistById(tracks_playlist))
