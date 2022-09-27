@@ -6,30 +6,31 @@ export default function AudioPlayer() {
   const [index, setIndex] = useState(init)
   const [audioTracks, setAudio] = useState([])
   const player = document.getElementById('audio')
+  const id = 1
 
   useEffect(() => {
-    getPlaylistById(1)
-      .then((playlist) => {
-        let temp = playlist.tracks.map((x) => x.filepath)
-        setAudio(temp)
-      })
-      .catch((err) => {
-        console.error
-      })
+    setIndex(init)
+    id
+      ? getPlaylistById(id)
+          .then((playlist) => {
+            console.log(playlist.tracks)
+            let tracks = playlist.tracks //.map((x) => x.filepath)
+            setAudio(tracks)
+          })
+          .catch((err) => {
+            console.error
+          })
+      : ' '
+  }, [id])
 
+  useEffect(() => {
     if (index != 0) {
       player.play()
     }
+    // console.log(currentlyPlaying)
   }, [index])
 
   console.log('audio', audioTracks)
-  // const audio = [
-  //   'tracks/Sample1.mp3',
-  //   'tracks/Sample3.mp3',
-  //   'tracks/Sample4.mp3',
-  //   'tracks/Sample5.mp3',
-  //   'tracks/Sample6.mp3',
-  // ]
 
   function listener(evt) {
     if (index === audioTracks.length - 1) {
@@ -39,9 +40,31 @@ export default function AudioPlayer() {
     }
   }
 
+  function nextTrack() {
+    if (index === audioTracks.length - 1) {
+      setIndex(init)
+    } else {
+      setIndex(index + 1)
+    }
+    console.log(audioTracks[index])
+  }
+
+  function previousTrack() {
+    if (index === audioTracks.length + 1) {
+      setIndex(init)
+    } else {
+      setIndex(index - 1)
+    }
+    console.log(audioTracks[index])
+  }
+
   return (
     <>
-      <h1>audio:</h1>
+      <h1>
+        {' '}
+        Now playling: {audioTracks[index]?.title} - {audioTracks[index]?.artist}
+      </h1>
+      <button onClick={previousTrack}>Previous</button>
       {audioTracks != null ? (
         <audio
           controls
@@ -49,12 +72,13 @@ export default function AudioPlayer() {
           onEnded={(evt) => {
             listener()
           }}
-          src={audioTracks[index]}
+          src={audioTracks[index]?.filepath}
           type='audio/wav'
         />
       ) : (
         <p>loading</p>
       )}
+      <button onClick={nextTrack}>Next</button>
     </>
   )
 }

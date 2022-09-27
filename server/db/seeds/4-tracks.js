@@ -43,7 +43,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 6,
-      filepath: 'tracks/tracks6.mp3',
+      filepath: 'tracks/Sample5.mp3',
       title: 'redux doesnt resux',
       artist: 'DJ Redux Queen',
       album: 'reduxulous',
@@ -51,7 +51,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 7,
-      filepath: 'tracks/tracks7.mp3',
+      filepath: 'tracks/Sample4.mp3',
       title: 'woo hoo',
       artist: 'DJ Catfish',
       album: 'You know it',
@@ -59,7 +59,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 8,
-      filepath: 'tracks/tracks8.mp3',
+      filepath: 'tracks/Sample1.mp3',
       title: 'standard',
       artist: 'DJ JazzHands',
       album: '5 hours of average jazz',
@@ -67,7 +67,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 9,
-      filepath: 'tracks/tracks9.mp3',
+      filepath: 'tracks/Sample3.mp3',
       title: 'handle this',
       artist: 'DJ LoveHandles',
       album: 'Can you handle it',
