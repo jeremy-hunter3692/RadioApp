@@ -36,7 +36,6 @@ function addPlaylist(newPlaylist, db = connection) {
 
 // Add multiple tracks to a playlist - pass in an array of tracks to add
 function addTracksToPlaylist(tracksArray, db = connection) {
-  console.log('DB / PLAYLIST', tracksArray)
   return db('tracks_playlist').insert(tracksArray)
 }
 

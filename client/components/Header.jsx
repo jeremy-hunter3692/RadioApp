@@ -1,11 +1,10 @@
 import React from 'react'
+import Navbar from './Navbar'
 
 export default function Header() {
   return (
-    <header>
-      <div>
-        <h1>MAKE A MIXTAPE</h1>
-      </div>
-    </header>
+    <div>
+      <Navbar />
+    </div>
   )
 }

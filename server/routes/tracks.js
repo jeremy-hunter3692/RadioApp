@@ -17,6 +17,7 @@ const cloudinary = require('cloudinary').v2
 const cloudName = 'dwjfqnyxs'
 const apiKey = '581619511564695'
 const apiSecret = process.env.SECRET_KEY
+
 // GET /api/v1/tracks/
 router.get('/', (req, res) => {
   db.getAllTracks()
