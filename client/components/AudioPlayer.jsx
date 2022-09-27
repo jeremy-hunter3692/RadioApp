@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getPlaylistById } from '../apis/playlist'
-const init = -1
+const init = 0
 
 export default function AudioPlayer() {
   const [index, setIndex] = useState(init)
@@ -24,7 +24,7 @@ export default function AudioPlayer() {
   }, [id])
 
   useEffect(() => {
-    if (index != -1) {
+    if (index != 0) {
       player.play()
     }
     // console.log(currentlyPlaying)
@@ -61,7 +61,8 @@ export default function AudioPlayer() {
   return (
     <>
       <h1 className='nowPlaying'>
-        Now playling: {audioTracks[index]?.title} - {audioTracks[index]?.artist}
+        Now playling: {audioTracks[index] && audioTracks[index]?.title} -{' '}
+        {audioTracks[index] && audioTracks[index]?.artist}
       </h1>
       <button onClick={previousTrack}>Previous</button>
       {audioTracks != null ? (
@@ -71,7 +72,7 @@ export default function AudioPlayer() {
           onEnded={() => {
             listener()
           }}
-          src={audioTracks[index]?.filepath || audioTracks[0]?.filepath}
+          src={audioTracks[index]?.filepath}
           type='audio/wav'
         />
       ) : (
