@@ -61,7 +61,6 @@ export default function AssignTracks() {
         <select
           id='playlist'
           name='playlist'
-          //value={form.playlist}
           defaultValue=''
           onChange={handleChange}
         >
@@ -74,14 +73,6 @@ export default function AssignTracks() {
             </option>
           ))}
         </select>
-
-        {/* <label htmlFor='playlist'>Playlist Name:</label>
-        <input
-          id='playlist'
-          onChange={handleChange}
-          value={form.playlist}
-          name='playlist'
-        /> */}
 
         <div>
           <button>Assign track to Mixtape</button>
