@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { getPlaylistById } from '../apis/playlist'
 const init = 0
 
-export default function AudioPlayer() {
+export default function AudioPlayer({ id }) {
   const [index, setIndex] = useState(init)
   const [audioTracks, setAudio] = useState([])
   const player = document.getElementById('audio')
-  const id = 1
+  //const id = 1
 
   useEffect(() => {
     setIndex(init)

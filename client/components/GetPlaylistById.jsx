@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import AudioPlayer from './AudioPlayer'
 
 export default function GetPlaylistById() {
   const info = useSelector((state) => state.playlistById.data)
@@ -7,6 +8,7 @@ export default function GetPlaylistById() {
 
   return (
     <>
+      <AudioPlayer id={info?.id} />
       <div>
         <h2>
           {info?.tracks &&
