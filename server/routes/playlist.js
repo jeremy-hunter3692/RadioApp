@@ -1,5 +1,6 @@
 const express = require('express')
 const db = require('../db/playlist')
+const imageDb = require('../db/images')
 const router = express.Router()
 
 // GET /api/v1/playlist/
@@ -15,13 +16,14 @@ router.get('/', (req, res) => {
 })
 // GET /api/v1/playlist/:id
 router.get('/:id', (req, res) => {
-  const id = req.params.id
+  const id = Number(req.params.id)
+
   const playlist = {}
   db.getPlaylistDetailsById(id)
     .then((details) => {
       playlist.name = details.name
       playlist.image = details.image
-      playlist.id = details.id
+      playlist.id = id
       return db.getTracksByPlaylistId(id)
     })
     .then((tracks) => {
@@ -37,12 +39,20 @@ router.get('/:id', (req, res) => {
 // Nani did this for adding a playlist to the db - cheers
 // GET /api/v1/playlist/
 router.post('/', (req, res) => {
-  console.log('SERVER ROUTE', req.body)
+  //add call to db
   const { name } = req.body
-  console.log(req)
-  db.addPlaylist({ name })
+  const { imageId } = req.body
+  let tempPlayist = null
+  const dbObj = { name: name, image_id: imageId }
+  return db
+    .addPlaylist(dbObj)
     .then((playlist) => {
-      res.json({ id: playlist, name })
+      tempPlayist = playlist
+      return imageDb.getImageById(imageId)
+    })
+    .then((imagesReturn) => {
+      let image = imagesReturn.image_url
+      res.json({ id: tempPlayist, name, image })
       return null
     })
     .catch((err) => {
@@ -50,10 +60,10 @@ router.post('/', (req, res) => {
       res.status(500).send(err.message)
     })
 })
+
 // GET /api/v1/playlist/addTrack
 router.post('/addTrack', (req, res) => {
   const data = req.body
-  console.log('data info', data)
   db.addTracksToPlaylist(data)
     .then((track) => {
       res.json(track)
@@ -67,7 +77,7 @@ router.post('/addTrack', (req, res) => {
 // TO DO adding new playist and tracks at the same time.
 router.post('/', (req, res) => {
   const data = { name: req.body.playlistName }
-  console.log('data info', data)
+  // console.log('data info', data)
   const tracks = req.body.tracks
   let tempId = null
   db.addPlaylist(data)

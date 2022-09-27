@@ -1,15 +1,28 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectPlaylistById } from '../actions/playlist'
 
 export default function Playlist() {
-  const info = useSelector((state) => state.playlist?.data)
+  const dispatch = useDispatch()
+  const info = useSelector((state) => state.playlists?.data)
+
+  const handleClick = (event, id) => {
+    dispatch(selectPlaylistById(id))
+  }
+
   return (
     <>
-      {info?.map((playlist) => {
+      {info?.map((playlists) => {
         return (
-          <div key={playlist.id} className='playlist'>
-            <img src={playlist.image} alt={playlist.name} />
-            <h3>{playlist.name}</h3>
+          <div
+            key={playlists.id}
+            className='playlist'
+            onClick={(event) => {
+              handleClick(event, playlists.id)
+            }}
+          >
+            <img src={playlists.image} alt={playlists.name} />
+            <h3>{playlists.name}</h3>
           </div>
         )
       })}

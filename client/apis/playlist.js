@@ -26,7 +26,6 @@ export function getPlaylistById(id) {
 export function addPlaylist(newPlaylist) {
   const randomNumber = Math.ceil(Math.random() * 16)
   const tempObj = { ...newPlaylist, imageId: randomNumber }
-  console.log('API: ', tempObj)
   return request
     .post(rootUrl + '/playlist/')
     .send(tempObj)
@@ -34,6 +33,15 @@ export function addPlaylist(newPlaylist) {
       return res.body
     })
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))
+}
+// get a Playlist by id
+export function getPlaylistById(id) {
+  return request
+    .get(rootUrl + `/playlist/${id}`)
+    .then((res) => {
+      return res.body
+    })
+    .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
 }
 
 // perhaps if (res.status === 200) {return res.body} ??  not sure that would matter if we do auth0
