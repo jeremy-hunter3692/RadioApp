@@ -19,7 +19,7 @@ export default function Navbar() {
             <Link to='/tracks'>Browse Tracks</Link>
           </li>
           <li>
-            <Link to='/add-a-track'>add a Track</Link>
+            <Link to='/add-a-track'>Add a Track</Link>
           </li>
           <li>
             <Link to='/add-a-playlist'>Add a Playlist</Link>

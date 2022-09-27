@@ -35,8 +35,7 @@ export default function Landing() {
         <>
           <div className='playlists'>
             <Playlist className='column' />
-            <GetPlaylistById />
-            <AddPlaylist className='column' nextStep={nextStep} />
+            <GetPlaylistById className='column' />
           </div>
         </>
       )}
