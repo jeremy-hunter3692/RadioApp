@@ -22,6 +22,10 @@ export const fetchNewPlaylist = (newPlaylist) => ({
   type: 'ADD_PLAYLIST',
   payload: newPlaylist,
 })
+export const updateNewPlaylist = (newPlaylist) => ({
+  type: 'UPDATE_PLAYLIST_BY_ID',
+  payload: newPlaylist,
+})
 export const fetchPlaylistById = (tracks_playlist) => ({
   type: 'GET_PLAYLIST_BY_ID',
   payload: tracks_playlist,
@@ -44,6 +48,7 @@ export const addNewPlaylist = (newPlaylist) => (dispatch) => {
   return addPlaylist(newPlaylist)
     .then((playlist) => {
       dispatch(fetchNewPlaylist(playlist))
+      dispatch(updateNewPlaylist(playlist))
     })
     .catch((error) => {
       dispatch(fetchPlaylistsFailure(error.message))

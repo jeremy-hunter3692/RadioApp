@@ -14,7 +14,7 @@ const initialForm = {
 }
 //const initialFilepath ={filepath:''}
 
-export default function AddTrack() {
+export default function AddTrack(props) {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialForm)
   // Added for the CLOUDINARY part of the form
@@ -51,6 +51,7 @@ export default function AddTrack() {
     } catch (err) {
       console.log(err)
     }
+    props.nextStep()
   }
 
   // In the <input> tags, note the use of required - this is an easy way of preventing the form from being submited with empty values
@@ -106,18 +107,16 @@ export default function AddTrack() {
           />
         </div>
 
-        <div>
-          <button>Add a new track</button>
-
-          <button
-            onClick={(e) => {
-              e.preventDefault()
-              setForm(initialForm)
-            }}
-          >
-            Cancel
-          </button>
-        </div>
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            setForm(initialForm)
+            props.backStep()
+          }}
+        >
+          Cancel
+        </button>
+        <button>Add a new track</button>
       </form>
     </>
   )

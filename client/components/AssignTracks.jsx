@@ -8,7 +8,7 @@ const initialForm = {
   playlist: '',
 }
 
-export default function AssignTracks() {
+export default function AssignTracks(props) {
   const [form, setForm] = useState(initialForm)
   const [tracks, setTracks] = useState([])
   const [playlists, setPlaylists] = useState([])
@@ -34,6 +34,7 @@ export default function AssignTracks() {
     setForm(initialForm)
 
     setForm(initialForm)
+    props.nextStep()
   }
 
   function handleChange(e) {
@@ -91,6 +92,7 @@ export default function AssignTracks() {
             onClick={(e) => {
               e.preventDefault()
               setForm(initialForm)
+              props.backStep()
             }}
           >
             Cancel
