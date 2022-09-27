@@ -45,14 +45,12 @@ export default function AssignTracks() {
   return (
     <>
       <form onSubmit={handleSubmit} className='form'>
-        <label htmlFor='track'>Choose a track and a mixtape:</label>
+        <label htmlFor='track'>Assign a track to a mixtape:</label>
 
-        <select
-          id='track'
-          name='track'
-          value={form.track}
-          onChange={handleChange}
-        >
+        <select id='track' name='track' defaultValue='' onChange={handleChange}>
+          <option value='' disabled>
+            Choose track
+          </option>
           {tracks.map((track) => (
             <option key={track.id} value={track.id} title='Choose a track'>
               {track.title}
@@ -63,9 +61,13 @@ export default function AssignTracks() {
         <select
           id='playlist'
           name='playlist'
-          value={form.playlist}
+          //value={form.playlist}
+          defaultValue=''
           onChange={handleChange}
         >
+          <option value='' disabled>
+            Choose playlist
+          </option>
           {playlists.map((playlist) => (
             <option key={playlist.id} value={playlist.id}>
               {playlist.name}
