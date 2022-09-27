@@ -41,22 +41,25 @@ export default function Landing() {
       {step == 2 && (
         <>
           <div className='centerThis'>
-            <AddTrack
+            <GetPlaylistById />
+            <AssignTracks
               nextStep={nextStep}
               backStep={backStep}
               className='column'
             />
-            <AssignTracks className='column' />
+            {/* <AddTrack
+              nextStep={nextStep}
+              backStep={backStep}
+              className='column'
+            /> */}
           </div>
         </>
       )}
       {step == 3 && (
         <>
           <div className='centerThis'>
-            <Playlist />
-            <GetPlaylistById />
-            <AssignTracks />
-            <AudioPlayer />
+            <GetPlaylistById bool={true} />
+            {/* <AssignTracks /> */}
           </div>
         </>
       )}
