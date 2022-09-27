@@ -61,6 +61,18 @@ router.post('/', (req, res) => {
     })
 })
 
+// POST /api/v1/playlist/addTrack
+router.post('/addTrack', (req, res) => {
+  const data = req.body
+  db.addTracksToPlaylist(data)
+    .then((track) => {
+      res.json(track)
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.status(500).send(err.message)
+    })
+})
 // POST /api/v1/playlist/assignTrack
 router.post('/assignTrack', (req, res) => {
   const data = req.body
