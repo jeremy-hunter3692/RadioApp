@@ -65,7 +65,6 @@
   textarea,
   select {
     font: inherit;
-  
   }
   
   /*
@@ -92,9 +91,9 @@
     color: var(--Dark);
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    padding:20px;
+    justify-content: center;
   }
+
   h1 {padding-bottom:25px;}
   h3 {font-weight:400;
   min-width: 50%;}
@@ -124,14 +123,14 @@
     color: var(--Light);
   }
   
-  button {
+  /* button {
     background-color:var(--Yellow);
     color: var(--Purple);
     min-width:25%;
     border: none;
     padding: 15px;
     margin: 15px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 600;
     border-radius: 25px;
     cursor: pointer;
@@ -143,10 +142,89 @@
     padding: 15px;
     font-size: 1rem;
     border-radius: 25px;
-  }
+  } */
+  
+/* button {
+  position: relative;
+  font-weight: 600;
+  height: 40px;
+  padding: 12px 20px;
+  outline: none;
+  border: 1px solid black;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 7px;
+  left: 7px;
+  height: 100%;
+  background-color: var(--Yellow);
+  z-index: -1;
+  transition: all 0.35s;
+  border-radius: inherit;
+}
+
+button:hover:after {
+  top: 0px;
+  left: 0px;
+} */
+
+button {
+  font-family: 'Fredoka One', cursive;
+  border: 4px solid #302f3a;
+  color: #302f3a;
+  position: relative;
+  margin: 2rem 3rem;
+  padding: 1rem 2rem;
+  font-size: 1.15rem;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -.6rem;
+  top: -.5rem;
+  z-index: -1;
+  background-color: var(--Yellow);
+  transition: all 200ms ease-out;
+  border-radius: 25px;
+}
+
+button:hover::before {
+  top: 0;
+  left: 0;
+}
+
+.button--bop:active {
+  transform: translateY(3px);
+}
   .app {
     display: flex;
     flex-direction: column;
+    /* background-color: var(--Dark); */
+  }
+
+  .column {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Blue);
+  }
+
+  .leftSide {
+    width: 50%;
   }
 
   .playlists {
@@ -210,12 +288,22 @@
   }
   
   .navbar { 
+    width:100%;
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  
+    
+  }
+
+  .cassette {
+    width: 50%;
+    min-height: 100vh;
+    background-image: url('images/Cassette-Awesome.png');
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-position: top;
   }
   
   /* .gradient-pattern {

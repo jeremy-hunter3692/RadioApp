@@ -6,7 +6,7 @@ const initialFormData = {
   name: '',
 }
 
-export default function AddPlaylist() {
+export default function AddPlaylist(props) {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialFormData)
 
@@ -18,22 +18,24 @@ export default function AddPlaylist() {
     event.preventDefault()
     dispatch(addNewPlaylist(form))
     setForm(initialFormData)
+    props.nextStep()
   }
-  // pass the props
-  // pass the setter function down, and handlesubmit to call setterfunction to change the state and pass it back up
 
   return (
     <>
-      <form onSubmit={handleSubmit} className='form'>
-        <input
-          id='name'
-          onChange={handleChange}
-          value={form.name}
-          name='name'
-          placeholder='Give your Mixtape a name.'
-        />
-        <button>Create your Mixtape</button>
-      </form>
+      <div>
+        <h1> Step 1 / Add Playlist</h1>
+        <form onSubmit={handleSubmit} className='form'>
+          <input
+            id='name'
+            onChange={handleChange}
+            value={form.name}
+            name='name'
+            placeholder='Give your Mixtape a name.'
+          />
+          <button>Create your Mixtape</button>
+        </form>
+      </div>
     </>
   )
 }

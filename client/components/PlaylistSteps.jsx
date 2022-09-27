@@ -34,9 +34,7 @@ export default function Landing() {
       {step == 1 && (
         <>
           <div className='playlists'>
-            <Playlist className='column' />
-            <GetPlaylistById />
-            <AddPlaylist className='column' nextStep={nextStep} />
+            <AddPlaylist nextStep={nextStep} />
           </div>
         </>
       )}
@@ -73,11 +71,10 @@ export default function Landing() {
       <div className='playlists centerThis'>
         <AudioPlayer />
         <AddPlaylist />
-
+        <Playlist />
       </div>
 
       <div className='track'>
-              <Playlist />
         <GetPlaylistById />
       </div>
       <div>

@@ -1,21 +1,25 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-
-import Landing from './Home'
-import Header from './Header'
+// COMPONENTS
+import AddTrack from './AddTrack'
 import Footer from './Footer'
-import NotFound from './NotFound'
-import Navbar from './Navbar'
 import GetPlaylistById from './GetPlaylistById'
+import Header from './Header'
+import Landing from './Landing'
+import Playlist from './Playlist'
+import PlaylistSteps from './PlaylistSteps'
+import NotFound from './NotFound'
 
 export default function App() {
   return (
     <>
       <div className='app'>
         <Header />
-        <Navbar />
         <Routes>
           <Route path='/' element={<Landing />} />
+          <Route path='/add-a-playlist' element={<PlaylistSteps />} />
+          <Route path='/add-a-track' element={<AddTrack />} />
+          <Route path='/playlists' element={<Playlist />} />
           <Route path='/playlists/:id' element={<GetPlaylistById />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
