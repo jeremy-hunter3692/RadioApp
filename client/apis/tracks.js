@@ -13,6 +13,13 @@ export function addTrackToDb(newTrack) {
     .catch(errorHandler('ADD', rootUrl + `/tracks`))
 }
 
+// GET /api/v1/tracks
+export function getAllTracks() {
+  return request.get(rootUrl + '/tracks').then((res) => {
+    return res.body
+  })
+}
+
 //----------------
 //-- CLOUDINARY --
 //----------------

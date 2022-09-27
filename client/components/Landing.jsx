@@ -11,6 +11,8 @@ import Track from './Track'
 import AudioPlayer from './AudioPlayer'
 import AddTrack from './AddTrack'
 
+import AssignTracks from './AssignTracks'
+
 export default function Landing() {
   const dispatch = useDispatch()
 
@@ -28,6 +30,9 @@ export default function Landing() {
 
       <div className='track'>
         <GetPlaylistById />
+      </div>
+      <div>
+        <AssignTracks />
       </div>
       <div>
         <Track />

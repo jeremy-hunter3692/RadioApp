@@ -44,6 +44,19 @@ export function getPlaylistById(id) {
     .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
 }
 
+// POST /api/v1/playlist/assignTrack
+// Assign a track to a playlist
+export function assignTracktoPlaylist(data) {
+  return request
+    .post(rootUrl + '/playlist/assignTrack')
+    .send(data)
+    .then((res) => {
+      return res.body
+    })
+}
+
+//--------------
+
 // perhaps if (res.status === 200) {return res.body} ??  not sure that would matter if we do auth0
 
 function errorHandler(method, route) {
