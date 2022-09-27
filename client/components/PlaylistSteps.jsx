@@ -4,14 +4,11 @@ import { useDispatch } from 'react-redux'
 import { fetchPlaylists } from '../actions/playlist'
 // COMPONENTS
 import AddPlaylist from './AddPlaylist'
-import AddTrack from './AddTrack'
 import AssignTracks from './AssignTracks'
-import AudioPlayer from './AudioPlayer'
 import Container from './Container'
 import GetPlaylistById from './GetPlaylistById'
-import Playlist from './Playlist'
 
-export default function Landing() {
+export default function PlaylistSteps() {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -47,11 +44,6 @@ export default function Landing() {
               backStep={backStep}
               className='column'
             />
-            {/* <AddTrack
-              nextStep={nextStep}
-              backStep={backStep}
-              className='column'
-            /> */}
           </div>
         </>
       )}
@@ -59,7 +51,6 @@ export default function Landing() {
         <>
           <div className='centerThis'>
             <GetPlaylistById bool={true} />
-            {/* <AssignTracks /> */}
           </div>
         </>
       )}

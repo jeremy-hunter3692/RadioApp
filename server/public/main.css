@@ -217,16 +217,26 @@ button:hover::before {
   }
 
   .column {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--Blue);
   }
 
+  .rightSide {
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+
+  }
   .leftSide {
     width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: flex-start;
   }
 
   .playlists {

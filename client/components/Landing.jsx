@@ -17,11 +17,11 @@ export default function Landing() {
   return (
     <>
       <Container>
-        <div className='playlists'>
-          <Playlist className='column' />
-          <div>
-            <GetPlaylistById className='column' bool={true} />
-          </div>
+        <div className='leftSide'>
+          <Playlist />
+        </div>
+        <div className='rightSide'>
+          <GetPlaylistById bool={true} />
         </div>
       </Container>
     </>

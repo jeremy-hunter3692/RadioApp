@@ -19,7 +19,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Landing />} />
           <Route path='/add-a-playlist' element={<PlaylistSteps />} />
-          <Route path='/add-a-track' element={<AddTrack />} />
+          <Route path='/upload-a-track' element={<AddTrack />} />
           <Route path='/playlists' element={<Playlist />} />
           <Route path='/tracks' element={<Tracks />} />
           <Route path='/playlists/:id' element={<GetPlaylistById />} />
