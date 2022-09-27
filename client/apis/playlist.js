@@ -10,6 +10,17 @@ export function getPlaylists() {
   })
 }
 
+// get a Playlist by id
+export function getPlaylistById(id) {
+  return request
+    .get(rootUrl + `/playlist/${id}`)
+    .then((res) => {
+      console.log('api', res.body)
+      return res.body
+    })
+    .catch(errorHandler('ADD', rootUrl + `/playlist/${id}`))
+}
+
 // add Playlist name from a form
 //TODO: Randomise id number. Then let users select image
 export function addPlaylist(newPlaylist) {
@@ -23,15 +34,19 @@ export function addPlaylist(newPlaylist) {
     })
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))
 }
-// get a Playlist by id
-export function getPlaylistById(id) {
+
+// POST /api/v1/playlist/assignTrack
+// Assign a track to a playlist
+export function assignTracktoPlaylist(data) {
   return request
-    .get(rootUrl + `/playlist/${id}`)
+    .post(rootUrl + '/playlist/assignTrack')
+    .send(data)
     .then((res) => {
       return res.body
     })
-    .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
 }
+
+//--------------
 
 // perhaps if (res.status === 200) {return res.body} ??  not sure that would matter if we do auth0
 

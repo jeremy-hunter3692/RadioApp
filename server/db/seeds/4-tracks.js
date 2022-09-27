@@ -3,15 +3,16 @@ exports.seed = async (knex) => {
   await knex('tracks').insert([
     {
       id: 1,
-      filepath: 'tracks/Sample1',
-      title: 'jam1',
-      artist: 'DJ wildcard',
-      album: 'Watch yo back',
-      notes: 'The best album in the world',
+      filepath:
+        'https://res.cloudinary.com/dwjfqnyxs/video/upload/v1664157078/diwaul89qwnzdaurdigu.mp3',
+      title: 'South Island',
+      artist: 'The Trainsurfers',
+      album: 'The Trainsurfers Greatest Hit',
+      notes: "Ollie's future number one hit!",
     },
     {
       id: 2,
-      filepath: 'tracks/Sample3',
+      filepath: 'tracks/Sample3.mp3',
       title: 'Jeds is my Jam',
       artist: 'DJJP',
       album: 'JedsJams',
@@ -19,7 +20,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 3,
-      filepath: 'tracks/Sample6',
+      filepath: 'tracks/Sample4.mp3',
       title: 'jam33',
       artist: 'DJ Nani',
       album: 'Queen Nani',
@@ -27,15 +28,16 @@ exports.seed = async (knex) => {
     },
     {
       id: 4,
-      filepath: 'tracks/Sample5',
-      title: 'jam4',
-      artist: 'DJ JennyCraig',
-      album: 'watching you',
-      notes: "it's sick",
+      filepath:
+        'https://res.cloudinary.com/dwjfqnyxs/video/upload/v1664160392/u5jyu0opalgao03ailqw.m4a',
+      title: 'No Surprises',
+      artist: 'Radiohead',
+      album: 'Radiohead tribute concert',
+      notes: 'Live recording from Te Atamira, Queenstown - 27-Aug-22',
     },
     {
       id: 5,
-      filepath: 'tracks/Sample4',
+      filepath: 'tracks/Sample6.mp3',
       title: 'based',
       artist: 'DJ DBQueen',
       album: 'Vibes first',
@@ -43,15 +45,16 @@ exports.seed = async (knex) => {
     },
     {
       id: 6,
-      filepath: 'tracks/Sample4',
-      title: 'redux doesnt resux',
-      artist: 'DJ Redux Queen',
-      album: 'reduxulous',
-      notes: "it's cool",
+      filepath:
+        'https://res.cloudinary.com/dwjfqnyxs/video/upload/v1664159254/yqaaj6xj8jsoayhxaiqx.m4a',
+      title: 'Lithium - Bassline',
+      artist: 'Nirvana',
+      album: 'Practicising for Nirvana gig at the Blue Door',
+      notes: 'Craig practicing bassline for Lithium',
     },
     {
       id: 7,
-      filepath: 'tracks/Sample5',
+      filepath: 'tracks/Sample4.mp3',
       title: 'woo hoo',
       artist: 'DJ Catfish',
       album: 'You know it',
@@ -59,7 +62,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 8,
-      filepath: 'tracks/Sample3',
+      filepath: 'tracks/Sample1.mp3',
       title: 'standard',
       artist: 'DJ JazzHands',
       album: '5 hours of average jazz',
@@ -67,7 +70,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 9,
-      filepath: 'tracks/Sample1',
+      filepath: 'tracks/Sample3.mp3',
       title: 'handle this',
       artist: 'DJ LoveHandles',
       album: 'Can you handle it',

@@ -20,12 +20,12 @@ describe('getAllTracks', () => {
   test('gets all the tracks from the database', () => {
     expect.assertions(7)
     return getAllTracks(testDb).then((tracks) => {
-      expect(tracks[3].id).toBe(4)
-      expect(tracks[3].filepath).toBe('tracks/Sample5')
-      expect(tracks[3].title).toBe('jam4')
-      expect(tracks[3].artist).toBe('DJ JennyCraig')
-      expect(tracks[3].album).toBe('watching you')
-      expect(tracks[3].notes).toBe("it's sick")
+      expect(tracks[2].id).toBe(3)
+      expect(tracks[2].filepath).toBe('tracks/Sample4.mp3')
+      expect(tracks[2].title).toBe('jam33')
+      expect(tracks[2].artist).toBe('DJ Nani')
+      expect(tracks[2].album).toBe('Queen Nani')
+      expect(tracks[2].notes).toBe("it's lit")
       expect(tracks).toHaveLength(9)
     })
   })
@@ -37,11 +37,13 @@ describe('getTracksById', () => {
     expect.assertions(6)
     return getTrackById(trackId, testDb).then((track) => {
       expect(track.id).toBe(1)
-      expect(track.filepath).toBe('tracks/Sample1')
-      expect(track.title).toBe('jam1')
-      expect(track.artist).toBe('DJ wildcard')
-      expect(track.album).toBe('Watch yo back')
-      expect(track.notes).toBe('The best album in the world')
+      expect(track.filepath).toBe(
+        'https://res.cloudinary.com/dwjfqnyxs/video/upload/v1664157078/diwaul89qwnzdaurdigu.mp3'
+      )
+      expect(track.title).toBe('South Island')
+      expect(track.artist).toBe('The Trainsurfers')
+      expect(track.album).toBe('The Trainsurfers Greatest Hit')
+      expect(track.notes).toBe("Ollie's future number one hit!")
     })
   })
 })
