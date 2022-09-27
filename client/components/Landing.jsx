@@ -23,7 +23,6 @@ export default function Landing() {
   return (
     <Container>
       <div className='playlists centerThis'>
-        {/* <AudioPlayer /> */}
         <AddPlaylist />
         <Playlist />
       </div>

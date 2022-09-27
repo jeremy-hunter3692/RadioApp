@@ -61,7 +61,7 @@ export default function AudioPlayer({ id }) {
   return (
     <>
       <h1 className='nowPlaying'>
-        Now playling: {audioTracks[index] && audioTracks[index]?.title} -{' '}
+        Now playing: {audioTracks[index] && audioTracks[index]?.title} -{' '}
         {audioTracks[index] && audioTracks[index]?.artist}
       </h1>
       <button onClick={previousTrack}>Previous</button>
