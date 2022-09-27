@@ -34,15 +34,6 @@ export function addPlaylist(newPlaylist) {
     })
     .catch(errorHandler('ADD', rootUrl + `/playlists/`))
 }
-// get a Playlist by id
-export function getPlaylistById(id) {
-  return request
-    .get(rootUrl + `/playlist/${id}`)
-    .then((res) => {
-      return res.body
-    })
-    .catch(errorHandler('ADD', rootUrl + `/playlists/${id}`))
-}
 
 // POST /api/v1/playlist/assignTrack
 // Assign a track to a playlist
