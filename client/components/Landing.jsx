@@ -8,7 +8,6 @@ import Container from './Container'
 import GetPlaylistById from './GetPlaylistById'
 import Playlist from './Playlist'
 import Track from './Track'
-import AudioPlayer from './AudioPlayer'
 import AddTrack from './AddTrack'
 
 import AssignTracks from './AssignTracks'
@@ -23,7 +22,6 @@ export default function Landing() {
   return (
     <Container>
       <div className='playlists centerThis'>
-        <AudioPlayer />
         <AddPlaylist />
         <Playlist />
       </div>

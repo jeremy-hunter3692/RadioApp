@@ -12,11 +12,13 @@ const initialForm = {
   notes: '',
   filepath: '',
 }
+//const initialFilepath ={filepath:''}
 
 export default function AddTrack() {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialForm)
   // Added for the CLOUDINARY part of the form
+  // Note that to import audio files into Cloudinary, you need to set the resource_type to be 'video', which you'll see down in the form HTML
   const [selectedFile, setSelectedFile] = useState(null)
   const navigate = useNavigate()
 
@@ -30,8 +32,11 @@ export default function AddTrack() {
 
   async function handleSubmit(e) {
     e.preventDefault()
+    // Reset the fields to their initial (null) values
     setForm(initialForm)
+    // TODO: work out how to get the Filepath to clear once new track added.
 
+    // Deal with the Cloudinary file upload. Wait for it to return the URL for the uploaded file.
     const file = selectedFile
     try {
       const audioUrl = await getAudioFileUrl(file) // TODO: when auth0 is set up, need to pass token
@@ -39,6 +44,7 @@ export default function AddTrack() {
         ...form,
         filepath: audioUrl,
       }
+
       await dispatch(addNewTrack(newTrack))
       // TODO: when auth0 is set up, need to pass token
       navigate('.')
@@ -47,6 +53,7 @@ export default function AddTrack() {
     }
   }
 
+  // In the <input> tags, note the use of required - this is an easy way of preventing the form from being submited with empty values
   return (
     <>
       <form onSubmit={handleSubmit} className='form'>
@@ -56,6 +63,7 @@ export default function AddTrack() {
           onChange={handleChange}
           value={form.title}
           name='title'
+          required
         />
 
         <label htmlFor='artist'>Artist Name:</label>
@@ -64,6 +72,7 @@ export default function AddTrack() {
           onChange={handleChange}
           value={form.artist}
           name='artist'
+          required
         />
 
         <label htmlFor='album'>Album Name:</label>
@@ -72,6 +81,7 @@ export default function AddTrack() {
           onChange={handleChange}
           value={form.album}
           name='album'
+          required
         />
 
         <label htmlFor='notes'>Notes:</label>
@@ -80,6 +90,7 @@ export default function AddTrack() {
           onChange={handleChange}
           value={form.notes}
           name='notes'
+          required
         />
         <div>
           <label htmlFor='filepath'>Filepath: </label>
@@ -91,6 +102,7 @@ export default function AddTrack() {
             name='filepath'
             accept='video/*'
             onChange={handleFileChange}
+            required
           />
         </div>
 

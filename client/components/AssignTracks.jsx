@@ -16,7 +16,6 @@ export default function AssignTracks() {
   // Get the list of tracks from the db and store them in state as 'tracks'
   useEffect(() => {
     return getAllTracks().then((allTracks) => {
-      console.log('tracks', allTracks)
       setTracks(allTracks)
     })
   }, [])
@@ -24,30 +23,40 @@ export default function AssignTracks() {
   // Get the list of playlists from the db and store them in state as 'playlists'
   useEffect(() => {
     return getPlaylists().then((allPlaylists) => {
-      console.log('playlists', allPlaylists)
       setPlaylists(allPlaylists)
     })
   }, [])
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
+  function handleSubmit(e) {
+    e.preventDefault()
     assignTracktoPlaylist(form)
-    console.log('form:', form)
+
+    setForm(initialForm)
+
     setForm(initialForm)
   }
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
-    console.log('handleChange: e.target.name', e.target.name)
-    console.log('handleChange: e.target.value', e.target.value)
   }
+
+  // Some notes about the HTML used in the form ...
+  // In the <select> tags, note the use of required - this is an easy way of preventing the form from being submited with empty values
+  // Also in the <select>, note that we used defaultValue='' and in the <option> tag we have: value='' as well as: disabled
+  // These are all needed to ensure that the value shown in the select lookup defaults to text in the <option> tag - e.g. 'Choose track' and 'Choose mixtape'
 
   return (
     <>
       <form onSubmit={handleSubmit} className='form'>
         <label htmlFor='track'>Assign a track to a mixtape:</label>
 
-        <select id='track' name='track' defaultValue='' onChange={handleChange}>
+        <select
+          id='track'
+          name='track'
+          defaultValue=''
+          onChange={handleChange}
+          required
+        >
           <option value='' disabled>
             Choose track
           </option>
@@ -62,10 +71,11 @@ export default function AssignTracks() {
           id='playlist'
           name='playlist'
           defaultValue=''
+          required
           onChange={handleChange}
         >
           <option value='' disabled>
-            Choose playlist
+            Choose mixtape
           </option>
           {playlists.map((playlist) => (
             <option key={playlist.id} value={playlist.id}>
