@@ -15,7 +15,6 @@ export function getPlaylistById(id) {
   return request
     .get(rootUrl + `/playlist/${id}`)
     .then((res) => {
-      console.log('api', res.body)
       return res.body
     })
     .catch(errorHandler('ADD', rootUrl + `/playlist/${id}`))

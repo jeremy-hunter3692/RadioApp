@@ -13,7 +13,6 @@ export default function AudioPlayer({ id }) {
     id
       ? getPlaylistById(id)
           .then((playlist) => {
-            console.log(playlist.tracks)
             let tracks = playlist.tracks //.map((x) => x.filepath)
             setAudio(tracks)
           })
@@ -30,8 +29,6 @@ export default function AudioPlayer({ id }) {
     // console.log(currentlyPlaying)
   }, [index])
 
-  console.log('audio', audioTracks)
-
   function listener() {
     if (index === audioTracks.length - 1) {
       setIndex(init)
@@ -46,7 +43,6 @@ export default function AudioPlayer({ id }) {
     } else {
       setIndex(index + 1)
     }
-    console.log(audioTracks[index])
   }
 
   function previousTrack() {
@@ -55,7 +51,6 @@ export default function AudioPlayer({ id }) {
     } else {
       setIndex(index - 1)
     }
-    console.log(audioTracks[index])
   }
 
   return (

@@ -16,7 +16,6 @@ export default function AssignTracks() {
   // Get the list of tracks from the db and store them in state as 'tracks'
   useEffect(() => {
     return getAllTracks().then((allTracks) => {
-      console.log('tracks', allTracks)
       setTracks(allTracks)
     })
   }, [])
@@ -24,7 +23,6 @@ export default function AssignTracks() {
   // Get the list of playlists from the db and store them in state as 'playlists'
   useEffect(() => {
     return getPlaylists().then((allPlaylists) => {
-      console.log('playlists', allPlaylists)
       setPlaylists(allPlaylists)
     })
   }, [])
@@ -32,10 +30,9 @@ export default function AssignTracks() {
   function handleSubmit(e) {
     e.preventDefault()
     assignTracktoPlaylist(form)
-    console.log('form:', form)
+
     setForm(initialForm)
-    console.log('initialForm', initialForm)
-    console.log('form after setForm:', form)
+
     setForm(initialForm)
   }
 

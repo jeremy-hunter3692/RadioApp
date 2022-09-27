@@ -44,7 +44,7 @@ export default function AddTrack() {
         ...form,
         filepath: audioUrl,
       }
-      console.log('handleSubmit: newTrack', newTrack)
+
       await dispatch(addNewTrack(newTrack))
       // TODO: when auth0 is set up, need to pass token
       navigate('.')
