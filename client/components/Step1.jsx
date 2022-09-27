@@ -6,7 +6,7 @@ const initialFormData = {
   name: '',
 }
 
-export default function AddPlaylist() {
+export default function Step1(props) {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialFormData)
 
@@ -18,6 +18,7 @@ export default function AddPlaylist() {
     event.preventDefault()
     dispatch(addNewPlaylist(form))
     setForm(initialFormData)
+    props.nextStep() //setter function
   }
   // pass the props
   // pass the setter function down, and handlesubmit to call setterfunction to change the state and pass it back up

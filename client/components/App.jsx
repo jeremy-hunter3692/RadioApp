@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import Landing from './Landing'
+import Landing from './Home'
 import Header from './Header'
 import Footer from './Footer'
 import NotFound from './NotFound'

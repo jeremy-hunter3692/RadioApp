@@ -4,11 +4,10 @@ import { useDispatch } from 'react-redux'
 import { fetchPlaylists } from '../actions/playlist'
 // COMPONENTS
 import AddPlaylist from './AddPlaylist'
+import AddTrack from './AddTrack'
 import Container from './Container'
 import GetPlaylistById from './GetPlaylistById'
 import Playlist from './Playlist'
-import Track from './Track'
-import AddTrack from './AddTrack'
 
 export default function Landing() {
   const dispatch = useDispatch()
@@ -28,7 +27,6 @@ export default function Landing() {
         <GetPlaylistById />
       </div>
       <div>
-        <Track />
         <AddTrack />
       </div>
     </Container>
