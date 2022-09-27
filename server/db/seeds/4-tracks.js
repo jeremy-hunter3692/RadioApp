@@ -12,7 +12,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 2,
-      filepath: 'tracks/Sample3',
+      filepath: 'tracks/Sample3.mp3',
       title: 'Jeds is my Jam',
       artist: 'DJJP',
       album: 'JedsJams',
@@ -20,7 +20,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 3,
-      filepath: 'tracks/Sample6',
+      filepath: 'tracks/Sample4.mp3',
       title: 'jam33',
       artist: 'DJ Nani',
       album: 'Queen Nani',
@@ -37,7 +37,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 5,
-      filepath: 'tracks/Sample4',
+      filepath: 'tracks/Sample6.mp3',
       title: 'based',
       artist: 'DJ DBQueen',
       album: 'Vibes first',
@@ -54,7 +54,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 7,
-      filepath: 'tracks/Sample5',
+      filepath: 'tracks/Sample4.mp3',
       title: 'woo hoo',
       artist: 'DJ Catfish',
       album: 'You know it',
@@ -62,7 +62,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 8,
-      filepath: 'tracks/Sample3',
+      filepath: 'tracks/Sample1.mp3',
       title: 'standard',
       artist: 'DJ JazzHands',
       album: '5 hours of average jazz',
@@ -70,7 +70,7 @@ exports.seed = async (knex) => {
     },
     {
       id: 9,
-      filepath: 'tracks/Sample1',
+      filepath: 'tracks/Sample3.mp3',
       title: 'handle this',
       artist: 'DJ LoveHandles',
       album: 'Can you handle it',

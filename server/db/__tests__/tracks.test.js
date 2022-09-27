@@ -21,7 +21,7 @@ describe('getAllTracks', () => {
     expect.assertions(7)
     return getAllTracks(testDb).then((tracks) => {
       expect(tracks[2].id).toBe(3)
-      expect(tracks[2].filepath).toBe('tracks/Sample6')
+      expect(tracks[2].filepath).toBe('tracks/Sample4.mp3')
       expect(tracks[2].title).toBe('jam33')
       expect(tracks[2].artist).toBe('DJ Nani')
       expect(tracks[2].album).toBe('Queen Nani')
