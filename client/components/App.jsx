@@ -8,6 +8,7 @@ import Header from './Header'
 import Landing from './Landing'
 import Playlist from './Playlist'
 import PlaylistSteps from './PlaylistSteps'
+import Tracks from './Tracks'
 import NotFound from './NotFound'
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
           <Route path='/add-a-playlist' element={<PlaylistSteps />} />
           <Route path='/add-a-track' element={<AddTrack />} />
           <Route path='/playlists' element={<Playlist />} />
+          <Route path='/tracks' element={<Tracks />} />
           <Route path='/playlists/:id' element={<GetPlaylistById />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>

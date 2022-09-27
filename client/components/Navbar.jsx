@@ -12,11 +12,14 @@ export default function Navbar() {
               <img src='favicon.png' alt='home' />
             </Link>
           </li>
-          {/* <li>
-            <Link to='/playlists'>Browse Playlists</Link>
-          </li> */}
           <li>
-            <Link to='/add-a-track'>Upload a Track</Link>
+            <Link to='/playlists'>Browse Playlists</Link>
+          </li>
+          <li>
+            <Link to='/tracks'>Browse Tracks</Link>
+          </li>
+          <li>
+            <Link to='/add-a-track'>add a Track</Link>
           </li>
           <li>
             <Link to='/add-a-playlist'>Add a Playlist</Link>

@@ -1,6 +1,11 @@
 // REDUCER THAT HANDLES TRACK ACTIONS
 
 import { ADD_TRACK_TO_DATABASE } from '../actions/tracks'
+import {
+  FETCH_TRACKS_REQUEST,
+  FETCH_TRACKS_SUCCESS,
+  FETCH_TRACKS_FAILURE,
+} from '../actions/track'
 // gotta remember to include the action creators in /actions/track.js
 
 const initialTrackState = []
@@ -10,6 +15,12 @@ const trackReducer = (state = initialTrackState, action) => {
   switch (type) {
     case ADD_TRACK_TO_DATABASE:
       return [...state, payload]
+    case FETCH_TRACKS_REQUEST:
+      return { ...state, error: null }
+    case FETCH_TRACKS_SUCCESS:
+      return { data: payload.tracks, error: null }
+    case FETCH_TRACKS_FAILURE:
+      return { ...state, error: payload.error }
     // case 'SET_TRACK':
     //   return payload
     // case 'DEL_TRACK':

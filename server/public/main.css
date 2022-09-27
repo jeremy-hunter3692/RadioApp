@@ -175,9 +175,8 @@ button:hover:after {
 } */
 
 button {
-  font-family: 'Fredoka One', cursive;
-  border: 4px solid #302f3a;
-  color: #302f3a;
+  border: 4px solid var(--Dark);
+  color: var(--Dark);
   position: relative;
   margin: 2rem 3rem;
   padding: 1rem 2rem;
@@ -208,6 +207,9 @@ button:hover::before {
 .button--bop:active {
   transform: translateY(3px);
 }
+
+
+
   .app {
     display: flex;
     flex-direction: column;
