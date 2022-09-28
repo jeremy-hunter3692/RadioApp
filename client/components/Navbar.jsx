@@ -12,12 +12,6 @@ export default function Navbar() {
               <img src='favicon.png' alt='home' />
             </Link>
           </li>
-          {/* <li>
-            <Link to='/playlists'>Browse Playlists</Link>
-          </li>
-          <li>
-            <Link to='/tracks'>Browse Tracks</Link>
-          </li> */}
           <li>
             <Link to='/upload-a-track'>Upload a Track</Link>
           </li>

@@ -8,7 +8,8 @@ export default function GetPlaylistById(props) {
 
   return (
     <>
-      <AudioPlayer id={info?.id} />
+      {/* <AudioPlayer id={info?.id} /> */}
+
       <div>
         <div>
           <h2>{info?.name && info.name}</h2>
@@ -19,14 +20,22 @@ export default function GetPlaylistById(props) {
               return (
                 <div key={playlist.trackId}>
                   <h2>{playlist.playlistName}</h2>
-                  <h3>{playlist.title}</h3>
-                  <h3>{playlist.artist}</h3>
-                  <h3>{playlist.trackId}</h3>
+                  <div className='track'>
+                    <h3>
+                      <strong>Song:</strong> {playlist.title}
+                    </h3>
+                    <h3>
+                      <strong>Artist:</strong> {playlist.artist}
+                    </h3>
+                    <h3>
+                      <strong>Album:</strong> {playlist.album}
+                    </h3>
+                  </div>
                 </div>
               )
             })}
-          {props.bool && <AudioPlayer id={info?.id} />}
         </div>
+        {props.bool && <AudioPlayer id={info?.id} />}
       </div>
     </>
   )
