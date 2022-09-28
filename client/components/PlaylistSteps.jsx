@@ -28,17 +28,17 @@ export default function PlaylistSteps() {
   }
   return (
     <Container>
-      <div className='flex-container'>
+      <div>
         {step == 1 && (
           <>
-            <div className='playlists'>
+            <div>
               <AddPlaylist nextStep={nextStep} />
             </div>
           </>
         )}
         {step == 2 && (
           <>
-            <div className='centerThis'>
+            <div className='container'>
               <GetPlaylistById />
               <AssignTracks
                 bool={false}
@@ -51,7 +51,7 @@ export default function PlaylistSteps() {
         )}
         {step == 3 && (
           <>
-            <div className='centerThis'>
+            <div>
               <GetPlaylistById bool={true} />
             </div>
           </>

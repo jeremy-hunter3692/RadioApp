@@ -23,8 +23,8 @@ export default function AddPlaylist(props) {
 
   return (
     <>
-      <div>
-        <h2> Create a Playlist</h2>
+      <div className='container'>
+        <h1 className='centerThis'> Create a Playlist</h1>
         <form onSubmit={handleSubmit} className='form'>
           <input
             id='name'

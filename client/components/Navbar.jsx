@@ -7,20 +7,24 @@ export default function Navbar() {
     <header>
       <div className='navbar'>
         <ul>
-          <li className='navItem'>
-            <Link to='/'>
-              <img src='favicon.png' alt='home' />
+          <li>
+            <Link className='navItem' to='/upload-a-track'>
+              Upload a Track
             </Link>
           </li>
-          <li className='navItem'>
-            <Link to='/upload-a-track'>Upload a Track</Link>
-          </li>
-          <li className='navItem'>
-            <Link to='/add-a-playlist'>Add a Playlist</Link>
+          <li>
+            <Link to='/'>
+              <img src='/images/logo.png' alt='home' width='125' />
+            </Link>
           </li>
           <li>
-            <Link to='/tracks/assign'>Assign Tracks to Playlists</Link>
+            <Link className='navItem' to='/add-a-playlist'>
+              Add a Playlist
+            </Link>
           </li>
+          {/* <li>
+            <Link to='/tracks/assign'>Assign Tracks to Playlists</Link>
+          </li> */}
         </ul>
       </div>
     </header>

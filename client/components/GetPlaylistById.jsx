@@ -8,7 +8,6 @@ export default function GetPlaylistById(props) {
 
   return (
     <>
-      {props.bool && <AudioPlayer id={info?.id} />}
       <div>
         <div>
           <h2>{info?.name && info.name}</h2>

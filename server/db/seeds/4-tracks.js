@@ -21,9 +21,9 @@ exports.seed = async (knex) => {
     {
       id: 3,
       filepath: 'tracks/Sample4.mp3',
-      title: 'jam33',
-      artist: 'DJ Nani',
-      album: 'Queen Nani',
+      title: 'Music to Code By',
+      artist: 'Thump Thump',
+      album: 'Ready to Move On',
       notes: "it's lit",
     },
     {
@@ -38,9 +38,9 @@ exports.seed = async (knex) => {
     {
       id: 5,
       filepath: 'tracks/Sample6.mp3',
-      title: 'based',
-      artist: 'DJ DBQueen',
-      album: 'Vibes first',
+      title: 'Spot Vibes',
+      artist: 'AMA / Ask Me Anything.',
+      album: 'Is this Actionable, Specific and Kind?',
       notes: "it's fun",
     },
     {
