@@ -17,11 +17,13 @@ export default function Landing() {
   return (
     <>
       <Container>
-        <div className='leftSide'>
-          <Playlist />
-        </div>
-        <div className='rightSide'>
-          <GetPlaylistById bool={true} />
+        <div className='flex-container'>
+          <div className='flex-child'>
+            <Playlist />
+          </div>
+          <div className='flex-child'>
+            <GetPlaylistById bool={true} />
+          </div>
         </div>
       </Container>
     </>
