@@ -12,8 +12,9 @@ export default function AssignTracks(props) {
   const [form, setForm] = useState(initialForm)
   const [tracks, setTracks] = useState([])
   const [playlists, setPlaylists] = useState([])
+  const [addedTrack, setAddedTrack] = useState(' ')
   const newPlaylistId = useSelector((state) => state.playlistById.data.id)
-  let addedTrack = ' '
+
   // Get the list of tracks from the db and store them in state as 'tracks'
   useEffect(() => {
     return getAllTracks().then((allTracks) => {
@@ -30,8 +31,7 @@ export default function AssignTracks(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // addedTrack = form.track
-    // console.log(addedTrack)
+    setAddedTrack(tracks.find((x) => x.id === Number(form.track)))
     props.bool
       ? assignTracktoPlaylist(form)
       : assignTracktoPlaylist({ ...form, playlist: newPlaylistId })
@@ -51,7 +51,7 @@ export default function AssignTracks(props) {
 
   return (
     <>
-      <h1>{addedTrack}</h1>
+      <h1>{addedTrack.title} has been added</h1>
       <form onSubmit={handleSubmit} className='form'>
         <label htmlFor='track'>Assign a track to a mixtape:</label>
 
