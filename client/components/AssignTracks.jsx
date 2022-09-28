@@ -12,7 +12,7 @@ export default function AssignTracks(props) {
   const [form, setForm] = useState(initialForm)
   const [tracks, setTracks] = useState([])
   const [playlists, setPlaylists] = useState([])
-  const [addedTrack, setAddedTrack] = useState(' ')
+  const [addedTrack, setAddedTrack] = useState(null)
   const newPlaylistId = useSelector((state) => state.playlistById.data.id)
 
   // Get the list of tracks from the db and store them in state as 'tracks'
@@ -51,7 +51,7 @@ export default function AssignTracks(props) {
 
   return (
     <>
-      <h1>{addedTrack.title} has been added</h1>
+      {addedTrack?.title != null && <h1>{addedTrack?.title} has been added</h1>}
       <form onSubmit={handleSubmit} className='form'>
         <label htmlFor='track'>Assign a track to a mixtape:</label>
 
