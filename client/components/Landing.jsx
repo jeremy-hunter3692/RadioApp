@@ -18,6 +18,7 @@ export default function Landing() {
   return (
     <>
       <Container>
+        <h1>Mixtape, Music for Mixed Tastes</h1>
         <div className='flex-container'>
           <div className='flex-child'>
             <Playlist />
