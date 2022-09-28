@@ -15,9 +15,9 @@ export default function Navbar() {
           <li>
             <Link to='/upload-a-track'>Upload a Track</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to='/add-a-playlist'>Add a Playlist</Link>
-          </li>
+          </li> */}
           <li>
             <Link to='/tracks/assign'>Assign Tracks to Playlists</Link>
           </li>

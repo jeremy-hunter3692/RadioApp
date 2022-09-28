@@ -57,8 +57,8 @@ export default function AssignTracks(props) {
 
   return (
     <>
-      {addedTrack?.title != null && <h1>{addedTrack?.title} has been added</h1>}
-      {props.bool && (
+      <div>
+        {/* {props.bool && (
         <button
           onClick={(e) => {
             e.preventDefault()
@@ -68,56 +68,60 @@ export default function AssignTracks(props) {
         >
           Back
         </button>
-      )}
-      <form onSubmit={handleSubmit} className='form'>
-        <div>
-          <select
-            id='track'
-            name='track'
-            defaultValue=''
-            onChange={handleChange}
-            required
-          >
-            <option value='' disabled>
-              Choose track
-            </option>
-            {tracks.map((track) => (
-              <option key={track.id} value={track.id} title='Choose a track'>
-                {track.title}
-              </option>
-            ))}
-          </select>
-
-          {props.bool && (
+      )} */}
+        <form onSubmit={handleSubmit} className='form'>
+          <div>
             <select
-              id='playlist'
-              name='playlist'
+              id='track'
+              name='track'
               defaultValue=''
-              required
               onChange={handleChange}
+              required
             >
               <option value='' disabled>
-                Choose mixtape
+                Choose track
               </option>
-              {playlists.map((playlist) => (
-                <option key={playlist.id} value={playlist.id}>
-                  {playlist.name}
+              {tracks.map((track) => (
+                <option key={track.id} value={track.id} title='Choose a track'>
+                  {track.title}
                 </option>
               ))}
             </select>
+
+            {props.bool && (
+              <select
+                id='playlist'
+                name='playlist'
+                defaultValue=''
+                required
+                onChange={handleChange}
+              >
+                <option value='' disabled>
+                  Choose Playlist
+                </option>
+                {playlists.map((playlist) => (
+                  <option key={playlist.id} value={playlist.id}>
+                    {playlist.name}
+                  </option>
+                ))}
+              </select>
+            )}
+            <button>Add track to a playlist</button>
+          </div>
+          <button
+            onClick={(e) => {
+              e.preventDefault()
+              setForm(initialForm)
+              props.backStep()
+            }}
+          >
+            Play
+          </button>
+          {addedTrack?.title != null && (
+            <h1>{addedTrack?.title} has been added</h1>
           )}
-          <button>Assign track to Mixtape</button>
-        </div>
-        <button
-          onClick={(e) => {
-            e.preventDefault()
-            setForm(initialForm)
-            props.nextStep()
-          }}
-        >
-          Play
-        </button>
-      </form>
+        </form>
+      </div>
     </>
   )
 }

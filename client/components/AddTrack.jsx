@@ -105,8 +105,8 @@ export default function AddTrack(props) {
             required
           />
         </div>
-
-        <button
+        <button>Upload a new track</button>
+        {/* <button
           onClick={(e) => {
             e.preventDefault()
             setForm(initialForm)
@@ -114,8 +114,7 @@ export default function AddTrack(props) {
           }}
         >
           Cancel
-        </button>
-        <button>Add a new track</button>
+        </button> */}
       </form>
     </>
   )

@@ -6,9 +6,9 @@ import { fetchPlaylists } from '../actions/playlist'
 import Container from './Container'
 import GetPlaylistById from './GetPlaylistById'
 import Playlist from './Playlist'
-// import PlaylistSteps from './PlaylistSteps'
+import PlaylistSteps from './PlaylistSteps'
 
-export default function Landing() {
+export default function Landing({ bool }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,8 +23,8 @@ export default function Landing() {
             <Playlist />
           </div>
           <div className='flex-child'>
+            <PlaylistSteps />
             <GetPlaylistById bool={true} />
-            {/* <PlaylistSteps /> */}
           </div>
         </div>
       </Container>
