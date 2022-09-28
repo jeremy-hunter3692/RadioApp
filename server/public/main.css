@@ -97,7 +97,7 @@
   h1 {padding-bottom:25px;}
   h2 {font-size: 3em;}
   h3 {font-weight:400;
-  min-width: 80%;}
+  min-width: 80%; padding-top: 10px;}
   
 
   input {
@@ -193,6 +193,24 @@ button:hover::before {
     width: 150px;
     list-style: none;
     border-radius: 10px;
+    cursor: pointer;
+  }
+ .playlist:hover {
+    background-color: var(--Yellow);
+
+  }
+
+  .selected {
+    min-height: 200px;
+    background-size: 40px;
+    background-color: var(--White);
+    box-shadow: 5px 5px 15px var(--Dark);
+    padding: 15px;
+    margin: 10px;
+    width: 150px;
+    list-style: none;
+    border-radius: 10px;
+    cursor: pointer;
   }
   
   /* .track {
@@ -297,6 +315,9 @@ button:hover::before {
     background-size: 10%;
     background-repeat: no-repeat;
     background-position: top;
+  }
+  div.focus {
+    background-color: var(--Yellow);
   }
   
   /* .gradient-pattern {

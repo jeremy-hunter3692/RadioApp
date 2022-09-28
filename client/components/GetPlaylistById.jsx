@@ -8,8 +8,7 @@ export default function GetPlaylistById(props) {
 
   return (
     <>
-      {/* <AudioPlayer id={info?.id} /> */}
-
+      {props.bool && <AudioPlayer id={info?.id} />}
       <div>
         <div>
           <h2>{info?.name && info.name}</h2>
@@ -35,7 +34,6 @@ export default function GetPlaylistById(props) {
               )
             })}
         </div>
-        {props.bool && <AudioPlayer id={info?.id} />}
       </div>
     </>
   )

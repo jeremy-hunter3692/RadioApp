@@ -58,43 +58,42 @@ export default function AddTrack(props) {
   return (
     <>
       <form onSubmit={handleSubmit} className='form'>
-        <label htmlFor='title'>Track Name:</label>
         <input
           id='title'
           onChange={handleChange}
           value={form.title}
           name='title'
           required
+          placeholder='Track Name'
         />
 
-        <label htmlFor='artist'>Artist Name:</label>
         <input
           id='artist'
           onChange={handleChange}
           value={form.artist}
           name='artist'
           required
+          placeholder='Artist Name'
         />
 
-        <label htmlFor='album'>Album Name:</label>
         <input
           id='album'
           onChange={handleChange}
           value={form.album}
           name='album'
+          placeholder='Album Name'
           required
         />
 
-        <label htmlFor='notes'>Notes:</label>
         <input
           id='notes'
           onChange={handleChange}
           value={form.notes}
           name='notes'
+          placeholder='Add some notes'
           required
         />
         <div>
-          <label htmlFor='filepath'>Filepath: </label>
           <input
             id='filepath'
             type='file'

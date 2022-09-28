@@ -8,7 +8,7 @@ const playlistByIdReducer = (state = initialPlaylistState, action) => {
     case 'GET_PLAYLIST_BY_ID':
       return { data: payload, error: null }
     case 'UPDATE_PLAYLIST_BY_ID':
-      return { data: { ...payload, tracks: state.data.tracks }, error: null }
+      return { data: { ...payload, tracks: [] }, error: null }
     case 'UPDATE_TRACK_BY_PLAYLIST':
       return {
         data: { ...state.data, tracks: [...state.data.tracks, payload] },

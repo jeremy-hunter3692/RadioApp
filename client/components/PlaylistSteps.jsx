@@ -28,32 +28,35 @@ export default function PlaylistSteps() {
   }
   return (
     <Container>
-      {step == 1 && (
-        <>
-          <div className='playlists'>
-            <AddPlaylist nextStep={nextStep} />
-          </div>
-        </>
-      )}
-      {step == 2 && (
-        <>
-          <div className='centerThis'>
-            <GetPlaylistById />
-            <AssignTracks
-              nextStep={nextStep}
-              backStep={backStep}
-              className='column'
-            />
-          </div>
-        </>
-      )}
-      {step == 3 && (
-        <>
-          <div className='centerThis'>
-            <GetPlaylistById bool={true} />
-          </div>
-        </>
-      )}
+      <div className='flex-container'>
+        {step == 1 && (
+          <>
+            <div className='playlists'>
+              <AddPlaylist nextStep={nextStep} />
+            </div>
+          </>
+        )}
+        {step == 2 && (
+          <>
+            <div className='centerThis'>
+              <GetPlaylistById />
+              <AssignTracks
+                bool={false}
+                nextStep={nextStep}
+                backStep={backStep}
+                className='column'
+              />
+            </div>
+          </>
+        )}
+        {step == 3 && (
+          <>
+            <div className='centerThis'>
+              <GetPlaylistById bool={true} />
+            </div>
+          </>
+        )}
+      </div>
     </Container>
   )
 }

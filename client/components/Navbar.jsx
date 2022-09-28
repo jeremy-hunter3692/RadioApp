@@ -18,6 +18,9 @@ export default function Navbar() {
           <li>
             <Link to='/add-a-playlist'>Add a Playlist</Link>
           </li>
+          <li>
+            <Link to='/tracks/assign'>Assign Tracks to Playlists</Link>
+          </li>
         </ul>
       </div>
     </header>
