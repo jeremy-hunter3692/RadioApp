@@ -58,8 +58,18 @@ export default function AssignTracks(props) {
   return (
     <>
       {addedTrack?.title != null && <h1>{addedTrack?.title} has been added</h1>}
+      {props.bool && (
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            // setForm(initialForm)
+            props.backStep()
+          }}
+        >
+          Back
+        </button>
+      )}
       <form onSubmit={handleSubmit} className='form'>
-        <label htmlFor='track'>Assign a track to a mixtape:</label>
         <div>
           <select
             id='track'
@@ -97,16 +107,16 @@ export default function AssignTracks(props) {
             </select>
           )}
           <button>Assign track to Mixtape</button>
-
-          <button
-            onClick={(e) => {
-              e.preventDefault()
-              setForm(initialForm)
-            }}
-          >
-            Cancel
-          </button>
         </div>
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            setForm(initialForm)
+            props.nextStep()
+          }}
+        >
+          Play
+        </button>
       </form>
     </>
   )

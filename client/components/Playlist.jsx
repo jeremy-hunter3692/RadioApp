@@ -12,20 +12,22 @@ export default function Playlist() {
 
   return (
     <>
-      {info?.map((playlists) => {
-        return (
-          <div
-            key={playlists.id}
-            className='playlist'
-            onClick={(event) => {
-              handleClick(event, playlists.id)
-            }}
-          >
-            <img src={playlists.image} alt={playlists.name} />
-            <h3>{playlists.name}</h3>
-          </div>
-        )
-      })}
+      <div className='playlists'>
+        {info?.map((playlists) => {
+          return (
+            <div
+              key={playlists.id}
+              className='playlist'
+              onClick={(event) => {
+                handleClick(event, playlists.id)
+              }}
+            >
+              <img src={playlists.image} alt={playlists.name} />
+              <h3>{playlists.name}</h3>
+            </div>
+          )
+        })}
+      </div>
     </>
   )
 }

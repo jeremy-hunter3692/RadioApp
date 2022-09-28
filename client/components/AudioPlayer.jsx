@@ -55,25 +55,35 @@ export default function AudioPlayer({ id }) {
 
   return (
     <>
-      <h1 className='nowPlaying'>
-        Now playing: {audioTracks[index] && audioTracks[index]?.title} -{' '}
-        {audioTracks[index] && audioTracks[index]?.artist}
-      </h1>
-      <button onClick={previousTrack}>Previous</button>
-      {audioTracks != null ? (
-        <audio
-          controls
-          id='audio'
-          onEnded={() => {
-            listener()
-          }}
-          src={audioTracks[index]?.filepath}
-          type='audio/wav'
-        />
-      ) : (
-        <p>loading</p>
-      )}
-      <button onClick={nextTrack}>Next</button>
+      <div>
+        <h2 className='nowPlaying'>
+          Now playing: {audioTracks[index] && audioTracks[index]?.title}{' '}
+          {audioTracks[index] && audioTracks[index]?.artist}
+        </h2>
+      </div>
+      <div className='player'>
+        <div>
+          <button onClick={previousTrack}>Previous</button>
+        </div>
+        <div>
+          {audioTracks != null ? (
+            <audio
+              controls
+              id='audio'
+              onEnded={() => {
+                listener()
+              }}
+              src={audioTracks[index]?.filepath}
+              type='audio/wav'
+            />
+          ) : (
+            <p>loading</p>
+          )}
+        </div>
+        <div>
+          <button onClick={nextTrack}>Next</button>
+        </div>
+      </div>
     </>
   )
 }

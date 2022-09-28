@@ -38,11 +38,11 @@ export default function PlaylistSteps() {
       {step == 2 && (
         <>
           <div className='centerThis'>
-            <GetPlaylistById bool={true} />
+            {/* <GetPlaylistById bool={true} /> */}
             <AssignTracks
               bool={false}
-              // nextStep={nextStep}
-              // backStep={backStep}
+              nextStep={nextStep}
+              backStep={backStep}
               className='column'
             />
           </div>
