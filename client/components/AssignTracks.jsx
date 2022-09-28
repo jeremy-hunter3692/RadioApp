@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { useSelector } from 'react-redux'
 import { assignTracktoPlaylist, getPlaylists } from '../apis/playlist'
 import { getAllTracks } from '../apis/tracks'
 
@@ -12,7 +12,8 @@ export default function AssignTracks(props) {
   const [form, setForm] = useState(initialForm)
   const [tracks, setTracks] = useState([])
   const [playlists, setPlaylists] = useState([])
-
+  const newPlaylistId = useSelector((state) => state.playlistById.data.id)
+  let addedTrack = ' '
   // Get the list of tracks from the db and store them in state as 'tracks'
   useEffect(() => {
     return getAllTracks().then((allTracks) => {
@@ -29,12 +30,14 @@ export default function AssignTracks(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    assignTracktoPlaylist(form)
+    // addedTrack = form.track
+    // console.log(addedTrack)
+    props.bool
+      ? assignTracktoPlaylist(form)
+      : assignTracktoPlaylist({ ...form, playlist: newPlaylistId })
 
     setForm(initialForm)
-
-    setForm(initialForm)
-    props.nextStep()
+    // props.nextStep()
   }
 
   function handleChange(e) {
@@ -48,6 +51,7 @@ export default function AssignTracks(props) {
 
   return (
     <>
+      <h1>{addedTrack}</h1>
       <form onSubmit={handleSubmit} className='form'>
         <label htmlFor='track'>Assign a track to a mixtape:</label>
 
@@ -68,23 +72,24 @@ export default function AssignTracks(props) {
           ))}
         </select>
 
-        <select
-          id='playlist'
-          name='playlist'
-          defaultValue=''
-          required
-          onChange={handleChange}
-        >
-          <option value='' disabled>
-            Choose mixtape
-          </option>
-          {playlists.map((playlist) => (
-            <option key={playlist.id} value={playlist.id}>
-              {playlist.name}
+        {props.bool && (
+          <select
+            id='playlist'
+            name='playlist'
+            defaultValue=''
+            required
+            onChange={handleChange}
+          >
+            <option value='' disabled>
+              Choose mixtape
             </option>
-          ))}
-        </select>
-
+            {playlists.map((playlist) => (
+              <option key={playlist.id} value={playlist.id}>
+                {playlist.name}
+              </option>
+            ))}
+          </select>
+        )}
         <div>
           <button>Assign track to Mixtape</button>
 
