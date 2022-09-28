@@ -6,14 +6,13 @@ export default function AudioPlayer({ id }) {
   const [index, setIndex] = useState(init)
   const [audioTracks, setAudio] = useState([])
   const player = document.getElementById('audio')
-  // const id = 1
-  console.log('id', id, 'audioTracks', audioTracks)
+  //const id = 1
+
   useEffect(() => {
     setIndex(init)
     id
       ? getPlaylistById(id)
           .then((playlist) => {
-            // console.log(playlist.tracks)
             let tracks = playlist.tracks //.map((x) => x.filepath)
             setAudio(tracks)
           })
@@ -44,7 +43,6 @@ export default function AudioPlayer({ id }) {
     } else {
       setIndex(index + 1)
     }
-    console.log(audioTracks[index])
   }
 
   function previousTrack() {
@@ -53,7 +51,6 @@ export default function AudioPlayer({ id }) {
     } else {
       setIndex(index - 1)
     }
-    console.log(audioTracks[index])
   }
 
   return (

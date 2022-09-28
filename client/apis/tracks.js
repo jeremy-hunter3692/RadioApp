@@ -25,7 +25,6 @@ export function getAllTracks() {
 //----------------
 export async function getAudioFileUrl(audioFile) {
   // TODO: when auth0 is set up, need to pass token
-  console.log('API / TRACK / audiofile:', audioFile)
   const { name, type } = audioFile
   const fileObject = {
     fileName: name,

@@ -119,13 +119,13 @@ describe('POST /api/v1/playlist/addTrack', () => {
       filePath: 'public/track1',
       title: 'candy floss sunset',
     }
-    expect.assertions(2)
+    expect.assertions(3)
     db.addTracksToPlaylist.mockReturnValue(Promise.resolve(trackData))
     return request(server)
       .post('/api/v1/playlist/addTrack')
       .send(trackData)
       .then((res) => {
-        //expect(res.body.id).toBe(5)
+        expect(res.body.id).toBe(5)
         expect(res.body.filePath).toBe('public/track1')
         expect(res.body.title).toBe('candy floss sunset')
         return null
