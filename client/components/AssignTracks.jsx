@@ -42,12 +42,13 @@ export default function AssignTracks(props) {
   }
 
   // Some notes about the HTML used in the form ...
-  // In the <select> tags, note the use of required - this is an easy way of preventing the form from being submited with empty values
+  // In the <select> tags, note the use of required - this is an easy way of preventing the form from being submitted with empty values
   // Also in the <select>, note that we used defaultValue='' and in the <option> tag we have: value='' as well as: disabled
   // These are all needed to ensure that the value shown in the select lookup defaults to text in the <option> tag - e.g. 'Choose track' and 'Choose mixtape'
 
   return (
     <>
+      <h2> Create a Playlist</h2>
       <form onSubmit={handleSubmit} className='form'>
         <label htmlFor='track'>Assign a track to a mixtape:</label>
 

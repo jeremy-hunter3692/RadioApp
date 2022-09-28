@@ -7,15 +7,15 @@ export default function Navbar() {
     <header>
       <div className='navbar'>
         <ul>
-          <li>
+          <li className='navItem'>
             <Link to='/'>
               <img src='favicon.png' alt='home' />
             </Link>
           </li>
-          <li>
+          <li className='navItem'>
             <Link to='/upload-a-track'>Upload a Track</Link>
           </li>
-          <li>
+          <li className='navItem'>
             <Link to='/add-a-playlist'>Add a Playlist</Link>
           </li>
         </ul>

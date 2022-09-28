@@ -38,7 +38,7 @@ export default function Playlist() {
               }}
             >
               <img src={playlists.image} alt={playlists.name} />
-              <h3>{playlists.name}</h3>
+              <h3 className='playlistName'>{playlists.name}</h3>
             </div>
           )
         })}
