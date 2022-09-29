@@ -29,7 +29,10 @@ export default function GetPlaylistById(props) {
                     <h3>
                       <strong>Album:</strong> {playlist.album}
                     </h3>
+                    <br></br>
+                    <h3>Notes: {playlist.notes}</h3>
                   </div>
+                  <br></br>
                 </div>
               )
             })}

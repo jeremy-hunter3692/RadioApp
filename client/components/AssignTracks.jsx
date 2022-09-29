@@ -57,92 +57,78 @@ export default function AssignTracks(props) {
 
   return (
     <>
-      <div>
-        <div className='centerThisColumn'>
-          {addedTrack?.title != null && (
-            <div>
-              <h2 className='centerThisColumn'>
-                {addedTrack?.title} has been added. Do you want to play it?
-              </h2>
-              <div className='centerThisColumn'>
-                <button
-                  className='SecondaryColour'
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setForm(initialForm)
-                    props.nextStep()
-                  }}
-                >
-                  Play Track
-                </button>
-              </div>
+      <div className='centerThisColumn'>
+        {addedTrack?.title != null && (
+          <>
+            <div className='centerThisColumn'>
+              {/* <div className='centerThisColumn'> */}
+              <h2>{`'${addedTrack?.title}' has been added. Do you want to play it?`}</h2>
+
+              <button
+                className='SecondaryColour'
+                onClick={(e) => {
+                  e.preventDefault()
+                  setForm(initialForm)
+                  props.nextStep()
+                }}
+              >
+                Play Track
+              </button>
             </div>
-          )}
-        </div>
-        <div className='centerThisColumn'>
-          {props.bool && (
-            <button
-              onClick={(e) => {
-                e.preventDefault()
-                // setForm(initialForm)
-                props.backStep()
-              }}
-            >
-              Back
-            </button>
-          )}
-        </div>
+          </>
+        )}
+      </div>
+      <div className='centerThisColumn'>
+        {props.bool && (
+          <button
+            onClick={(e) => {
+              e.preventDefault()
+              // setForm(initialForm)
+              props.backStep()
+            }}
+          >
+            Back
+          </button>
+        )}
+      </div>
+      <div className='centerThisColumn'>
         <form onSubmit={handleSubmit} className='form'>
-          <div className='centerThisColumn'>
+          <select
+            id='track'
+            name='track'
+            defaultValue=''
+            onChange={handleChange}
+            required
+          >
+            <option value='' disabled>
+              Choose track
+            </option>
+            {tracks.map((track) => (
+              <option key={track.id} value={track.id} title='Choose a track'>
+                {track.title}
+              </option>
+            ))}
+          </select>
+
+          {props.bool && (
             <select
-              id='track'
-              name='track'
+              id='playlist'
+              name='playlist'
               defaultValue=''
-              onChange={handleChange}
               required
+              onChange={handleChange}
             >
               <option value='' disabled>
-                Choose track
+                Choose Playlist
               </option>
-              {tracks.map((track) => (
-                <option key={track.id} value={track.id} title='Choose a track'>
-                  {track.title}
+              {playlists.map((playlist) => (
+                <option key={playlist.id} value={playlist.id}>
+                  {playlist.name}
                 </option>
               ))}
             </select>
-
-            {props.bool && (
-              <select
-                id='playlist'
-                name='playlist'
-                defaultValue=''
-                required
-                onChange={handleChange}
-              >
-                <option value='' disabled>
-                  Choose Playlist
-                </option>
-                {playlists.map((playlist) => (
-                  <option key={playlist.id} value={playlist.id}>
-                    {playlist.name}
-                  </option>
-                ))}
-              </select>
-            )}
-            <button>Add a track to your Playlist</button>
-          </div>
-          {/* <div className='centerThisColumn'>
-            <button
-              className='SecondaryColour'
-              onClick={(e) => {
-                e.preventDefault()
-                setForm(initialForm)
-                props.nextStep()
-              }}
-            >
-              Play
-            </button>
-          </div> */}
+          )}
+          <button>Add a track to your Playlist</button>
         </form>
       </div>
     </>

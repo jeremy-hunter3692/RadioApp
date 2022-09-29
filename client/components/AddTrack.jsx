@@ -20,6 +20,7 @@ export default function AddTrack() {
   // Added for the CLOUDINARY part of the form
   // Note that to import audio files into Cloudinary, you need to set the resource_type to be 'video', which you'll see down in the form HTML
   const [selectedFile, setSelectedFile] = useState(null)
+  const [bool, setBool] = useState(false)
   const navigate = useNavigate()
 
   function handleChange(e) {
@@ -51,6 +52,8 @@ export default function AddTrack() {
     } catch (err) {
       console.log(err)
     }
+    setBool(true)
+    console.log('bool', bool)
   }
 
   // In the <input> tags, note the use of required - this is an easy way of preventing the form from being submitted with empty values
@@ -106,7 +109,7 @@ export default function AddTrack() {
               required
             />
           </div>
-
+          {bool === true && <h1>uploaded</h1>}
           {/* <button
             onClick={(e) => {
               e.preventDefault()
@@ -116,7 +119,7 @@ export default function AddTrack() {
           >
             Cancel
           </button> */}
-          <button>Add a New Track</button>
+          <button>Upload a New Track</button>
         </form>
       </div>
     </>
