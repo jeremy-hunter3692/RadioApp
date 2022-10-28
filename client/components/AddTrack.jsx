@@ -14,12 +14,13 @@ const initialForm = {
 }
 //const initialFilepath ={filepath:''}
 
-export default function AddTrack(props) {
+export default function AddTrack() {
   const dispatch = useDispatch()
   const [form, setForm] = useState(initialForm)
   // Added for the CLOUDINARY part of the form
   // Note that to import audio files into Cloudinary, you need to set the resource_type to be 'video', which you'll see down in the form HTML
   const [selectedFile, setSelectedFile] = useState(null)
+  const [bool, setBool] = useState(false)
   const navigate = useNavigate()
 
   function handleChange(e) {
@@ -51,71 +52,76 @@ export default function AddTrack(props) {
     } catch (err) {
       console.log(err)
     }
-    props.nextStep()
+    setBool(true)
+    console.log('bool', bool)
   }
 
-  // In the <input> tags, note the use of required - this is an easy way of preventing the form from being submited with empty values
+  // In the <input> tags, note the use of required - this is an easy way of preventing the form from being submitted with empty values
   return (
     <>
-      <form onSubmit={handleSubmit} className='form'>
-        <input
-          id='title'
-          onChange={handleChange}
-          value={form.title}
-          name='title'
-          required
-          placeholder='Track Name'
-        />
-
-        <input
-          id='artist'
-          onChange={handleChange}
-          value={form.artist}
-          name='artist'
-          required
-          placeholder='Artist Name'
-        />
-
-        <input
-          id='album'
-          onChange={handleChange}
-          value={form.album}
-          name='album'
-          placeholder='Album Name'
-          required
-        />
-
-        <input
-          id='notes'
-          onChange={handleChange}
-          value={form.notes}
-          name='notes'
-          placeholder='Add some notes'
-          required
-        />
-        <div>
+      <div className='container'>
+        <h1 className='centerThis'>Upload a Track</h1>
+        <form onSubmit={handleSubmit} className='form'>
           <input
-            id='filepath'
-            type='file'
-            //eslint-disable-next-line
-            resource_type='video'
-            name='filepath'
-            accept='video/*'
-            onChange={handleFileChange}
+            id='title'
+            onChange={handleChange}
+            value={form.title}
+            name='title'
+            required
+            placeholder='Track Name'
+          />
+
+          <input
+            id='artist'
+            onChange={handleChange}
+            value={form.artist}
+            name='artist'
+            required
+            placeholder='Artist Name'
+          />
+
+          <input
+            id='album'
+            onChange={handleChange}
+            value={form.album}
+            name='album'
+            placeholder='Album Name'
             required
           />
-        </div>
-        <button>Upload a new track</button>
-        {/* <button
-          onClick={(e) => {
-            e.preventDefault()
-            setForm(initialForm)
-            props.backStep()
-          }}
-        >
-          Cancel
-        </button> */}
-      </form>
+
+          <input
+            id='notes'
+            onChange={handleChange}
+            value={form.notes}
+            name='notes'
+            placeholder='Add some notes'
+            required
+          />
+          <div>
+            <input
+              id='filepath'
+              type='file'
+              //eslint-disable-next-line
+              resource_type='video'
+              name='filepath'
+              accept='video/*'
+              onChange={handleFileChange}
+              required
+            />
+          </div>
+          {bool === true && <h1>uploaded</h1>}
+          {/* <button
+            onClick={(e) => {
+              e.preventDefault()
+              setForm(initialForm)
+              props.backStep()
+            }}
+          >
+            Cancel
+          </button> */}
+          <button>Upload a New Track</button>
+        </form>
+      </div>
     </>
   )
 }

@@ -23,17 +23,17 @@ export default function AddPlaylist(props) {
 
   return (
     <>
-      <div>
-        <h1> Step 1 / Add Playlist</h1>
+      <div className='container'>
+        <h1 className='centerThis'> Create a Playlist</h1>
         <form onSubmit={handleSubmit} className='form'>
           <input
             id='name'
             onChange={handleChange}
             value={form.name}
             name='name'
-            placeholder='Give your Mixtape a name.'
+            placeholder='Give your playlist a name.'
           />
-          <button>Create your Mixtape</button>
+          <button>Create your Playlist</button>
         </form>
       </div>
     </>

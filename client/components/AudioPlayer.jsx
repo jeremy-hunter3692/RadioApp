@@ -57,7 +57,8 @@ export default function AudioPlayer({ id }) {
     <>
       <div>
         <h2 className='nowPlaying'>
-          Now playing: {audioTracks[index] && audioTracks[index]?.title}{' '}
+          Now playing: {`'${audioTracks[index] && audioTracks[index]?.title}'`}
+          {' by '}
           {audioTracks[index] && audioTracks[index]?.artist}
         </h2>
       </div>

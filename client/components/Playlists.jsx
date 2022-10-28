@@ -6,7 +6,7 @@ export default function individual(playlist) {
       {' '}
       <div key={playlist.key} className='playlist'>
         <img src={playlist.img} alt='images for mixtape' />
-        <h3>{playlist.name}</h3>
+        <h3 className='playlistName'>{playlist.name}</h3>
       </div>
     </>
   )

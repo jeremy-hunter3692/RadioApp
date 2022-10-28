@@ -1,21 +1,23 @@
 /* LIGHT CSS */
 /* DEVA Colours */
 :root {
-  --Light: #ffffff;
+  --Light: #E5E7E6;
   --Dark: #101011;
   --MatteBlack: #171717;
-  --Yellow:#FCC21B;
-  --Blue: #5FC6CB;
+  --Yellow:#CEFF1A ;
+  --Blue: #B8F2E6;
   --Purple: #3D0F71;
-  --Pink: #EF3A58;
-  --BkgColour:var(--Light);
-  --TextColour:var(--Dark);
-  --PrimaryColour:var(--Yellow);
-  --SecondaryColour:var(--Pink);
+  --Pink: #CE5374 ;
+  --Green: #00A896;
+  --BkgColour:var(--MatteBlack);
+  --TextColour:var(--Light);
+  --PrimaryColour:var(--Green);
+  --SecondaryColour:var(--Yellow);
   --ButtonColour:var(--PrimaryColour);
+  --ButtonText:var(--MatteBlack);
   --FontFamily:'Montserrat Alternates', sans-serif;
-  --ShadowColour:#999;
-  --ShadowColourSelected: #666;
+  --ShadowColour:rgb(216, 245, 245);
+  --ShadowColourSelected: rgb(102, 102, 102);
   }
   
   .spectrum-background {
@@ -25,7 +27,8 @@
         linear-gradient(to top right, blue, transparent);
     background-blend-mode: screen;
 }
- /* CSS RESETS
+
+  /* CSS RESETS
   https://piccalil.li/blog/a-modern-css-reset/
   */
   

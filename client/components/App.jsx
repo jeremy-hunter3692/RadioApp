@@ -9,7 +9,7 @@ import Landing from './Landing'
 import Playlist from './Playlist'
 import PlaylistSteps from './PlaylistSteps'
 import Tracks from './Tracks'
-import AssignTracks from './AssignTracks'
+// import AssignTracks from './AssignTracks'
 import NotFound from './NotFound'
 
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
           <Route path='/upload-a-track' element={<AddTrack />} />
           <Route path='/playlists' element={<Playlist />} />
           <Route path='/tracks' element={<Tracks />} />
-          <Route path='/tracks/assign' element={<AssignTracks bool={true} />} />
+          {/* <Route path='/tracks/assign' element={<AssignTracks bool={true} />} /> */}
           <Route path='/playlists/:id' element={<GetPlaylistById />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>

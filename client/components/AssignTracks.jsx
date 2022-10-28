@@ -51,75 +51,84 @@ export default function AssignTracks(props) {
   }
 
   // Some notes about the HTML used in the form ...
-  // In the <select> tags, note the use of required - this is an easy way of preventing the form from being submited with empty values
+  // In the <select> tags, note the use of required - this is an easy way of preventing the form from being submitted with empty values
   // Also in the <select>, note that we used defaultValue='' and in the <option> tag we have: value='' as well as: disabled
   // These are all needed to ensure that the value shown in the select lookup defaults to text in the <option> tag - e.g. 'Choose track' and 'Choose mixtape'
 
   return (
     <>
-      <div>
-        {/* {props.bool && (
-        <button
-          onClick={(e) => {
-            e.preventDefault()
-            // setForm(initialForm)
-            props.backStep()
-          }}
-        >
-          Back
-        </button>
-      )} */}
-        <form onSubmit={handleSubmit} className='form'>
-          <div>
-            <select
-              id='track'
-              name='track'
-              defaultValue=''
-              onChange={handleChange}
-              required
-            >
-              <option value='' disabled>
-                Choose track
-              </option>
-              {tracks.map((track) => (
-                <option key={track.id} value={track.id} title='Choose a track'>
-                  {track.title}
-                </option>
-              ))}
-            </select>
+      <div className='centerThisColumn'>
+        {addedTrack?.title != null && (
+          <>
+            <div className='centerThisColumn'>
+              {/* <div className='centerThisColumn'> */}
+              <h2>{`'${addedTrack?.title}' has been added. Do you want to play it?`}</h2>
 
-            {props.bool && (
-              <select
-                id='playlist'
-                name='playlist'
-                defaultValue=''
-                required
-                onChange={handleChange}
+              <button
+                className='SecondaryColour'
+                onClick={(e) => {
+                  e.preventDefault()
+                  setForm(initialForm)
+                  props.nextStep()
+                }}
               >
-                <option value='' disabled>
-                  Choose Playlist
-                </option>
-                {playlists.map((playlist) => (
-                  <option key={playlist.id} value={playlist.id}>
-                    {playlist.name}
-                  </option>
-                ))}
-              </select>
-            )}
-            <button>Add track to a playlist</button>
-          </div>
+                Play Track
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+      <div className='centerThisColumn'>
+        {props.bool && (
           <button
             onClick={(e) => {
               e.preventDefault()
-              setForm(initialForm)
+              // setForm(initialForm)
               props.backStep()
             }}
           >
-            Play
+            Back
           </button>
-          {addedTrack?.title != null && (
-            <h1>{addedTrack?.title} has been added</h1>
+        )}
+      </div>
+      <div className='centerThisColumn'>
+        <form onSubmit={handleSubmit} className='form'>
+          <select
+            id='track'
+            name='track'
+            defaultValue=''
+            onChange={handleChange}
+            required
+          >
+            <option value='' disabled>
+              Choose track
+            </option>
+            {tracks.map((track) => (
+              <option key={track.id} value={track.id} title='Choose a track'>
+                {track.title}
+              </option>
+            ))}
+          </select>
+
+          {props.bool && (
+            <select
+              id='playlist'
+              name='playlist'
+              defaultValue=''
+              required
+              onChange={handleChange}
+            >
+              <option value='' disabled>
+                Choose Playlist
+              </option>
+              {playlists.map((playlist) => (
+                <option key={playlist.id} value={playlist.id}>
+                  {playlist.name}
+                </option>
+              ))}
+            </select>
           )}
+          <button>Add a track to your Playlist</button>
         </form>
       </div>
     </>
