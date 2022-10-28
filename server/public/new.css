@@ -1,0 +1,21 @@
+
+    .dndcontainer {
+      background-color:azure;
+      border: 2px solid black;
+      padding: 1rem;
+      margin: 1rem;
+    }
+    
+    .draggable { 
+      background-color: white;
+      padding: 1rem;
+      color: black;
+      border: 1px solid black;  
+      cursor: move;
+    
+    }
+    
+
+    .dragging {
+      opacity: .5;
+    }
