@@ -193,9 +193,19 @@ select {
   background-image: linear-gradient(to top, #e5e5e5, var(--Light) 66%);
 }
 
+.dropTarget { 
+  background-color: #000505;
+  padding: 3rem;
+  border: 1px solid black;
+  border-radius: 0.25em;
+}
+
 .menuItem { 
-  background-color: #5FC6CB ;
-  border: 1px solid var(--select-border);
+  padding: 3rem;
+  color:#101011
+  background-color: 
+  #5FC6CB ;
+  border: 1px solid black;
   border-radius: 0.25em;
 }
 
