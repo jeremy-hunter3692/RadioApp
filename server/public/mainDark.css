@@ -192,6 +192,21 @@ select {
   background-color:var(--Light);
   background-image: linear-gradient(to top, #e5e5e5, var(--Light) 66%);
 }
+
+.menuItem { 
+  background-color: #5FC6CB ;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+}
+
+.menuHolder {
+  padding: 2rem;
+  background-color: #f7f7f7 ;
+  color: red;
+  border: 1px solid red;
+  border-radius: 0.25em;
+}
+
 .button--bop:active {
   transform: translateY(3px);
 }
