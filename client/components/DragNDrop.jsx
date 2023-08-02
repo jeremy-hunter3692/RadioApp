@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
 
 export default function DnDMenu() {
-  const [menuOrder, setMenuOrder] = useState(['1', '2', '3', '4', '5'])
-  // const [oldMenuOrder, setOldMenuOrder] = useState(['one', 'two', 'three'])
+  const [menuOrder, setMenuOrder] = useState([
+    '1111111111',
+    '2222222222',
+    '3333333333',
+    '4444444444',
+    '5555555555',
+  ])
+  const [oldMenuOrder, setOldMenuOrder] = useState(['one', 'two', 'three'])
   const [currentIdx, setCurrentIdx] = useState()
-  console.log('top', menuOrder)
+  console.log('top', menuOrder, oldMenuOrder)
 
   function handleOnDrag(e, item) {
     e.dataTransfer.setData('menuItem', item)
@@ -14,15 +20,8 @@ export default function DnDMenu() {
     e.preventDefault()
   }
 
-  function dragEnd() {
-    //use currentIdx to splice array of menuOrder
-    // let item = oldMenuOrder[currentIdx]
-    // let fixed = menuOrder.splice(currentIdx, 0, item)
-    // console.log('end:', currentIdx, item, fixed)
-  }
-
   function handleDragEnter(e, index) {
-    console.log('enter:', index)
+    // console.log('enter:', index)
     setCurrentIdx(index)
     e.target.className = 'dropTarget'
   }
@@ -38,14 +37,10 @@ export default function DnDMenu() {
     //remove old thing first
     let temp = menuOrder.filter((x) => x != item)
     temp.splice(currentIdx, 0, item)
-    console.log('fixed', temp)
     setMenuOrder(temp)
-    // const filter = oldMenuOrder.filter((x) => x != item)
-    // console.log('filtered', filter)
-    // setOldMenuOrder(filter)
   }
 
-  function menuItemCreator(name) {
+  function oldMenuItemCreator(name) {
     return (
       <div
         className='menuItem'
@@ -60,26 +55,30 @@ export default function DnDMenu() {
 
   return (
     <>
-      {/* {oldMenuOrder.map((x) => {
-        return menuItemCreator(x)
-      })} */}
-      <div className='menuHolder' onDrop={onDrop} onDragOver={onDragOver}>
-        {menuOrder.map((item, index) => {
-          return (
-            <div
-              className='menuItem'
-              draggable
-              onDragStart={(e) => handleOnDrag(e, item)}
-              onDragEnter={(e) => handleDragEnter(e, index)}
-              onDragLeave={(e) => handleDragLeave(e, index)}
-              onDragEnd={dragEnd}
-              key={index}
-            >
-              {item}
-            </div>
-          )
-        })}
-        order/item dropping space right here boiiiiiiiiii
+      <div className='menuParent'>
+        <div>
+          {oldMenuOrder.map((x) => {
+            return oldMenuItemCreator(x)
+          })}
+        </div>
+        <div className='menuHolder' onDrop={onDrop} onDragOver={onDragOver}>
+          {menuOrder.map((item, index) => {
+            return (
+              <div
+                className='menuItem'
+                draggable
+                onDragStart={(e) => handleOnDrag(e, item)}
+                onDragEnter={(e) => handleDragEnter(e, index)}
+                onDragLeave={(e) => handleDragLeave(e, index)}
+                // onDragEnd={dragEnd}
+                key={index}
+              >
+                {item}
+              </div>
+            )
+          })}
+          This is where the new/final order will be an be re-arrangeable
+        </div>
       </div>
     </>
   )

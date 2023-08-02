@@ -200,6 +200,11 @@ select {
   border-radius: 0.25em;
 }
 
+.menuParent {
+  display: flex;
+  flex-direction: row;
+}
+
 .menuItem { 
   padding: 3rem;
   color:#101011

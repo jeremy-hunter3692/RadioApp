@@ -9,6 +9,7 @@ export default function App() {
     <>
       <div className='app'>
         <DnDMenu />
+        {/* NOTE: This is the original stuff commented out so I could play with the DnD menu */}
         {/*<Routes>
           <Route path='/' element={<Landing />} />
           <Route path='/add-a-playlist' element={<PlaylistSteps />} />
