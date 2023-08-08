@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 
 export default function DnDMenu() {
   const [menuOrder, setMenuOrder] = useState([
-    '1111111111',
-    '2222222222',
-    '3333333333',
-    '4444444444',
-    '5555555555',
+    // '1111111111',
+    // '2222222222',
+    // '3333333333',
+    // '4444444444',
+    // '5555555555',
   ])
   const [oldMenuOrder, setOldMenuOrder] = useState(['one', 'two', 'three'])
   const [currentIdx, setCurrentIdx] = useState()
-  console.log('top', menuOrder, oldMenuOrder)
+  // console.log('top', menuOrder, oldMenuOrder)
 
   function handleOnDrag(e, item) {
     e.dataTransfer.setData('menuItem', item)
@@ -33,7 +33,7 @@ export default function DnDMenu() {
   function onDrop(e) {
     e.target.className = 'menuItem'
     const item = e.dataTransfer.getData('menuItem')
-    console.log('Drop item:', item)
+    // console.log('Drop item:', item)
     //remove old thing first
     let temp = menuOrder.filter((x) => x != item)
     temp.splice(currentIdx, 0, item)

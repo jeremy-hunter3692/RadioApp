@@ -207,9 +207,8 @@ select {
 
 .menuItem { 
   padding: 3rem;
-  color:#101011
-  background-color: 
-  #5FC6CB ;
+  color:#101011;
+  background-color: #fbfbfb ;
   border: 1px solid black;
   border-radius: 0.25em;
 }
