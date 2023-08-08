@@ -8,7 +8,12 @@ export default function DnDMenu() {
     '4444444444',
     '5555555555',
   ])
-  const [incomingSongList, setSongList] = useState(['one', 'two', 'three'])
+  const [incomingSongList, setSongList] = useState([
+    'one',
+    'two',
+    'three',
+    'four',
+  ])
   const [currentIdx, setCurrentIdx] = useState()
 
   function handleOnDrag(e, item) {
@@ -52,10 +57,17 @@ export default function DnDMenu() {
     )
   }
 
+  function handleSave() {
+    //where we will send play list from
+    console.log(playlist)
+  }
+
   return (
     <>
       <div className='menuParent'>
+        {/* list of songs to be saved into a playlist  */}
         <div>{incomingSongList.map((x) => oldMenuItemCreator(x))}</div>
+        {/* the playlist order that will be saved   */}
         <div className='menuHolder' onDrop={onDrop} onDragOver={onDragOver}>
           {playlist.map((item, index) => {
             return (
@@ -65,7 +77,6 @@ export default function DnDMenu() {
                 onDragStart={(e) => handleOnDrag(e, item)}
                 onDragEnter={(e) => handleDragEnter(e, index)}
                 onDragLeave={(e) => handleDragLeave(e)}
-                // onDragEnd={dragEnd}
                 key={index}
               >
                 {item}
@@ -75,7 +86,9 @@ export default function DnDMenu() {
           This is where the new/final order will be and be re-arrangeable
         </div>
       </div>
-     
+      <button onClick={handleSave} type='button'>
+        save playlist
+      </button>
     </>
   )
 }
