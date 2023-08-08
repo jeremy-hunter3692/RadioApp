@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 
 export default function DnDMenu() {
-  const [menuOrder, setMenuOrder] = useState([
-    // '1111111111',
-    // '2222222222',
-    // '3333333333',
-    // '4444444444',
-    // '5555555555',
+  const [playlist, setPlaylist] = useState([
+    '1111111111',
+    '2222222222',
+    '3333333333',
+    '4444444444',
+    '5555555555',
   ])
-  const [oldMenuOrder, setOldMenuOrder] = useState(['one', 'two', 'three'])
+  const [incomingSongList, setSongList] = useState(['one', 'two', 'three'])
   const [currentIdx, setCurrentIdx] = useState()
-  // console.log('top', menuOrder, oldMenuOrder)
 
   function handleOnDrag(e, item) {
     e.dataTransfer.setData('menuItem', item)
@@ -26,7 +25,7 @@ export default function DnDMenu() {
     e.target.className = 'dropTarget'
   }
 
-  function handleDragLeave(e, index) {
+  function handleDragLeave(e) {
     e.target.className = 'menuItem'
   }
 
@@ -35,9 +34,9 @@ export default function DnDMenu() {
     const item = e.dataTransfer.getData('menuItem')
     // console.log('Drop item:', item)
     //remove old thing first
-    let temp = menuOrder.filter((x) => x != item)
+    let temp = playlist.filter((x) => x != item)
     temp.splice(currentIdx, 0, item)
-    setMenuOrder(temp)
+    setPlaylist(temp)
   }
 
   function oldMenuItemCreator(name) {
@@ -56,20 +55,16 @@ export default function DnDMenu() {
   return (
     <>
       <div className='menuParent'>
-        <div>
-          {oldMenuOrder.map((x) => {
-            return oldMenuItemCreator(x)
-          })}
-        </div>
+        <div>{incomingSongList.map((x) => oldMenuItemCreator(x))}</div>
         <div className='menuHolder' onDrop={onDrop} onDragOver={onDragOver}>
-          {menuOrder.map((item, index) => {
+          {playlist.map((item, index) => {
             return (
               <div
                 className='menuItem'
                 draggable
                 onDragStart={(e) => handleOnDrag(e, item)}
                 onDragEnter={(e) => handleDragEnter(e, index)}
-                onDragLeave={(e) => handleDragLeave(e, index)}
+                onDragLeave={(e) => handleDragLeave(e)}
                 // onDragEnd={dragEnd}
                 key={index}
               >
@@ -77,9 +72,10 @@ export default function DnDMenu() {
               </div>
             )
           })}
-          This is where the new/final order will be an be re-arrangeable
+          This is where the new/final order will be and be re-arrangeable
         </div>
       </div>
+     
     </>
   )
 }

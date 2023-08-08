@@ -198,6 +198,8 @@ select {
   padding: 3rem;
   border: 1px solid black;
   border-radius: 0.25em;
+  box-shadow: 5px 5px;
+  /* z-index: 5; */
 }
 
 .menuParent {
